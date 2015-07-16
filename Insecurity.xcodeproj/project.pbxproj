@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		45BFFC991B57022D00B75FB8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFC981B57022D00B75FB8 /* main.m */; };
 		45BFFC9C1B57022D00B75FB8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFC9B1B57022D00B75FB8 /* AppDelegate.m */; };
-		45BFFC9F1B57022D00B75FB8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFC9E1B57022D00B75FB8 /* ViewController.m */; };
-		45BFFCA21B57022D00B75FB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFCA01B57022D00B75FB8 /* Main.storyboard */; };
+		45BFFC9F1B57022D00B75FB8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFC9E1B57022D00B75FB8 /* HomeViewController.m */; };
 		45BFFCA41B57022D00B75FB8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFCA31B57022D00B75FB8 /* Images.xcassets */; };
 		45BFFCA71B57022D00B75FB8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFCA51B57022D00B75FB8 /* LaunchScreen.xib */; };
 		45BFFCB31B57022D00B75FB8 /* InsecurityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFCB21B57022D00B75FB8 /* InsecurityTests.m */; };
@@ -30,6 +29,9 @@
 		45BFFCDA1B57085900B75FB8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BFFCD01B57085900B75FB8 /* Security.framework */; };
 		45BFFCDB1B57085900B75FB8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BFFCD11B57085900B75FB8 /* StoreKit.framework */; };
 		45BFFCDC1B57085900B75FB8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BFFCD21B57085900B75FB8 /* SystemConfiguration.framework */; };
+		45BFFCE61B58047400B75FB8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFCE51B58047400B75FB8 /* LoginViewController.m */; };
+		45BFFCE91B58222000B75FB8 /* LoginCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFCE81B58222000B75FB8 /* LoginCheckViewController.m */; };
+		45BFFCEB1B58235B00B75FB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFCEA1B58235B00B75FB8 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,9 +50,8 @@
 		45BFFC981B57022D00B75FB8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45BFFC9A1B57022D00B75FB8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		45BFFC9B1B57022D00B75FB8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		45BFFC9D1B57022D00B75FB8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		45BFFC9E1B57022D00B75FB8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		45BFFCA11B57022D00B75FB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		45BFFC9D1B57022D00B75FB8 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		45BFFC9E1B57022D00B75FB8 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		45BFFCA31B57022D00B75FB8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		45BFFCA61B57022D00B75FB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		45BFFCAC1B57022D00B75FB8 /* InsecurityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InsecurityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +73,11 @@
 		45BFFCD01B57085900B75FB8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		45BFFCD11B57085900B75FB8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		45BFFCD21B57085900B75FB8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		45BFFCE41B58047400B75FB8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		45BFFCE51B58047400B75FB8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		45BFFCE71B58222000B75FB8 /* LoginCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCheckViewController.h; sourceTree = "<group>"; };
+		45BFFCE81B58222000B75FB8 /* LoginCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCheckViewController.m; sourceTree = "<group>"; };
+		45BFFCEA1B58235B00B75FB8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,9 +137,8 @@
 			children = (
 				45BFFC9A1B57022D00B75FB8 /* AppDelegate.h */,
 				45BFFC9B1B57022D00B75FB8 /* AppDelegate.m */,
-				45BFFC9D1B57022D00B75FB8 /* ViewController.h */,
-				45BFFC9E1B57022D00B75FB8 /* ViewController.m */,
-				45BFFCA01B57022D00B75FB8 /* Main.storyboard */,
+				45BFFCEC1B58254400B75FB8 /* Views */,
+				45BFFCE01B58039500B75FB8 /* Controllers */,
 				45BFFCA31B57022D00B75FB8 /* Images.xcassets */,
 				45BFFCA51B57022D00B75FB8 /* LaunchScreen.xib */,
 				45BFFC961B57022D00B75FB8 /* Supporting Files */,
@@ -189,6 +194,27 @@
 				45BFFCC21B57079800B75FB8 /* ParseUI.framework */,
 			);
 			path = "parse-library-1.7.5";
+			sourceTree = "<group>";
+		};
+		45BFFCE01B58039500B75FB8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				45BFFCE71B58222000B75FB8 /* LoginCheckViewController.h */,
+				45BFFCE81B58222000B75FB8 /* LoginCheckViewController.m */,
+				45BFFC9D1B57022D00B75FB8 /* HomeViewController.h */,
+				45BFFC9E1B57022D00B75FB8 /* HomeViewController.m */,
+				45BFFCE41B58047400B75FB8 /* LoginViewController.h */,
+				45BFFCE51B58047400B75FB8 /* LoginViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		45BFFCEC1B58254400B75FB8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45BFFCEA1B58235B00B75FB8 /* Main.storyboard */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,7 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45BFFCA21B57022D00B75FB8 /* Main.storyboard in Resources */,
+				45BFFCEB1B58235B00B75FB8 /* Main.storyboard in Resources */,
 				45BFFCA71B57022D00B75FB8 /* LaunchScreen.xib in Resources */,
 				45BFFCA41B57022D00B75FB8 /* Images.xcassets in Resources */,
 			);
@@ -291,9 +317,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45BFFC9F1B57022D00B75FB8 /* ViewController.m in Sources */,
+				45BFFC9F1B57022D00B75FB8 /* HomeViewController.m in Sources */,
 				45BFFC9C1B57022D00B75FB8 /* AppDelegate.m in Sources */,
+				45BFFCE91B58222000B75FB8 /* LoginCheckViewController.m in Sources */,
 				45BFFC991B57022D00B75FB8 /* main.m in Sources */,
+				45BFFCE61B58047400B75FB8 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,14 +344,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		45BFFCA01B57022D00B75FB8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				45BFFCA11B57022D00B75FB8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		45BFFCA51B57022D00B75FB8 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
