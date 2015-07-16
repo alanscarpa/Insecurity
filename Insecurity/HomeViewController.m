@@ -10,6 +10,7 @@
 #import <CoreFoundation/CoreFoundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <Parse/Parse.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface HomeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -84,6 +85,9 @@
 // ONCE PHOTO IS FINISHED BEING TAKEN, WE SEND IT TO PARSE
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Busted!";
+    [hud show:YES];
     
     self.bustedPhoto = [info objectForKey:UIImagePickerControllerOriginalImage];
     
@@ -98,6 +102,16 @@
     [newPhotoObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"Image save successfully!");
+            [PFUser logOut];
+            self.pictureFrame.hidden = NO;
+            self.pictureFrame.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+
+            [hud hide:YES afterDelay:2.0];
+            [NSTimer scheduledTimerWithTimeInterval:2.0
+                                             target:self
+                                           selector:@selector(popView)
+                                           userInfo:nil
+                                            repeats:NO];
         } else {
             NSLog(@"Error saving image to parse: %@", error);
         }
@@ -105,14 +119,16 @@
     
     
     [self.imagePickerController dismissViewControllerAnimated:YES completion:^{
-        
         self.pictureBeingTaken = NO;
         self.isTrapSet = NO;
         self.setTrapButton.hidden = NO;
         
-        
     }];
     
+}
+
+-(void)popView {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E9529534-BB44-4C2B-80D1-9F28DF880941</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Insecurity</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0C1C6DCE849C04B2278ED82828537DA7584B3CB3</key>
+		<string>github.com:alanscarpa/Insecurity.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Insecurity.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0C1C6DCE849C04B2278ED82828537DA7584B3CB3</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:alanscarpa/Insecurity.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0C1C6DCE849C04B2278ED82828537DA7584B3CB3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0C1C6DCE849C04B2278ED82828537DA7584B3CB3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Insecurity</string>
+		</dict>
+	</array>
+</dict>
+</plist>
