@@ -48,6 +48,7 @@
 		45BFFCE91B58222000B75FB8 /* LoginCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFCE81B58222000B75FB8 /* LoginCheckViewController.m */; };
 		45BFFCEB1B58235B00B75FB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFCEA1B58235B00B75FB8 /* Main.storyboard */; };
 		45CCA6D21B593E66005677E5 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CCA6D11B593E66005677E5 /* SignUpViewController.m */; };
+		45CCA6D51B597230005677E5 /* PhotoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CCA6D41B597230005677E5 /* PhotoGalleryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,8 @@
 		45BFFCEA1B58235B00B75FB8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		45CCA6D01B593E66005677E5 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		45CCA6D11B593E66005677E5 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		45CCA6D31B597230005677E5 /* PhotoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGalleryViewController.h; sourceTree = "<group>"; };
+		45CCA6D41B597230005677E5 /* PhotoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGalleryViewController.m; sourceTree = "<group>"; };
 		7133782305D3B72132CBE0FD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -285,12 +288,14 @@
 			children = (
 				45BFFCE71B58222000B75FB8 /* LoginCheckViewController.h */,
 				45BFFCE81B58222000B75FB8 /* LoginCheckViewController.m */,
-				45BFFC9D1B57022D00B75FB8 /* HomeViewController.h */,
-				45BFFC9E1B57022D00B75FB8 /* HomeViewController.m */,
 				45BFFCE41B58047400B75FB8 /* LoginViewController.h */,
 				45BFFCE51B58047400B75FB8 /* LoginViewController.m */,
 				45CCA6D01B593E66005677E5 /* SignUpViewController.h */,
 				45CCA6D11B593E66005677E5 /* SignUpViewController.m */,
+				45BFFC9D1B57022D00B75FB8 /* HomeViewController.h */,
+				45BFFC9E1B57022D00B75FB8 /* HomeViewController.m */,
+				45CCA6D31B597230005677E5 /* PhotoGalleryViewController.h */,
+				45CCA6D41B597230005677E5 /* PhotoGalleryViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45BFFC9F1B57022D00B75FB8 /* HomeViewController.m in Sources */,
+				45CCA6D51B597230005677E5 /* PhotoGalleryViewController.m in Sources */,
 				45BFFC9C1B57022D00B75FB8 /* AppDelegate.m in Sources */,
 				45CCA6D21B593E66005677E5 /* SignUpViewController.m in Sources */,
 				45BFFCE91B58222000B75FB8 /* LoginCheckViewController.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
-
+#import <MBProgressHUD.h>
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -20,7 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    hud.labelText = @"Busted!";
+//    hud.yOffset = -(self.view.frame.size.height/3);
+//    [hud show:YES];
 }
 
 

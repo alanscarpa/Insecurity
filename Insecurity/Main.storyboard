@@ -75,10 +75,20 @@
                                     <action selector="logoutButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="T3K-ef-Opf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vrv-lu-V0g">
+                                <rect key="frame" x="249" y="449" width="103" height="30"/>
+                                <state key="normal" title="View Snoopers">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewCulpritsButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1JR-cX-7h5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6nq-1Z-Mu7" firstAttribute="top" secondItem="ttv-Fx-hsz" secondAttribute="bottom" constant="8" id="33e-7A-TtM"/>
+                            <constraint firstAttribute="centerX" secondItem="Vrv-lu-V0g" secondAttribute="centerX" id="5HX-eg-ScO"/>
                             <constraint firstAttribute="centerY" secondItem="QJf-xi-LKl" secondAttribute="centerY" id="7ZA-rY-h8F"/>
                             <constraint firstAttribute="centerX" secondItem="QJf-xi-LKl" secondAttribute="centerX" id="EEI-Sb-cHK"/>
                             <constraint firstItem="ttv-Fx-hsz" firstAttribute="top" secondItem="QJf-xi-LKl" secondAttribute="bottom" constant="39" id="JSe-jo-coz"/>
@@ -86,6 +96,7 @@
                             <constraint firstAttribute="centerX" secondItem="6nq-1Z-Mu7" secondAttribute="centerX" id="Sex-3a-Npv"/>
                             <constraint firstItem="QJf-xi-LKl" firstAttribute="top" secondItem="d2V-cV-seX" secondAttribute="bottom" constant="24" id="kNm-hV-5oT"/>
                             <constraint firstAttribute="centerX" secondItem="d2V-cV-seX" secondAttribute="centerX" id="qO0-Lh-uBi"/>
+                            <constraint firstItem="ttv-Fx-hsz" firstAttribute="top" secondItem="Vrv-lu-V0g" secondAttribute="bottom" constant="8" id="vcO-dW-V2Y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qfe-vg-7fm"/>
