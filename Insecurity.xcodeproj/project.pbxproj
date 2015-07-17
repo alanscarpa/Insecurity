@@ -47,6 +47,7 @@
 		45BFFCE61B58047400B75FB8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFCE51B58047400B75FB8 /* LoginViewController.m */; };
 		45BFFCE91B58222000B75FB8 /* LoginCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFCE81B58222000B75FB8 /* LoginCheckViewController.m */; };
 		45BFFCEB1B58235B00B75FB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFCEA1B58235B00B75FB8 /* Main.storyboard */; };
+		45CCA6D21B593E66005677E5 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CCA6D11B593E66005677E5 /* SignUpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,8 @@
 		45BFFCE71B58222000B75FB8 /* LoginCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCheckViewController.h; sourceTree = "<group>"; };
 		45BFFCE81B58222000B75FB8 /* LoginCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCheckViewController.m; sourceTree = "<group>"; };
 		45BFFCEA1B58235B00B75FB8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		45CCA6D01B593E66005677E5 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		45CCA6D11B593E66005677E5 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		7133782305D3B72132CBE0FD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,14 +193,12 @@
 				459383A21B5857D100C6848B /* LICENSE */,
 				459383A31B5857D100C6848B /* README.txt */,
 			);
-			name = FacebookSDK;
-			path = Insecurity/FacebookSDK;
+			path = FacebookSDK;
 			sourceTree = "<group>";
 		};
 		45BFFC8A1B57022D00B75FB8 = {
 			isa = PBXGroup;
 			children = (
-				459383991B5857D100C6848B /* FacebookSDK */,
 				45BFFC951B57022D00B75FB8 /* Insecurity */,
 				45BFFCAF1B57022D00B75FB8 /* InsecurityTests */,
 				45BFFC941B57022D00B75FB8 /* Products */,
@@ -232,6 +233,7 @@
 		45BFFC961B57022D00B75FB8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				459383991B5857D100C6848B /* FacebookSDK */,
 				45BFFCBC1B57079800B75FB8 /* parse-library-1.7.5 */,
 				45BFFCC91B57085900B75FB8 /* AudioToolbox.framework */,
 				45BFFCCA1B57085900B75FB8 /* CFNetwork.framework */,
@@ -287,6 +289,8 @@
 				45BFFC9E1B57022D00B75FB8 /* HomeViewController.m */,
 				45BFFCE41B58047400B75FB8 /* LoginViewController.h */,
 				45BFFCE51B58047400B75FB8 /* LoginViewController.m */,
+				45CCA6D01B593E66005677E5 /* SignUpViewController.h */,
+				45CCA6D11B593E66005677E5 /* SignUpViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -449,6 +453,7 @@
 			files = (
 				45BFFC9F1B57022D00B75FB8 /* HomeViewController.m in Sources */,
 				45BFFC9C1B57022D00B75FB8 /* AppDelegate.m in Sources */,
+				45CCA6D21B593E66005677E5 /* SignUpViewController.m in Sources */,
 				45BFFCE91B58222000B75FB8 /* LoginCheckViewController.m in Sources */,
 				45BFFC991B57022D00B75FB8 /* main.m in Sources */,
 				45BFFCE61B58047400B75FB8 /* LoginViewController.m in Sources */,

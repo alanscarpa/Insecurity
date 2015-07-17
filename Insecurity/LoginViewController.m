@@ -32,8 +32,10 @@
 
 - (IBAction)loginButtonPressed:(id)sender {
     
-    [PFUser logInWithUsernameInBackground:@"alan"
-                                 password:@"alan"
+    //Username is case sensitive, obviously password is
+    
+    [PFUser logInWithUsernameInBackground:self.usernameTextField.text
+                                 password:self.passwordTextField.text
                                     block:^(PFUser *user, NSError *error) {
                                         
                                         //  [MBProgressHUD hideHUDForView:self.view animated:YES]; // stop progress hud
@@ -51,7 +53,7 @@
                                             
                                         } else {
                                             
-                                            NSLog(@"Error loggin in: %@", error);
+                                            NSLog(@"Error logging in: %@", error);
                                             
                                             //                                            if ([UIAlertController class]) { // iOS 8 and up
                                             //
@@ -84,6 +86,24 @@
     
     
 }
+
+
+- (IBAction)signUpButtonPressed:(id)sender {
+    
+   
+    
+}
+
+
+
+
+
+
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

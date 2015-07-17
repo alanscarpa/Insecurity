@@ -41,7 +41,7 @@
     [super viewWillAppear:animated];
     PFUser *currentUser = [PFUser currentUser];
     self.parseUserId = currentUser.objectId;
-    
+    NSLog(@"ParseUserId = %@", self.parseUserId);
     self.pictureBeingTaken = NO;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePhoto) name:@"phoneUnlocked" object:nil];
@@ -114,6 +114,9 @@
                                             repeats:NO];
         } else {
             NSLog(@"Error saving image to parse: %@", error);
+            [PFUser logOut];
+            [hud hide:YES];
+            [self popView];
         }
     }];
     
@@ -176,6 +179,7 @@
 -(void)updateImageViewWithDownloadedImage:(UIImage *)image {
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        self.pictureFrame.hidden = NO;
         self.pictureFrame.image = image;
     }];
     
