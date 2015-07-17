@@ -13,6 +13,7 @@
 #import "SDImageCache.h"
 #import "UIImage+MWPhotoBrowser.h"
 
+
 #define PADDING                  10
 
 static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
@@ -188,6 +189,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         swipeGesture.direction = UISwipeGestureRecognizerDirectionDown | UISwipeGestureRecognizerDirectionUp;
         [self.view addGestureRecognizer:swipeGesture];
     }
+    
+    
     
 	// Super
     [super viewDidLoad];
@@ -390,7 +393,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    
+
     // Detect if rotation occurs while we're presenting a modal
     _pageIndexBeforeRotation = _currentPageIndex;
     
@@ -1283,18 +1286,26 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 
 #pragma mark - Grid
 
+
+
+
+
 - (void)showGridAnimated {
+    self.onImageView = NO;
     [self showGrid:YES];
+    
 }
 
 - (void)showGrid:(BOOL)animated {
 
     if (_gridController) return;
     
+    [self.navigationItem setHidesBackButton:NO];
+
     // Init grid controller
     _gridController = [[MWGridViewController alloc] init];
     
-    //xxx
+    
     if (_gridBackgroundColor){
         _gridController.collectionView.backgroundColor = _gridBackgroundColor;
     } else {
@@ -1344,9 +1355,23 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     
 }
 
+
+-(void)popAlertAction{
+    NSLog(@"hit it");
+    self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
+    [self showGrid:YES];
+    
+}
 - (void)hideGrid {
     
     if (!_gridController) return;
+    
+    self.onImageView = YES;
+    
+    //[self.navigationItem setHidesBackButton:YES];
+    self.backBtn =[[UIBarButtonItem alloc]initWithTitle:@"\U000025C0\U0000FE0E" style:UIBarButtonItemStylePlain target:self action:@selector(popAlertAction)];
+    self.navigationItem.leftBarButtonItem = self.backBtn;
+    
     
     // Remember previous content offset
     _currentGridContentOffset = _gridController.collectionView.contentOffset;

@@ -30,6 +30,7 @@
 
 @property (nonatomic, strong) NSMutableArray *photosArray;
 
+@property (nonatomic, strong) MWPhotoBrowser *browser;
 
 @end
 
@@ -61,6 +62,8 @@
     self.setTrapButton.hidden = YES;
 
 }
+
+
 
 
 // IF isTrapSet IS TRUE, THEN THIS WILL LAUNCH ONCE PHONE IS UNLOCKED
@@ -258,35 +261,36 @@
 
 -(void)showPhotoGallery:(NSMutableArray*)photoGallery{
     
-    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc]initWithDelegate:self];
+    self.browser = [[MWPhotoBrowser alloc]initWithDelegate:self];
     // Set options
-    browser.displayActionButton = YES; // Show action button to allow sharing, copying, etc (defaults to YES)
-    browser.displayNavArrows = NO; // Whether to display left and right nav arrows on toolbar (defaults to NO)
-    browser.displaySelectionButtons = NO; // Whether selection buttons are shown on each image (defaults to NO)
-    browser.zoomPhotosToFill = YES; // Images that almost fill the screen will be initially zoomed to fill (defaults to YES)
-    browser.alwaysShowControls = YES; // Allows to control whether the bars and controls are always visible or whether they fade away to show the photo full (defaults to NO)
-    browser.enableGrid = YES; // Whether to allow the viewing of all the photo thumbnails on a grid (defaults to YES)
-    browser.startOnGrid = YES; // Whether to start on the grid of thumbnails instead of the first photo (defaults to NO)
-    browser.autoPlayOnAppear = NO; // Auto-play first video
+    self.browser.displayActionButton = YES; // Show action button to allow sharing, copying, etc (defaults to YES)
+    self.browser.displayNavArrows = NO; // Whether to display left and right nav arrows on toolbar (defaults to NO)
+    self.browser.displaySelectionButtons = NO; // Whether selection buttons are shown on each image (defaults to NO)
+    self.browser.zoomPhotosToFill = YES; // Images that almost fill the screen will be initially zoomed to fill (defaults to YES)
+    self.browser.alwaysShowControls = YES; // Allows to control whether the bars and controls are always visible or whether they fade away to show the photo full (defaults to NO)
+    self.browser.enableGrid = YES; // Whether to allow the viewing of all the photo thumbnails on a grid (defaults to YES)
+    self.browser.startOnGrid = YES; // Whether to start on the grid of thumbnails instead of the first photo (defaults to NO)
+    self.browser.autoPlayOnAppear = NO; // Auto-play first video
     
+    self.browser.enableSwipeToDismiss = NO;
     
     // change navbar text color
-    [browser changeNavigationBarBackButtonTintColor:[UIColor greenColor]];
+    [self.browser changeNavigationBarBackButtonTintColor:[UIColor greenColor]];
 
     // change grid bg color
-    [browser changeGridBackgroundColor:[UIColor redColor]];
+    [self.browser changeGridBackgroundColor:[UIColor redColor]];
     
     // change the color behind images
-    [browser changeImageViewBackgroundColor:[UIColor orangeColor]];
+    [self.browser changeImageViewBackgroundColor:[UIColor orangeColor]];
     
     // change the color of the bottom bar on image view
-    [browser changeBottomBarColor:[UIColor yellowColor]];
+    [self.browser changeBottomBarColor:[UIColor yellowColor]];
     
     // change the color of the top bar of navigation controller
-    [browser changeNavigationBarTintColor:[UIColor yellowColor]];
+    [self.browser changeNavigationBarTintColor:[UIColor yellowColor]];
     
     // change the navbar title color
-    [browser changeNavigationBarTitleColor:[UIColor redColor]];
+    [self.browser changeNavigationBarTitleColor:[UIColor redColor]];
  
     // Customise selection images to change colours if required
     //browser.customImageSelectedIconName = @"ImageSelected.png";
@@ -296,7 +300,7 @@
     //[browser setCurrentPhotoIndex:1];
     
     // Present
-    [self.navigationController pushViewController:browser animated:YES];
+    [self.navigationController pushViewController:self.browser animated:YES];
     
     // Manipulate
     //[browser showNextPhotoAnimated:YES];
