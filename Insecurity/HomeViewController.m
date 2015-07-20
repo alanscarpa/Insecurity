@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *howItWorksButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *insecurityLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *homeBg;
 
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
 @property (nonatomic, strong) UIImage *bustedPhoto;
@@ -50,10 +51,13 @@
     
 }
 
+
+
+
 -(void)setUpUI{
     
     CGFloat borderWidth = 5.0;
-    CGColorRef borderColor = [UIColor whiteColor].CGColor;
+    CGColorRef borderColor = [UIColor colorWithRed:158/255.0f green:224/255.0f blue:254/255.0f alpha:1.0].CGColor;
     
     [self.setTrapButton.layer setBorderWidth:borderWidth];
     [self.setTrapButton.layer setBorderColor:borderColor];
@@ -67,7 +71,9 @@
     [self.howItWorksButton.layer setBorderWidth:borderWidth];
     [self.howItWorksButton.layer setBorderColor:borderColor];
     
-   
+    self.homeBg.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"homeBg8"]];
+    //[view setOpaque:NO];
+   // [[view layer] setOpaque:NO];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -108,12 +114,6 @@
 -(void)takePhoto{
     
     if (self.pictureBeingTaken == NO && self.isTrapSet == YES){
-        
-//        if (self.browser){
-//            [self.browser dismissViewControllerAnimated:NO completion:nil];
-//        }
-        
-        NSOperationQueue *operationQ = [[NSOperationQueue alloc]init];
         
       
             [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
@@ -213,6 +213,8 @@
 
 - (IBAction)downloadImageButtonPressed:(id)sender {
     
+  
+    
     [self downloadImageFromParse];
     
 }
@@ -275,15 +277,17 @@
 
 
 
-- (IBAction)viewCulpritsButtonTapped:(id)sender {
-    
-    [self downloadPhotosFromParse];
+- (IBAction)viewSnoopersButtonTapped:(id)sender {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading";
+    [hud show:YES];
+    [self downloadPhotosFromParse:hud];
 }
 
 
 
 
--(void)downloadPhotosFromParse {
+-(void)downloadPhotosFromParse:(MBProgressHUD *)hud {
     
     self.photosArray = [[NSMutableArray alloc]init];
     
@@ -305,6 +309,7 @@
                     if (objects.count == self.photosArray.count){
                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                             NSLog(@"Done adding all images");
+                        [hud hide:YES];
                             [self showPhotoGallery:self.photosArray];
                     }];
                     }

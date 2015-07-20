@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		060BC02FC91CD6CE2E53E35D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B02A7DDEFC149BA4FDFD553 /* libPods.a */; };
+		45141DD51B5D3A8600706082 /* homeBg8.png in Resources */ = {isa = PBXBuildFile; fileRef = 45141DD41B5D3A8600706082 /* homeBg8.png */; };
 		454C51D31B5C692400D6680A /* LobsterTwo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D01B5C692400D6680A /* LobsterTwo-Bold.ttf */; };
 		454C51D41B5C692400D6680A /* LobsterTwo-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D11B5C692400D6680A /* LobsterTwo-BoldItalic.ttf */; };
 		454C51D51B5C692400D6680A /* LobsterTwo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D21B5C692400D6680A /* LobsterTwo-Regular.ttf */; };
@@ -29,6 +30,7 @@
 		459385301B585F2F00C6848B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4593852F1B585F2F00C6848B /* CoreMotion.framework */; };
 		459385321B585F4D00C6848B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459385311B585F4D00C6848B /* AdSupport.framework */; };
 		459385371B5860DC00C6848B /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 459385361B5860DC00C6848B /* libstdc++.6.dylib */; };
+		45B6B20F1B5D9C97008F5E6D /* TrapSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B6B20E1B5D9C97008F5E6D /* TrapSetViewController.m */; };
 		45BFFC991B57022D00B75FB8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFC981B57022D00B75FB8 /* main.m */; };
 		45BFFC9C1B57022D00B75FB8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFC9B1B57022D00B75FB8 /* AppDelegate.m */; };
 		45BFFC9F1B57022D00B75FB8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFC9E1B57022D00B75FB8 /* HomeViewController.m */; };
@@ -68,6 +70,7 @@
 /* Begin PBXFileReference section */
 		0B02A7DDEFC149BA4FDFD553 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BCC62189E5CD6A87534BC5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		45141DD41B5D3A8600706082 /* homeBg8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeBg8.png; sourceTree = "<group>"; };
 		454C51D01B5C692400D6680A /* LobsterTwo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LobsterTwo-Bold.ttf"; sourceTree = "<group>"; };
 		454C51D11B5C692400D6680A /* LobsterTwo-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LobsterTwo-BoldItalic.ttf"; sourceTree = "<group>"; };
 		454C51D21B5C692400D6680A /* LobsterTwo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LobsterTwo-Regular.ttf"; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 		459385311B585F4D00C6848B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		459385341B585F8E00C6848B /* libc++abi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++abi.dylib"; path = "usr/lib/libc++abi.dylib"; sourceTree = SDKROOT; };
 		459385361B5860DC00C6848B /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
+		45B6B20D1B5D9C97008F5E6D /* TrapSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrapSetViewController.h; sourceTree = "<group>"; };
+		45B6B20E1B5D9C97008F5E6D /* TrapSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrapSetViewController.m; sourceTree = "<group>"; };
 		45BFFC931B57022D00B75FB8 /* Insecurity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insecurity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BFFC971B57022D00B75FB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45BFFC981B57022D00B75FB8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -243,6 +248,7 @@
 		45BFFC961B57022D00B75FB8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				45141DD41B5D3A8600706082 /* homeBg8.png */,
 				454C51D81B5C73D500D6680A /* insecurityLogo.png */,
 				454C51D61B5C72FD00D6680A /* lightBg.png */,
 				454C51D01B5C692400D6680A /* LobsterTwo-Bold.ttf */,
@@ -306,6 +312,8 @@
 				45CCA6D11B593E66005677E5 /* SignUpViewController.m */,
 				45BFFC9D1B57022D00B75FB8 /* HomeViewController.h */,
 				45BFFC9E1B57022D00B75FB8 /* HomeViewController.m */,
+				45B6B20D1B5D9C97008F5E6D /* TrapSetViewController.h */,
+				45B6B20E1B5D9C97008F5E6D /* TrapSetViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -409,6 +417,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45141DD51B5D3A8600706082 /* homeBg8.png in Resources */,
 				459384911B5857D200C6848B /* LICENSE in Resources */,
 				454C51D91B5C73D500D6680A /* insecurityLogo.png in Resources */,
 				45BFFCEB1B58235B00B75FB8 /* Main.storyboard in Resources */,
@@ -474,6 +483,7 @@
 				45BFFC9F1B57022D00B75FB8 /* HomeViewController.m in Sources */,
 				45BFFC9C1B57022D00B75FB8 /* AppDelegate.m in Sources */,
 				45CCA6D21B593E66005677E5 /* SignUpViewController.m in Sources */,
+				45B6B20F1B5D9C97008F5E6D /* TrapSetViewController.m in Sources */,
 				45BFFCE91B58222000B75FB8 /* LoginCheckViewController.m in Sources */,
 				45BFFC991B57022D00B75FB8 /* main.m in Sources */,
 				45BFFCE61B58047400B75FB8 /* LoginViewController.m in Sources */,
@@ -610,6 +620,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -633,6 +644,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

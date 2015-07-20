@@ -49,6 +49,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TPH-S3-ndG">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QJf-xi-LKl">
                                 <rect key="frame" x="121" y="151" width="358" height="297"/>
                                 <color key="backgroundColor" red="0.94159155139999995" green="1" blue="0.3793105094" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,11 +60,12 @@
                                     <constraint firstAttribute="height" constant="297" id="B25-aC-iQm"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2V-cV-seX">
-                                <rect key="frame" x="90" y="252" width="420" height="90"/>
-                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="41"/>
-                                <state key="normal" title="Set Trap!" backgroundImage="lightBg">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2V-cV-seX">
+                                <rect key="frame" x="75" y="210" width="450" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="40"/>
+                                <state key="normal" title="Set Trap!">
+                                    <color key="titleColor" red="0.61960784313725492" green="0.8784313725490196" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -79,78 +83,87 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nq-1Z-Mu7">
                                 <rect key="frame" x="315" y="522" width="270" height="48"/>
-                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="20"/>
                                 <state key="normal" title="Log out">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.61960784313725492" green="0.8784313725490196" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="logoutButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="T3K-ef-Opf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vrv-lu-V0g">
-                                <rect key="frame" x="90" y="393" width="420" height="90"/>
-                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vrv-lu-V0g">
+                                <rect key="frame" x="75" y="330" width="450" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="40"/>
                                 <state key="normal" title="View Snoopers" backgroundImage="lightBg">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.61960784313725492" green="0.8784313725490196" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="viewCulpritsButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1JR-cX-7h5"/>
+                                    <action selector="viewSnoopersButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ur7-7k-kIh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krf-KU-7H8">
                                 <rect key="frame" x="15" y="522" width="270" height="48"/>
-                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="20"/>
                                 <state key="normal" title="How It Works">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.61960784313725492" green="0.8784313725490196" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="insecurityLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Qz6-T9-emV">
-                                <rect key="frame" x="150" y="36" width="300" height="120"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Insecurity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8F-Ez-oxc">
-                                <rect key="frame" x="222" y="156" width="156" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insecurity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8F-Ez-oxc">
+                                <rect key="frame" x="223" y="120" width="154" height="55"/>
                                 <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="42"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.61960784313725492" green="0.8784313725490196" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="2" height="2"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="insecurityLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Qz6-T9-emV">
+                                <rect key="frame" x="150" y="0.0" width="300" height="120"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.20392156862745098" green="0.66666666666666663" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="d2V-cV-seX" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.7" id="0wo-cD-mcV"/>
+                            <constraint firstItem="d2V-cV-seX" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.75" id="0wo-cD-mcV"/>
                             <constraint firstItem="krf-KU-7H8" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" multiplier="0.5" id="47u-dd-X4p"/>
                             <constraint firstAttribute="centerX" secondItem="Vrv-lu-V0g" secondAttribute="centerX" id="5HX-eg-ScO"/>
                             <constraint firstAttribute="centerY" secondItem="QJf-xi-LKl" secondAttribute="centerY" id="7ZA-rY-h8F"/>
-                            <constraint firstItem="Qz6-T9-emV" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" multiplier="1.8" id="8bL-j7-W7r"/>
+                            <constraint firstItem="Qz6-T9-emV" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" multiplier="2" id="8bL-j7-W7r"/>
                             <constraint firstItem="Vrv-lu-V0g" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.15" id="CXP-q9-17F"/>
-                            <constraint firstItem="Vrv-lu-V0g" firstAttribute="top" secondItem="d2V-cV-seX" secondAttribute="bottom" multiplier="1.15" id="DHy-oR-5X9"/>
+                            <constraint firstItem="Vrv-lu-V0g" firstAttribute="top" secondItem="d2V-cV-seX" secondAttribute="bottom" multiplier="1.1" id="DHy-oR-5X9"/>
                             <constraint firstAttribute="centerX" secondItem="QJf-xi-LKl" secondAttribute="centerX" id="EEI-Sb-cHK"/>
+                            <constraint firstAttribute="centerY" secondItem="TPH-S3-ndG" secondAttribute="centerY" id="F7l-gf-jLh"/>
                             <constraint firstItem="d2V-cV-seX" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.15" id="Hey-GO-Rcs"/>
                             <constraint firstItem="krf-KU-7H8" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.45" id="HiG-9b-YTB"/>
                             <constraint firstItem="ttv-Fx-hsz" firstAttribute="top" secondItem="QJf-xi-LKl" secondAttribute="bottom" constant="39" id="JSe-jo-coz"/>
                             <constraint firstAttribute="centerX" secondItem="ttv-Fx-hsz" secondAttribute="centerX" id="NBO-vi-teF"/>
+                            <constraint firstAttribute="centerX" secondItem="TPH-S3-ndG" secondAttribute="centerX" id="Onq-QH-W2D"/>
                             <constraint firstItem="d2V-cV-seX" firstAttribute="top" secondItem="F8F-Ez-oxc" secondAttribute="bottom" multiplier="1.2" id="RZV-q8-bNY"/>
-                            <constraint firstItem="Vrv-lu-V0g" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.7" id="SDq-OY-wyr"/>
+                            <constraint firstItem="Vrv-lu-V0g" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.75" id="SDq-OY-wyr"/>
                             <constraint firstItem="6nq-1Z-Mu7" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" multiplier="1.5" id="Sex-3a-Npv"/>
                             <constraint firstAttribute="centerX" secondItem="F8F-Ez-oxc" secondAttribute="centerX" id="TCr-J4-csy"/>
                             <constraint firstItem="Qz6-T9-emV" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.2" id="UCv-rJ-VLc"/>
                             <constraint firstItem="F8F-Ez-oxc" firstAttribute="top" secondItem="Qz6-T9-emV" secondAttribute="bottom" id="bxt-7F-kAW"/>
+                            <constraint firstItem="TPH-S3-ndG" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="d0C-7e-OJO"/>
                             <constraint firstItem="Qz6-T9-emV" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.5" id="exG-MN-Wiy"/>
                             <constraint firstItem="krf-KU-7H8" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.95" id="f4Y-2s-cxc"/>
                             <constraint firstItem="6nq-1Z-Mu7" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.45" id="jh0-ZH-dpG"/>
                             <constraint firstItem="6nq-1Z-Mu7" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.95" id="kWY-Q4-4Je"/>
                             <constraint firstItem="Qz6-T9-emV" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="njB-Zw-u7U"/>
                             <constraint firstAttribute="centerX" secondItem="d2V-cV-seX" secondAttribute="centerX" id="qO0-Lh-uBi"/>
+                            <constraint firstItem="TPH-S3-ndG" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="u6s-uI-0SE"/>
                             <constraint firstItem="krf-KU-7H8" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.08" id="uR3-cK-Nir"/>
                             <constraint firstItem="6nq-1Z-Mu7" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.08" id="wKW-KN-2dp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qfe-vg-7fm"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="homeBg" destination="TPH-S3-ndG" id="LL7-Dg-Y1a"/>
                         <outlet property="howItWorksButton" destination="krf-KU-7H8" id="214-Dt-rmN"/>
                         <outlet property="insecurityLabel" destination="F8F-Ez-oxc" id="IhO-UM-UJ9"/>
                         <outlet property="logOutButton" destination="6nq-1Z-Mu7" id="7P9-fT-Dnc"/>
@@ -162,6 +175,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1757" y="-143"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bIs-a0-SPQ">
+            <objects>
+                <viewController id="efE-tw-RVy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fKL-y8-1rK"/>
+                        <viewControllerLayoutGuide type="bottom" id="C2d-kj-6ij"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bR1-Rh-v13">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tu2-kE-pMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2445" y="-143"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="bl1-B8-nOg">
