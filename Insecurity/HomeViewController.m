@@ -105,7 +105,7 @@
         
         NSOperationQueue *operationQ = [[NSOperationQueue alloc]init];
         
-        [operationQ addOperationWithBlock:^{
+      
             [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
             self.pictureBeingTaken = YES;
             self.imagePickerController = [[UIImagePickerController alloc] init];
@@ -115,17 +115,16 @@
             self.imagePickerController.showsCameraControls = NO;
             self.imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
             
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 [self.navigationController presentViewController:self.imagePickerController animated:YES completion:^{
                     // This is a built in class method
                     [self.browser dismissViewControllerAnimated:NO completion:nil];
                     [self.imagePickerController takePicture];
                 }];
 
-            }];
+          
             
             
-        }];
+     
         
         
         
