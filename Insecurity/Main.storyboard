@@ -4,6 +4,15 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="LobsterTwo-Regular.ttf">
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Login Check View Controller-->
         <scene sceneID="zID-3U-Ye5">
@@ -48,16 +57,18 @@
                                     <constraint firstAttribute="height" constant="297" id="B25-aC-iQm"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2V-cV-seX">
-                                <rect key="frame" x="271" y="97" width="58" height="30"/>
-                                <state key="normal" title="Set Trap">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2V-cV-seX">
+                                <rect key="frame" x="90" y="252" width="420" height="90"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="41"/>
+                                <state key="normal" title="Set Trap!" backgroundImage="lightBg">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="setTrapButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="b9M-nQ-dmE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttv-Fx-hsz">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttv-Fx-hsz">
                                 <rect key="frame" x="242" y="487" width="116" height="30"/>
                                 <state key="normal" title="Download Image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,47 +78,90 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nq-1Z-Mu7">
-                                <rect key="frame" x="274" y="525" width="53" height="30"/>
+                                <rect key="frame" x="315" y="522" width="270" height="48"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="25"/>
                                 <state key="normal" title="Log out">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="logoutButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="T3K-ef-Opf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vrv-lu-V0g">
-                                <rect key="frame" x="249" y="449" width="103" height="30"/>
-                                <state key="normal" title="View Snoopers">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vrv-lu-V0g">
+                                <rect key="frame" x="90" y="393" width="420" height="90"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="41"/>
+                                <state key="normal" title="View Snoopers" backgroundImage="lightBg">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="viewCulpritsButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1JR-cX-7h5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krf-KU-7H8">
+                                <rect key="frame" x="15" y="522" width="270" height="48"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="25"/>
+                                <state key="normal" title="How It Works">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="insecurityLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Qz6-T9-emV">
+                                <rect key="frame" x="150" y="36" width="300" height="120"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Insecurity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8F-Ez-oxc">
+                                <rect key="frame" x="222" y="156" width="156" height="54"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="42"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.61960784313725492" green="0.8784313725490196" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20392156862745098" green="0.66666666666666663" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6nq-1Z-Mu7" firstAttribute="top" secondItem="ttv-Fx-hsz" secondAttribute="bottom" constant="8" id="33e-7A-TtM"/>
+                            <constraint firstItem="d2V-cV-seX" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.7" id="0wo-cD-mcV"/>
+                            <constraint firstItem="krf-KU-7H8" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" multiplier="0.5" id="47u-dd-X4p"/>
                             <constraint firstAttribute="centerX" secondItem="Vrv-lu-V0g" secondAttribute="centerX" id="5HX-eg-ScO"/>
                             <constraint firstAttribute="centerY" secondItem="QJf-xi-LKl" secondAttribute="centerY" id="7ZA-rY-h8F"/>
+                            <constraint firstItem="Qz6-T9-emV" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" multiplier="1.8" id="8bL-j7-W7r"/>
+                            <constraint firstItem="Vrv-lu-V0g" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.15" id="CXP-q9-17F"/>
+                            <constraint firstItem="Vrv-lu-V0g" firstAttribute="top" secondItem="d2V-cV-seX" secondAttribute="bottom" multiplier="1.15" id="DHy-oR-5X9"/>
                             <constraint firstAttribute="centerX" secondItem="QJf-xi-LKl" secondAttribute="centerX" id="EEI-Sb-cHK"/>
+                            <constraint firstItem="d2V-cV-seX" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.15" id="Hey-GO-Rcs"/>
+                            <constraint firstItem="krf-KU-7H8" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.45" id="HiG-9b-YTB"/>
                             <constraint firstItem="ttv-Fx-hsz" firstAttribute="top" secondItem="QJf-xi-LKl" secondAttribute="bottom" constant="39" id="JSe-jo-coz"/>
                             <constraint firstAttribute="centerX" secondItem="ttv-Fx-hsz" secondAttribute="centerX" id="NBO-vi-teF"/>
-                            <constraint firstAttribute="centerX" secondItem="6nq-1Z-Mu7" secondAttribute="centerX" id="Sex-3a-Npv"/>
-                            <constraint firstItem="QJf-xi-LKl" firstAttribute="top" secondItem="d2V-cV-seX" secondAttribute="bottom" constant="24" id="kNm-hV-5oT"/>
+                            <constraint firstItem="d2V-cV-seX" firstAttribute="top" secondItem="F8F-Ez-oxc" secondAttribute="bottom" multiplier="1.2" id="RZV-q8-bNY"/>
+                            <constraint firstItem="Vrv-lu-V0g" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.7" id="SDq-OY-wyr"/>
+                            <constraint firstItem="6nq-1Z-Mu7" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" multiplier="1.5" id="Sex-3a-Npv"/>
+                            <constraint firstAttribute="centerX" secondItem="F8F-Ez-oxc" secondAttribute="centerX" id="TCr-J4-csy"/>
+                            <constraint firstItem="Qz6-T9-emV" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.2" id="UCv-rJ-VLc"/>
+                            <constraint firstItem="F8F-Ez-oxc" firstAttribute="top" secondItem="Qz6-T9-emV" secondAttribute="bottom" id="bxt-7F-kAW"/>
+                            <constraint firstItem="Qz6-T9-emV" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.5" id="exG-MN-Wiy"/>
+                            <constraint firstItem="krf-KU-7H8" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.95" id="f4Y-2s-cxc"/>
+                            <constraint firstItem="6nq-1Z-Mu7" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.45" id="jh0-ZH-dpG"/>
+                            <constraint firstItem="6nq-1Z-Mu7" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.95" id="kWY-Q4-4Je"/>
+                            <constraint firstItem="Qz6-T9-emV" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="njB-Zw-u7U"/>
                             <constraint firstAttribute="centerX" secondItem="d2V-cV-seX" secondAttribute="centerX" id="qO0-Lh-uBi"/>
-                            <constraint firstItem="ttv-Fx-hsz" firstAttribute="top" secondItem="Vrv-lu-V0g" secondAttribute="bottom" constant="8" id="vcO-dW-V2Y"/>
+                            <constraint firstItem="krf-KU-7H8" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.08" id="uR3-cK-Nir"/>
+                            <constraint firstItem="6nq-1Z-Mu7" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.08" id="wKW-KN-2dp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qfe-vg-7fm"/>
                     <connections>
+                        <outlet property="howItWorksButton" destination="krf-KU-7H8" id="214-Dt-rmN"/>
+                        <outlet property="insecurityLabel" destination="F8F-Ez-oxc" id="IhO-UM-UJ9"/>
+                        <outlet property="logOutButton" destination="6nq-1Z-Mu7" id="7P9-fT-Dnc"/>
                         <outlet property="pictureFrame" destination="QJf-xi-LKl" id="R9F-Af-PRS"/>
-                        <outlet property="setTrapButton" destination="d2V-cV-seX" id="IUg-XA-O9y"/>
+                        <outlet property="setTrapButton" destination="d2V-cV-seX" id="oAt-eA-Gbw"/>
+                        <outlet property="viewSnoopersButton" destination="Vrv-lu-V0g" id="uhX-ly-G8h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1757" y="-125"/>
+            <point key="canvasLocation" x="1757" y="-143"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="bl1-B8-nOg">
@@ -280,6 +334,10 @@
             <point key="canvasLocation" x="1045" y="643"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="insecurityLogo" width="730" height="833"/>
+        <image name="lightBg" width="405" height="214"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fWK-wG-xyt"/>
     </inferredMetricsTieBreakers>

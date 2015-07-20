@@ -474,6 +474,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         navBar.barStyle = _previousNavBarStyle;
         [navBar setBackgroundImage:_previousNavigationBarBackgroundImageDefault forBarMetrics:UIBarMetricsDefault];
         [navBar setBackgroundImage:_previousNavigationBarBackgroundImageLandscapePhone forBarMetrics:UIBarMetricsLandscapePhone];
+        
+        [self hideGrid];
         // Restore back button if we need to
         if (_previousViewControllerBackButton) {
             UIViewController *previousViewController = [self.navigationController topViewController]; // We've disappeared so previous is now top
@@ -1301,7 +1303,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     if (_gridController) return;
     
     [self.navigationItem setHidesBackButton:NO];
-
+    // [_pagingScrollView removeFromSuperview];
     // Init grid controller
     _gridController = [[MWGridViewController alloc] init];
     

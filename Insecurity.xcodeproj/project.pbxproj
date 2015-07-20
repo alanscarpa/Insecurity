@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		060BC02FC91CD6CE2E53E35D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B02A7DDEFC149BA4FDFD553 /* libPods.a */; };
+		454C51D31B5C692400D6680A /* LobsterTwo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D01B5C692400D6680A /* LobsterTwo-Bold.ttf */; };
+		454C51D41B5C692400D6680A /* LobsterTwo-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D11B5C692400D6680A /* LobsterTwo-BoldItalic.ttf */; };
+		454C51D51B5C692400D6680A /* LobsterTwo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D21B5C692400D6680A /* LobsterTwo-Regular.ttf */; };
+		454C51D71B5C72FD00D6680A /* lightBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D61B5C72FD00D6680A /* lightBg.png */; };
+		454C51D91B5C73D500D6680A /* insecurityLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D81B5C73D500D6680A /* insecurityLogo.png */; };
 		4593838E1B58517400C6848B /* libPods-MBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4593838D1B58517400C6848B /* libPods-MBProgressHUD.a */; };
 		459383921B58539400C6848B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459383911B58539400C6848B /* Social.framework */; };
 		459383941B58539A00C6848B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459383931B58539A00C6848B /* Accounts.framework */; };
@@ -48,7 +53,6 @@
 		45BFFCE91B58222000B75FB8 /* LoginCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFCE81B58222000B75FB8 /* LoginCheckViewController.m */; };
 		45BFFCEB1B58235B00B75FB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFCEA1B58235B00B75FB8 /* Main.storyboard */; };
 		45CCA6D21B593E66005677E5 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CCA6D11B593E66005677E5 /* SignUpViewController.m */; };
-		45CCA6D51B597230005677E5 /* PhotoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CCA6D41B597230005677E5 /* PhotoGalleryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +68,11 @@
 /* Begin PBXFileReference section */
 		0B02A7DDEFC149BA4FDFD553 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BCC62189E5CD6A87534BC5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		454C51D01B5C692400D6680A /* LobsterTwo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LobsterTwo-Bold.ttf"; sourceTree = "<group>"; };
+		454C51D11B5C692400D6680A /* LobsterTwo-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LobsterTwo-BoldItalic.ttf"; sourceTree = "<group>"; };
+		454C51D21B5C692400D6680A /* LobsterTwo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LobsterTwo-Regular.ttf"; sourceTree = "<group>"; };
+		454C51D61B5C72FD00D6680A /* lightBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightBg.png; sourceTree = "<group>"; };
+		454C51D81B5C73D500D6680A /* insecurityLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = insecurityLogo.png; sourceTree = "<group>"; };
 		4593838D1B58517400C6848B /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBProgressHUD.a"; path = "Pods/../build/Debug-iphoneos/libPods-MBProgressHUD.a"; sourceTree = "<group>"; };
 		459383911B58539400C6848B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		459383931B58539A00C6848B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -116,8 +125,6 @@
 		45BFFCEA1B58235B00B75FB8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		45CCA6D01B593E66005677E5 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		45CCA6D11B593E66005677E5 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		45CCA6D31B597230005677E5 /* PhotoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGalleryViewController.h; sourceTree = "<group>"; };
-		45CCA6D41B597230005677E5 /* PhotoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGalleryViewController.m; sourceTree = "<group>"; };
 		7133782305D3B72132CBE0FD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,6 +243,11 @@
 		45BFFC961B57022D00B75FB8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				454C51D81B5C73D500D6680A /* insecurityLogo.png */,
+				454C51D61B5C72FD00D6680A /* lightBg.png */,
+				454C51D01B5C692400D6680A /* LobsterTwo-Bold.ttf */,
+				454C51D11B5C692400D6680A /* LobsterTwo-BoldItalic.ttf */,
+				454C51D21B5C692400D6680A /* LobsterTwo-Regular.ttf */,
 				459383991B5857D100C6848B /* FacebookSDK */,
 				45BFFCBC1B57079800B75FB8 /* parse-library-1.7.5 */,
 				45BFFCC91B57085900B75FB8 /* AudioToolbox.framework */,
@@ -294,8 +306,6 @@
 				45CCA6D11B593E66005677E5 /* SignUpViewController.m */,
 				45BFFC9D1B57022D00B75FB8 /* HomeViewController.h */,
 				45BFFC9E1B57022D00B75FB8 /* HomeViewController.m */,
-				45CCA6D31B597230005677E5 /* PhotoGalleryViewController.h */,
-				45CCA6D41B597230005677E5 /* PhotoGalleryViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -400,11 +410,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				459384911B5857D200C6848B /* LICENSE in Resources */,
+				454C51D91B5C73D500D6680A /* insecurityLogo.png in Resources */,
 				45BFFCEB1B58235B00B75FB8 /* Main.storyboard in Resources */,
+				454C51D51B5C692400D6680A /* LobsterTwo-Regular.ttf in Resources */,
+				454C51D31B5C692400D6680A /* LobsterTwo-Bold.ttf in Resources */,
 				45BFFCA71B57022D00B75FB8 /* LaunchScreen.xib in Resources */,
+				454C51D71B5C72FD00D6680A /* lightBg.png in Resources */,
 				45BFFCA41B57022D00B75FB8 /* Images.xcassets in Resources */,
 				4593848C1B5857D200C6848B /* FBAudienceNetwork.README.txt in Resources */,
 				459384921B5857D200C6848B /* README.txt in Resources */,
+				454C51D41B5C692400D6680A /* LobsterTwo-BoldItalic.ttf in Resources */,
 				4593848A1B5857D200C6848B /* FacebookSDKStrings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,7 +472,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45BFFC9F1B57022D00B75FB8 /* HomeViewController.m in Sources */,
-				45CCA6D51B597230005677E5 /* PhotoGalleryViewController.m in Sources */,
 				45BFFC9C1B57022D00B75FB8 /* AppDelegate.m in Sources */,
 				45CCA6D21B593E66005677E5 /* SignUpViewController.m in Sources */,
 				45BFFCE91B58222000B75FB8 /* LoginCheckViewController.m in Sources */,

@@ -13,12 +13,19 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <MWPhotoBrowser/MWPhoto.h>
 #import <MWPhotoBrowser/MWPhotoBrowser.h>
+#import <QuartzCore/QuartzCore.h>
+
 
 
 @interface HomeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, MWPhotoBrowserDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *pictureFrame;
 @property (weak, nonatomic) IBOutlet UIButton *setTrapButton;
+@property (weak, nonatomic) IBOutlet UIButton *viewSnoopersButton;
+@property (weak, nonatomic) IBOutlet UIButton *logOutButton;
+@property (weak, nonatomic) IBOutlet UIButton *howItWorksButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *insecurityLabel;
 
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
 @property (nonatomic, strong) UIImage *bustedPhoto;
@@ -38,9 +45,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpUI];
+    
     
 }
 
+-(void)setUpUI{
+    
+    CGFloat borderWidth = 5.0;
+    CGColorRef borderColor = [UIColor whiteColor].CGColor;
+    
+    [self.setTrapButton.layer setBorderWidth:borderWidth];
+    [self.setTrapButton.layer setBorderColor:borderColor];
+    
+    [self.viewSnoopersButton.layer setBorderWidth:borderWidth];
+    [self.viewSnoopersButton.layer setBorderColor:borderColor];
+    
+    [self.logOutButton.layer setBorderWidth:borderWidth];
+    [self.logOutButton.layer setBorderColor:borderColor];
+    
+    [self.howItWorksButton.layer setBorderWidth:borderWidth];
+    [self.howItWorksButton.layer setBorderColor:borderColor];
+    
+   
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -71,17 +99,42 @@
     
     if (self.pictureBeingTaken == NO && self.isTrapSet == YES){
         
-        self.pictureBeingTaken = YES;
-        self.imagePickerController = [[UIImagePickerController alloc] init];
-        self.imagePickerController.delegate = self;
-        [self.imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
-        self.imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
-        self.imagePickerController.showsCameraControls = NO;
-        self.imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+//        if (self.browser){
+//            [self.browser dismissViewControllerAnimated:NO completion:nil];
+//        }
         
-        [self.navigationController presentViewController:self.imagePickerController animated:YES completion:^{
-            [self.imagePickerController takePicture];
+        NSOperationQueue *operationQ = [[NSOperationQueue alloc]init];
+        
+        [operationQ addOperationWithBlock:^{
+            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+            self.pictureBeingTaken = YES;
+            self.imagePickerController = [[UIImagePickerController alloc] init];
+            self.imagePickerController.delegate = self;
+            [self.imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+            self.imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+            self.imagePickerController.showsCameraControls = NO;
+            self.imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self.navigationController presentViewController:self.imagePickerController animated:YES completion:^{
+                    // This is a built in class method
+                    [self.browser dismissViewControllerAnimated:NO completion:nil];
+                    [self.imagePickerController takePicture];
+                }];
+
+            }];
+            
+            
         }];
+        
+        
+        
+        
+        
+        
+        
+
+       
         
     }
     
@@ -302,10 +355,7 @@
     // Present
     [self.navigationController pushViewController:self.browser animated:YES];
     
-    // Manipulate
-    //[browser showNextPhotoAnimated:YES];
-    //[browser showPreviousPhotoAnimated:YES];
-    //[browser setCurrentPhotoIndex:10];
+
 }
 
 - (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser thumbPhotoAtIndex:(NSUInteger)index{
