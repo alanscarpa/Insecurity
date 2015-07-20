@@ -80,8 +80,18 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePhoto) name:@"phoneUnlocked" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(cameraIsReady:)
+                                                 name:AVCaptureSessionDidStartRunningNotification object:nil];
+    
 }
 
+- (void)cameraIsReady:(NSNotification *)notification
+{
+    //NSLog(@"%@", notification);
+   // [self.imagePickerController takePicture];
+    // Whatever
+}
 
 - (IBAction)setTrapButtonTapped:(id)sender {
     
@@ -108,17 +118,21 @@
       
             [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
             self.pictureBeingTaken = YES;
+        
+   
+        
             self.imagePickerController = [[UIImagePickerController alloc] init];
             self.imagePickerController.delegate = self;
             [self.imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
             self.imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
             self.imagePickerController.showsCameraControls = NO;
             self.imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-            
+        
+        
                 [self.navigationController presentViewController:self.imagePickerController animated:YES completion:^{
-                    // This is a built in class method
-                    [self.browser dismissViewControllerAnimated:NO completion:nil];
-                    [self.imagePickerController takePicture];
+                    //NSLog(@"Taking photo");
+                   [self.imagePickerController performSelector:@selector(takePicture) withObject:self afterDelay:0.3];
+
                 }];
 
           
