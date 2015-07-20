@@ -29,7 +29,7 @@
 
 @implementation MWZoomingScrollView
 
-- (id)initWithPhotoBrowser:(MWPhotoBrowser *)browser andBackgroundColor:(UIColor*)color {
+- (id)initWithPhotoBrowser:(MWPhotoBrowser *)browser {
     if ((self = [super init])) {
         
         // Setup
@@ -40,7 +40,7 @@
 		_tapView = [[MWTapDetectingView alloc] initWithFrame:self.bounds];
 		_tapView.tapDelegate = self;
 		_tapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-		_tapView.backgroundColor = color;
+		_tapView.backgroundColor = [UIColor blackColor];
 		[self addSubview:_tapView];
 		
 		// Image view

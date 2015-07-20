@@ -99,13 +99,13 @@
     
     if (self.pictureBeingTaken == NO && self.isTrapSet == YES){
         
+       // [self.browser removeFromParentViewController];
 //        if (self.browser){
 //            [self.browser dismissViewControllerAnimated:NO completion:nil];
 //        }
         
         NSOperationQueue *operationQ = [[NSOperationQueue alloc]init];
         
-        [operationQ addOperationWithBlock:^{
             [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
             self.pictureBeingTaken = YES;
             self.imagePickerController = [[UIImagePickerController alloc] init];
@@ -115,17 +115,13 @@
             self.imagePickerController.showsCameraControls = NO;
             self.imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
             
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 [self.navigationController presentViewController:self.imagePickerController animated:YES completion:^{
                     // This is a built in class method
-                    [self.browser dismissViewControllerAnimated:NO completion:nil];
+                    
                     [self.imagePickerController takePicture];
-                }];
+               
 
-            }];
-            
-            
-        }];
+                }];
         
         
         
@@ -327,23 +323,23 @@
     
     self.browser.enableSwipeToDismiss = NO;
     
-    // change navbar text color
-    [self.browser changeNavigationBarBackButtonTintColor:[UIColor greenColor]];
-
-    // change grid bg color
-    [self.browser changeGridBackgroundColor:[UIColor redColor]];
-    
-    // change the color behind images
-    [self.browser changeImageViewBackgroundColor:[UIColor orangeColor]];
-    
-    // change the color of the bottom bar on image view
-    [self.browser changeBottomBarColor:[UIColor yellowColor]];
-    
-    // change the color of the top bar of navigation controller
-    [self.browser changeNavigationBarTintColor:[UIColor yellowColor]];
-    
-    // change the navbar title color
-    [self.browser changeNavigationBarTitleColor:[UIColor redColor]];
+//    // change navbar text color
+//    [self.browser changeNavigationBarBackButtonTintColor:[UIColor greenColor]];
+//
+//    // change grid bg color
+//    [self.browser changeGridBackgroundColor:[UIColor redColor]];
+//    
+//    // change the color behind images
+//    [self.browser changeImageViewBackgroundColor:[UIColor orangeColor]];
+//    
+//    // change the color of the bottom bar on image view
+//    [self.browser changeBottomBarColor:[UIColor yellowColor]];
+//    
+//    // change the color of the top bar of navigation controller
+//    [self.browser changeNavigationBarTintColor:[UIColor yellowColor]];
+//    
+//    // change the navbar title color
+//    [self.browser changeNavigationBarTitleColor:[UIColor redColor]];
  
     // Customise selection images to change colours if required
     //browser.customImageSelectedIconName = @"ImageSelected.png";

@@ -52,8 +52,6 @@
 @property (nonatomic) BOOL autoPlayOnAppear;
 @property (nonatomic) NSUInteger delayToHideElements;
 @property (nonatomic, readonly) NSUInteger currentIndex;
-@property (nonatomic) BOOL onImageView;
-@property (nonatomic, strong) UIBarButtonItem *backBtn;
 
 // Customise image selection icons as they are the only icons with a colour tint
 // Icon should be located in the app's main bundle
@@ -73,17 +71,5 @@
 // Navigation
 - (void)showNextPhotoAnimated:(BOOL)animated;
 - (void)showPreviousPhotoAnimated:(BOOL)animated;
-
-
-// Customize user interface
-- (void)changeNavigationBarBackButtonTintColor:(UIColor *)color;
-- (void)changeNavigationBarBackgroundImage:(UIImage *)image;
-- (void)changeImageViewBackgroundColor:(UIColor *)color;
-- (void)changeToolbarTintColor:(UIColor *)color;
-- (void)changeToolbarBackgroundImage:(UIImage *)image;
-- (void)changeGridBackgroundColor:(UIColor*)color;
-- (void)changeBottomBarColor:(UIColor*)color;
-- (void)changeNavigationBarTintColor:(UIColor*)color;
-- (void)changeNavigationBarTitleColor:(UIColor*)color;
 
 @end

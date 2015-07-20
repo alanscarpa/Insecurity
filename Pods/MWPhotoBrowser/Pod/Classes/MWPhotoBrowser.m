@@ -13,7 +13,6 @@
 #import "SDImageCache.h"
 #import "UIImage+MWPhotoBrowser.h"
 
-
 #define PADDING                  10
 
 static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
@@ -144,7 +143,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     if (!_enableGrid) _startOnGrid = NO;
 	
 	// View
-	self.view.backgroundColor = ( _backgroundColor == nil ) ? [UIColor blackColor] : _backgroundColor;
+	self.view.backgroundColor = [UIColor blackColor];
     self.view.clipsToBounds = YES;
 	
 	// Setup paging scrolling view
@@ -155,16 +154,16 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	_pagingScrollView.delegate = self;
 	_pagingScrollView.showsHorizontalScrollIndicator = NO;
 	_pagingScrollView.showsVerticalScrollIndicator = NO;
-	_pagingScrollView.backgroundColor = ( _backgroundColor == nil ) ? [UIColor blackColor] : _backgroundColor;;
+	_pagingScrollView.backgroundColor = [UIColor blackColor];
     _pagingScrollView.contentSize = [self contentSizeForPagingScrollView];
 	[self.view addSubview:_pagingScrollView];
 	
     // Toolbar
     _toolbar = [[UIToolbar alloc] initWithFrame:[self frameForToolbarAtOrientation:self.interfaceOrientation]];
-    _toolbar.tintColor = [UIColor redColor];
-    _toolbar.barTintColor = _bottomBarColor;
-//    [_toolbar setBackgroundImage:_toolbarBackgroundImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-//    [_toolbar setBackgroundImage:_toolbarBackgroundImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsLandscapePhone];
+    _toolbar.tintColor = [UIColor whiteColor];
+    _toolbar.barTintColor = nil;
+    [_toolbar setBackgroundImage:nil forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    [_toolbar setBackgroundImage:nil forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsLandscapePhone];
     _toolbar.barStyle = UIBarStyleBlackTranslucent;
     _toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     
@@ -189,8 +188,6 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         swipeGesture.direction = UISwipeGestureRecognizerDirectionDown | UISwipeGestureRecognizerDirectionUp;
         [self.view addGestureRecognizer:swipeGesture];
     }
-    
-    
     
 	// Super
     [super viewDidLoad];
@@ -347,7 +344,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     // Set style
     if (!_leaveStatusBarAlone && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         _previousStatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
-     //   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:animated];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:animated];
     }
     
     // Navigation bar appearance
@@ -393,7 +390,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-
+    
     // Detect if rotation occurs while we're presenting a modal
     _pageIndexBeforeRotation = _currentPageIndex;
     
@@ -439,18 +436,13 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 - (void)setNavBarAppearance:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     UINavigationBar *navBar = self.navigationController.navigationBar;
-    navBar.tintColor = _navigationBarBackButtonTintColor;
-    navBar.barTintColor = _navigationBarTintColor;
-    if (_navigationBarTitleColor){
-        navBar.titleTextAttributes = @{NSForegroundColorAttributeName: _navigationBarTitleColor};
-    }
-    
-
+    navBar.tintColor = [UIColor whiteColor];
+    navBar.barTintColor = nil;
     navBar.shadowImage = nil;
     navBar.translucent = YES;
-    //navBar.barStyle = UIBarStyleBlackTranslucent;
-    [self.navigationController.navigationBar setBackgroundImage:_navigationBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
-            [self.navigationController.navigationBar setBackgroundImage:_navigationBarBackgroundImage forBarMetrics:UIBarMetricsLandscapePhone];
+    navBar.barStyle = UIBarStyleBlackTranslucent;
+    [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsLandscapePhone];
 }
 
 - (void)storePreviousNavBarAppearance {
@@ -474,8 +466,6 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         navBar.barStyle = _previousNavBarStyle;
         [navBar setBackgroundImage:_previousNavigationBarBackgroundImageDefault forBarMetrics:UIBarMetricsDefault];
         [navBar setBackgroundImage:_previousNavigationBarBackgroundImageLandscapePhone forBarMetrics:UIBarMetricsLandscapePhone];
-        
-        [self hideGrid];
         // Restore back button if we need to
         if (_previousViewControllerBackButton) {
             UIViewController *previousViewController = [self.navigationController topViewController]; // We've disappeared so previous is now top
@@ -810,8 +800,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             // Add new page
 			MWZoomingScrollView *page = [self dequeueRecycledPage];
 			if (!page) {
-                page = [[MWZoomingScrollView alloc] initWithPhotoBrowser:self andBackgroundColor:_backgroundColor];
-                
+				page = [[MWZoomingScrollView alloc] initWithPhotoBrowser:self];
 			}
 			[_visiblePages addObject:page];
 			[self configurePage:page forIndex:index];
@@ -1288,33 +1277,16 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 
 #pragma mark - Grid
 
-
-
-
-
 - (void)showGridAnimated {
-    self.onImageView = NO;
     [self showGrid:YES];
-    
 }
 
 - (void)showGrid:(BOOL)animated {
 
     if (_gridController) return;
     
-    [self.navigationItem setHidesBackButton:NO];
-    // [_pagingScrollView removeFromSuperview];
     // Init grid controller
     _gridController = [[MWGridViewController alloc] init];
-    
-    
-    if (_gridBackgroundColor){
-        _gridController.collectionView.backgroundColor = _gridBackgroundColor;
-    } else {
-        _gridController.collectionView.backgroundColor = [UIColor blackColor];
-    }
-    
-    
     _gridController.initialContentOffset = _currentGridContentOffset;
     _gridController.browser = self;
     _gridController.selectionMode = _displaySelectionButtons;
@@ -1357,23 +1329,9 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     
 }
 
-
--(void)popAlertAction{
-    NSLog(@"hit it");
-    self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
-    [self showGrid:YES];
-    
-}
 - (void)hideGrid {
     
     if (!_gridController) return;
-    
-    self.onImageView = YES;
-    
-    //[self.navigationItem setHidesBackButton:YES];
-    self.backBtn =[[UIBarButtonItem alloc]initWithTitle:@"\U000025C0\U0000FE0E" style:UIBarButtonItemStylePlain target:self action:@selector(popAlertAction)];
-    self.navigationItem.leftBarButtonItem = self.backBtn;
-    
     
     // Remember previous content offset
     _currentGridContentOffset = _gridController.collectionView.contentOffset;
@@ -1680,66 +1638,5 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     }
     self.navigationController.navigationBar.userInteractionEnabled = YES;
 }
-
-
-// Customize Appearance
-UIColor *_navigationBarBackButtonTintColor;
-UIColor *_toolbarTintColor;
-UIColor *_backgroundColor;
-UIColor *_gridBackgroundColor;
-UIColor *_bottomBarColor;
-UIColor *_navigationBarTintColor;
-UIColor *_navigationBarTitleColor;
-
-UIImage *_toolbarBackgroundImage;
-UIImage *_navigationBarBackgroundImage;
-
-
-#pragma mark - Customize user interface
-- (void)changeGridBackgroundColor:(UIColor*)color{
-    
-    _gridBackgroundColor = [color copy];
-    
-}
-
-- (void)changeNavigationBarBackButtonTintColor:(UIColor *)color
-{
-        _navigationBarBackButtonTintColor = [color copy];
-    }
-
-- (void)changeNavigationBarBackgroundImage:(UIImage *)image
-{
-        _navigationBarBackgroundImage = [image copy];
-}
-
-- (void)changeImageViewBackgroundColor:(UIColor *)color
-{
-        _backgroundColor = [color copy];
-    }
-
-- (void)changeToolbarTintColor:(UIColor *)color
-{
-        _toolbarTintColor = [color copy];
-    }
-
-- (void)changeToolbarBackgroundImage:(UIImage *)image
-{
-        _toolbarBackgroundImage = [image copy];
-}
-
--(void)changeBottomBarColor:(UIColor*)color {
-    _bottomBarColor = [color copy];
-}
-
-- (void)changeNavigationBarTintColor:(UIColor*)color{
-    
-    _navigationBarTintColor = [color copy];
-}
-
-- (void)changeNavigationBarTitleColor:(UIColor*)color{
-    
-    _navigationBarTitleColor = [color copy];
-}
-
 
 @end
