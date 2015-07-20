@@ -17,9 +17,8 @@
 
 
 
-@interface HomeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, MWPhotoBrowserDelegate>
+@interface HomeViewController () <MWPhotoBrowserDelegate>
 
-@property (strong, nonatomic) IBOutlet UIImageView *pictureFrame;
 @property (weak, nonatomic) IBOutlet UIButton *setTrapButton;
 @property (weak, nonatomic) IBOutlet UIButton *viewSnoopersButton;
 @property (weak, nonatomic) IBOutlet UIButton *logOutButton;
@@ -28,13 +27,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *insecurityLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *homeBg;
 
-@property (nonatomic, strong) UIImagePickerController *imagePickerController;
-@property (nonatomic, strong) UIImage *bustedPhoto;
 
 @property (nonatomic, strong) NSString *parseUserId;
 
-@property (nonatomic) BOOL pictureBeingTaken;
-@property (nonatomic) BOOL isTrapSet;
+
 
 @property (nonatomic, strong) NSMutableArray *photosArray;
 
@@ -82,190 +78,73 @@
     PFUser *currentUser = [PFUser currentUser];
     self.parseUserId = currentUser.objectId;
     NSLog(@"ParseUserId = %@", self.parseUserId);
-    self.pictureBeingTaken = NO;
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePhoto) name:@"phoneUnlocked" object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(cameraIsReady:)
-                                                 name:AVCaptureSessionDidStartRunningNotification object:nil];
     
-}
-
-- (void)cameraIsReady:(NSNotification *)notification
-{
-    //NSLog(@"%@", notification);
-   // [self.imagePickerController takePicture];
-    // Whatever
-}
-
-- (IBAction)setTrapButtonTapped:(id)sender {
-    
-    self.isTrapSet = YES;
-    self.setTrapButton.titleLabel.text = @"Lock phone now!";
-    self.setTrapButton.hidden = YES;
-
-}
-
-
-
-
-// IF isTrapSet IS TRUE, THEN THIS WILL LAUNCH ONCE PHONE IS UNLOCKED
--(void)takePhoto{
-    
-    if (self.pictureBeingTaken == NO && self.isTrapSet == YES){
-        
-      
-            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
-            self.pictureBeingTaken = YES;
-        
    
-        
-            self.imagePickerController = [[UIImagePickerController alloc] init];
-            self.imagePickerController.delegate = self;
-            [self.imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
-            self.imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
-            self.imagePickerController.showsCameraControls = NO;
-            self.imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-        
-        
-                [self.navigationController presentViewController:self.imagePickerController animated:YES completion:^{
-                    //NSLog(@"Taking photo");
-                   [self.imagePickerController performSelector:@selector(takePicture) withObject:self afterDelay:0.3];
-
-                }];
-
-          
-            
-            
-     
-        
-        
-        
-        
-        
-        
-        
-
-       
-        
-    }
-    
-    
-    
-}
-
-
-// ONCE PHOTO IS FINISHED BEING TAKEN, WE SEND IT TO PARSE
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Busted!";
-    hud.yOffset = -(self.view.frame.size.height/3);
-    [hud show:YES];
-    
-    self.bustedPhoto = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    PFObject* newPhotoObject = [PFObject objectWithClassName:@"Images"];
-    // Convert to JPEG with 50% quality
-    NSData* data = UIImageJPEGRepresentation(self.bustedPhoto, 0.5f);
-    PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:data];
-    [newPhotoObject setObject:imageFile forKey:@"Photo"];
-    [newPhotoObject setObject:self.parseUserId forKey:@"userId"];
-    [newPhotoObject setObject:[PFUser currentUser] forKey:@"user"];
-    
-    // Save the image to Parse
-    [newPhotoObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            NSLog(@"Image save successfully!");
-            [PFUser logOut];
-            self.pictureFrame.hidden = NO;
-            self.pictureFrame.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-
-            [hud hide:YES afterDelay:2.0];
-            [NSTimer scheduledTimerWithTimeInterval:2.0
-                                             target:self
-                                           selector:@selector(popView)
-                                           userInfo:nil
-                                            repeats:NO];
-        } else {
-            NSLog(@"Error saving image to parse: %@", error);
-            [PFUser logOut];
-            [hud hide:YES];
-            [self popView];
-        }
-    }];
-    
-    
-    [self.imagePickerController dismissViewControllerAnimated:YES completion:^{
-        self.pictureBeingTaken = NO;
-        self.isTrapSet = NO;
-        self.setTrapButton.hidden = NO;
-        
-    }];
-    
-}
-
--(void)popView {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-
-- (IBAction)downloadImageButtonPressed:(id)sender {
-    
-  
-    
-    [self downloadImageFromParse];
     
 }
 
 
 
--(void)downloadImageFromParse {
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Images"];
-    [query whereKey:@"user" equalTo:[PFUser currentUser]];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            NSLog(@"Successfully retrieved image");
-            PFFile *imageFile = [objects[0] objectForKey:@"Photo"];
-            [self convertPFFileToUIImage:imageFile];
-        } else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
-    
-}
 
 
 
--(void)convertPFFileToUIImage:(PFFile*)file {
-    
-    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        if (!error) {
-            [self updateImageViewWithDownloadedImage:[UIImage imageWithData:data]];
-        } else {
-            NSLog(@"Error getting data in bg: %@", error);
-        }
-    }];
-    
-}
 
 
-
--(void)updateImageViewWithDownloadedImage:(UIImage *)image {
-    
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        self.pictureFrame.hidden = NO;
-        self.pictureFrame.image = image;
-    }];
-    
-}
+//- (IBAction)downloadImageButtonPressed:(id)sender {
+//    
+//  
+//    
+//    [self downloadImageFromParse];
+//    
+//}
+//
+//
+//
+//-(void)downloadImageFromParse {
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"Images"];
+//    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+//    
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            NSLog(@"Successfully retrieved image");
+//            PFFile *imageFile = [objects[0] objectForKey:@"Photo"];
+//            [self convertPFFileToUIImage:imageFile];
+//        } else {
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//    }];
+//    
+//}
+//
+//
+//
+//-(void)convertPFFileToUIImage:(PFFile*)file {
+//    
+//    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+//        if (!error) {
+//            [self updateImageViewWithDownloadedImage:[UIImage imageWithData:data]];
+//        } else {
+//            NSLog(@"Error getting data in bg: %@", error);
+//        }
+//    }];
+//    
+//}
+//
+//
+//
+//-(void)updateImageViewWithDownloadedImage:(UIImage *)image {
+//    
+//    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//        self.pictureFrame.hidden = NO;
+//        self.pictureFrame.image = image;
+//    }];
+//    
+//}
 
 
 - (IBAction)logoutButtonTapped:(id)sender {
-    
     
     [PFUser logOut];
     [self.navigationController popViewControllerAnimated:YES];

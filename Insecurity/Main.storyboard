@@ -11,6 +11,8 @@
             <string>LobsterTwo</string>
             <string>LobsterTwo</string>
             <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -52,14 +54,6 @@
                             <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TPH-S3-ndG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QJf-xi-LKl">
-                                <rect key="frame" x="121" y="151" width="358" height="297"/>
-                                <color key="backgroundColor" red="0.94159155139999995" green="1" blue="0.3793105094" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="358" id="25m-k5-dy9"/>
-                                    <constraint firstAttribute="height" constant="297" id="B25-aC-iQm"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2V-cV-seX">
                                 <rect key="frame" x="75" y="210" width="450" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,16 +63,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="setTrapButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="b9M-nQ-dmE"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttv-Fx-hsz">
-                                <rect key="frame" x="242" y="487" width="116" height="30"/>
-                                <state key="normal" title="Download Image">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="downloadImageButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="akA-NU-HfC"/>
+                                    <segue destination="efE-tw-RVy" kind="show" id="82K-EU-WWl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nq-1Z-Mu7">
@@ -131,16 +116,12 @@
                             <constraint firstItem="d2V-cV-seX" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.75" id="0wo-cD-mcV"/>
                             <constraint firstItem="krf-KU-7H8" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" multiplier="0.5" id="47u-dd-X4p"/>
                             <constraint firstAttribute="centerX" secondItem="Vrv-lu-V0g" secondAttribute="centerX" id="5HX-eg-ScO"/>
-                            <constraint firstAttribute="centerY" secondItem="QJf-xi-LKl" secondAttribute="centerY" id="7ZA-rY-h8F"/>
                             <constraint firstItem="Qz6-T9-emV" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" multiplier="2" id="8bL-j7-W7r"/>
                             <constraint firstItem="Vrv-lu-V0g" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.15" id="CXP-q9-17F"/>
                             <constraint firstItem="Vrv-lu-V0g" firstAttribute="top" secondItem="d2V-cV-seX" secondAttribute="bottom" multiplier="1.1" id="DHy-oR-5X9"/>
-                            <constraint firstAttribute="centerX" secondItem="QJf-xi-LKl" secondAttribute="centerX" id="EEI-Sb-cHK"/>
                             <constraint firstAttribute="centerY" secondItem="TPH-S3-ndG" secondAttribute="centerY" id="F7l-gf-jLh"/>
                             <constraint firstItem="d2V-cV-seX" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.15" id="Hey-GO-Rcs"/>
                             <constraint firstItem="krf-KU-7H8" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.45" id="HiG-9b-YTB"/>
-                            <constraint firstItem="ttv-Fx-hsz" firstAttribute="top" secondItem="QJf-xi-LKl" secondAttribute="bottom" constant="39" id="JSe-jo-coz"/>
-                            <constraint firstAttribute="centerX" secondItem="ttv-Fx-hsz" secondAttribute="centerX" id="NBO-vi-teF"/>
                             <constraint firstAttribute="centerX" secondItem="TPH-S3-ndG" secondAttribute="centerX" id="Onq-QH-W2D"/>
                             <constraint firstItem="d2V-cV-seX" firstAttribute="top" secondItem="F8F-Ez-oxc" secondAttribute="bottom" multiplier="1.2" id="RZV-q8-bNY"/>
                             <constraint firstItem="Vrv-lu-V0g" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.75" id="SDq-OY-wyr"/>
@@ -167,7 +148,6 @@
                         <outlet property="howItWorksButton" destination="krf-KU-7H8" id="214-Dt-rmN"/>
                         <outlet property="insecurityLabel" destination="F8F-Ez-oxc" id="IhO-UM-UJ9"/>
                         <outlet property="logOutButton" destination="6nq-1Z-Mu7" id="7P9-fT-Dnc"/>
-                        <outlet property="pictureFrame" destination="QJf-xi-LKl" id="R9F-Af-PRS"/>
                         <outlet property="setTrapButton" destination="d2V-cV-seX" id="oAt-eA-Gbw"/>
                         <outlet property="viewSnoopersButton" destination="Vrv-lu-V0g" id="uhX-ly-G8h"/>
                     </connections>
@@ -176,10 +156,10 @@
             </objects>
             <point key="canvasLocation" x="1757" y="-143"/>
         </scene>
-        <!--View Controller-->
+        <!--Trap Set View Controller-->
         <scene sceneID="bIs-a0-SPQ">
             <objects>
-                <viewController id="efE-tw-RVy" sceneMemberID="viewController">
+                <viewController id="efE-tw-RVy" customClass="TrapSetViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fKL-y8-1rK"/>
                         <viewControllerLayoutGuide type="bottom" id="C2d-kj-6ij"/>
@@ -187,8 +167,41 @@
                     <view key="view" contentMode="scaleToFill" id="bR1-Rh-v13">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LYZ-0L-cix">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lock your phone and walk away." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgC-yh-brR">
+                                <rect key="frame" x="30" y="303" width="540" height="50"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trap is Set!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ulh-Sh-eE3">
+                                <rect key="frame" x="218" y="225" width="164" height="50"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WgC-yh-brR" firstAttribute="top" secondItem="Ulh-Sh-eE3" secondAttribute="bottom" multiplier="1.1" id="4sx-7e-J5J"/>
+                            <constraint firstAttribute="centerX" secondItem="WgC-yh-brR" secondAttribute="centerX" id="8R8-qS-AD0"/>
+                            <constraint firstItem="WgC-yh-brR" firstAttribute="width" secondItem="LYZ-0L-cix" secondAttribute="width" multiplier="0.9" id="8gj-QV-npB"/>
+                            <constraint firstAttribute="centerY" secondItem="Ulh-Sh-eE3" secondAttribute="centerY" multiplier="1.2" id="ABk-Pl-DB2"/>
+                            <constraint firstAttribute="height" secondItem="LYZ-0L-cix" secondAttribute="height" id="Mkd-wA-Ppe"/>
+                            <constraint firstAttribute="centerY" secondItem="LYZ-0L-cix" secondAttribute="centerY" id="RYV-pA-Ycd"/>
+                            <constraint firstAttribute="centerX" secondItem="LYZ-0L-cix" secondAttribute="centerX" id="TWt-Mf-iJu"/>
+                            <constraint firstAttribute="width" secondItem="LYZ-0L-cix" secondAttribute="width" id="TX9-AJ-OFh"/>
+                            <constraint firstAttribute="centerX" secondItem="Ulh-Sh-eE3" secondAttribute="centerX" id="hXP-rM-6WJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lockPhoneLabel" destination="WgC-yh-brR" id="PNR-bX-jtv"/>
+                        <outlet property="pictureFrame" destination="LYZ-0L-cix" id="kge-RC-i7j"/>
+                        <outlet property="trapIsSetLabel" destination="Ulh-Sh-eE3" id="FV6-VV-SuK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tu2-kE-pMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
