@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
+@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
 
 
@@ -27,21 +28,54 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+
+    
     self.usernameTextField.delegate = self;
     self.emailTextField.delegate = self;
     self.passwordTextField.delegate = self;
     self.confirmPasswordTextField.delegate = self;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+
+
+
+-(BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+
+- (BOOL) validateEmail {
+    NSString *emailRegex = @"[A-Za-z._%+-]+@[A-Za-z.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    if ([emailTest evaluateWithObject:self.emailTextField.text]){
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 
 - (IBAction)signUpButtonPressed:(id)sender {
+    
+    if (![self validateEmail]){
+        // show alert
+        UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Invalid Email" message:@"Please fix your email and try again" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertBox show];
+        NSLog(@"invalid email");
+        return;
+    }
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Signing Up";
     [hud show:YES];
     
     PFUser *newUser = [PFUser user];
-    newUser.username = self.usernameTextField.text;
+    newUser.username = [self.usernameTextField.text lowercaseString];
     newUser.email = self.emailTextField.text;
     newUser.password = self.passwordTextField.text;
     
@@ -110,6 +144,37 @@
 
 
 
+
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+        [self signUpButtonPressed:self.signUpButton];
+    }
+    return NO; // We do not want UITextField to insert line-breaks.
+    
+    
+    
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    
+    if (![[touch view] isKindOfClass:[UITextField class]]) {
+        [self.view endEditing:YES];
+    }
+    [super touchesBegan:touches withEvent:event];
+}
 
 
 

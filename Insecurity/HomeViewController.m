@@ -47,6 +47,10 @@
     
 }
 
+-(BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 
 
 
@@ -189,7 +193,7 @@
                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                             NSLog(@"Done adding all images");
                         [hud hide:YES];
-                            [self showPhotoGallery:self.photosArray];
+                        [self showPhotoGallery:self.photosArray];
                     }];
                     }
                 }
@@ -200,6 +204,7 @@
             
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [hud hide:YES];
         }
         
     }];

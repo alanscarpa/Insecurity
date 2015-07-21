@@ -19,6 +19,7 @@
 
 
 
+
 -(void)applicationProtectedDataDidBecomeAvailable:(UIApplication *)application{
     
     //    NSLog(@"Unlocked!");
@@ -49,6 +50,8 @@
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    
     return YES;
 }
 

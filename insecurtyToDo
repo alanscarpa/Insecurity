@@ -1,0 +1,36 @@
+insecurtyToDo
+
+LOG IN SCREEN
+[x] Add HUD to login screen
+[x] Turn login name lowercase
+[x] Enable return keys
+[x] Hide keyboard on touch
+
+SIGN UP SCREEN
+[ ] Add UI
+[x] Make username sent as lowercase
+[ ] Verify email field
+[x] Enable return keys
+[x] Hide keyboard on touch
+
+HOME SCREEN
+[ ] Create How It Works Screen
+[ ] Set View Snoopers colors
+
+ERROR CHECKING
+Show alerts for:
+[ ] Login
+[ ] Signup
+[ ] Loading images
+
+APP ICONS
+[ ] Import all app icons
+[ ] Create splash page
+
+FINAL FEATURES
+[ ] Make sure photos are square (instagam appropriate)
+[ ] Add watermark
+[ ] Share to Instagram/twitter/facebook with insecurityApp hashtag
+[ ] Create view overlay option (mugshot/timestamp/prison bars/wanted poster)
+[ ] Make overlay a pro feature
+[ ] Send email after 30 minutes

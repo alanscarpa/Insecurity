@@ -20,6 +20,10 @@
     // Do any additional setup after loading the view.
 }
 
+-(BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 
 -(void)viewDidAppear:(BOOL)animated{
     
