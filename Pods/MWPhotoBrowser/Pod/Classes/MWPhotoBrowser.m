@@ -1620,42 +1620,58 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             _currentPageIndex--;
         }
         
+      
         
-        // Get data
-        NSUInteger numberOfPhotos = _photoCount;
-         [self releaseAllUnderlyingPhotos:YES];
-        [_photos removeAllObjects];
-        [_thumbPhotos removeAllObjects];
-        for (int i = 0; i < numberOfPhotos; i++) {
-            [_photos addObject:[NSNull null]];
-            [_thumbPhotos addObject:[NSNull null]];
-        }
         
-        // Update current page index
-        if (numberOfPhotos > 0) {
-           // _currentPageIndex = _currentPageIndex;
-        } else {
-            _currentPageIndex = 0;
-        }
         
-        // Update layout
-        if ([self isViewLoaded]) {
-            while (_pagingScrollView.subviews.count) {
-                [[_pagingScrollView.subviews lastObject] removeFromSuperview];
-            }
-            [self performLayout];
-            [self.view setNeedsLayout];
-        }
-
+      
         
-        if (_photoCount == 0){
-            [self.navigationController popViewControllerAnimated:YES];
-            //[self popAlertAction];
-        }
+        
+        
     }
    
 }
 
+- (void)photoDeletionComplete:(void (^)(BOOL success))complete {
+    
+    // Get data
+    NSUInteger numberOfPhotos = _photoCount;
+    [self releaseAllUnderlyingPhotos:YES];
+    [_photos removeAllObjects];
+    [_thumbPhotos removeAllObjects];
+    for (int i = 0; i < numberOfPhotos; i++) {
+        [_photos addObject:[NSNull null]];
+        [_thumbPhotos addObject:[NSNull null]];
+    }
+    
+    // Update current page index
+    if (numberOfPhotos > 0) {
+        // _currentPageIndex = _currentPageIndex;
+    } else {
+        _currentPageIndex = 0;
+    }
+    // Update layout
+    if ([self isViewLoaded]) {
+        
+        while (_pagingScrollView.subviews.count) {
+            [[_pagingScrollView.subviews lastObject] removeFromSuperview];
+        }
+        [self performLayout];
+        [self.view setNeedsLayout];
+        
+        
+    }
+    
+    
+    if (_photoCount == 0){
+        [self.navigationController popViewControllerAnimated:YES];
+        //[self popAlertAction];
+        
+    }
+    
+    complete(YES);
+    
+}
 
 - (void)actionButtonPressed:(id)sender {
 

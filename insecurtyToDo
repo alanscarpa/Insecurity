@@ -18,7 +18,7 @@ SIGN UP SCREEN
 
 PHOTOS SCREEN
 [x] Adjust colors
-[ ] Delete photos
+[x] Delete photos
 
 TRAP SCREEN
 [x] Add cancel button
@@ -40,6 +40,7 @@ APP ICONS
 [ ] Create splash page
 
 FINAL FEATURES
+[ ] Password reset/form
 [ ] Make privacy policy link live on skytopdesigns.com/insecurity/privacypolicy 
 [ ] Make sure photos are square (instagam appropriate)
 [ ] Add watermark

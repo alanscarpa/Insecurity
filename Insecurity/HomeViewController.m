@@ -300,7 +300,44 @@
 
 -(void)subtractFromPhotoArray:(MWPhotoBrowser *)photoBrowser object:(NSUInteger)object
 {
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Deleting Photo";
+    [hud show:YES];
+    
     [self.photosArray removeObjectAtIndex:object];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Images"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query orderByAscending:@"createdAt"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (!error){
+            
+            PFObject *objectToDelete = objects[object];
+            [objectToDelete deleteInBackgroundWithBlock:^(BOOL success, NSError *error){
+                [self.browser photoDeletionComplete:^(BOOL success) {
+                    if (success){
+                        [hud hide:YES];
+                    } else {
+                        [hud hide:YES];
+                        UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Problem deleting photo.  Try again." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                        [alertBox show];
+
+                    }
+                    
+                }];
+            }];
+           
+            
+        }
+        
+        
+    }];
+    
+    
+    
 }
 
 

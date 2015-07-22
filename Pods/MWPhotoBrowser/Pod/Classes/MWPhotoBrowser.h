@@ -68,6 +68,9 @@
 // Reloads the photo browser and refetches data
 - (void)reloadData;
 
+- (void)photoDeletionComplete:(void (^)(BOOL success))complete;
+
+
 // Set page that photo browser starts on
 - (void)setCurrentPhotoIndex:(NSUInteger)index;
 
