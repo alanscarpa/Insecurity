@@ -161,7 +161,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	
     // Toolbar
     _toolbar = [[UIToolbar alloc] initWithFrame:[self frameForToolbarAtOrientation:self.interfaceOrientation]];
-    _toolbar.tintColor = [UIColor redColor];
+    _toolbar.tintColor = _toolbarTintColor;
     _toolbar.barTintColor = _bottomBarColor;
 //    [_toolbar setBackgroundImage:_toolbarBackgroundImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 //    [_toolbar setBackgroundImage:_toolbarBackgroundImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsLandscapePhone];
@@ -178,6 +178,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     }
     if (self.displayActionButton) {
         _actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonPressed:)];
+        
+        _deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteButtonPressed:)];
     }
     
     // Update
@@ -245,7 +247,9 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     // Left button - Grid
     if (_enableGrid) {
         hasItems = YES;
-        [items addObject:[[UIBarButtonItem alloc] initWithImage:[UIImage imageForResourcePath:@"MWPhotoBrowser.bundle/UIBarButtonItemGrid" ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]] style:UIBarButtonItemStylePlain target:self action:@selector(showGridAnimated)]];
+        [items addObject:_deleteButton];
+
+//        [items addObject:[[UIBarButtonItem alloc] initWithImage:[UIImage imageForResourcePath:@"MWPhotoBrowser.bundle/UIBarButtonItemGrid" ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]] style:UIBarButtonItemStylePlain target:self action:@selector(showGridAnimated)]];
     } else {
         [items addObject:fixedSpace];
     }
@@ -265,6 +269,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     // Right - Action
     if (_actionButton && !(!hasItems && !self.navigationItem.rightBarButtonItem)) {
         [items addObject:_actionButton];
+        
     } else {
         // We're not showing the toolbar so try and show in top right
         if (_actionButton)
@@ -1366,6 +1371,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 }
 - (void)hideGrid {
     
+    NSLog(@"Current i: %li", _currentPageIndex);
+    
     if (!_gridController) return;
     
     self.onImageView = YES;
@@ -1592,6 +1599,63 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 }
 
 #pragma mark - Actions
+
+-(void)deleteButtonPressed:(id)sender {
+    
+    NSLog(@"Current index: %li", _currentPageIndex);
+  
+    //id <MWPhoto> photo = [self photoAtIndex:self.currentIndex];
+    if (_photoCount > 0) {
+        [_photos removeObjectAtIndex:_currentPageIndex];
+        [_thumbPhotos removeObjectAtIndex:_currentPageIndex];
+         _photoCount--;
+        _gridController.browser.currentIndex--;
+        
+        [_delegate subtractFromPhotoArray:self object:_currentPageIndex];
+        
+        if (_currentIndex > 0){
+            _currentIndex--;
+        }
+        if (_currentPageIndex > 0){
+            _currentPageIndex--;
+        }
+        
+        
+        // Get data
+        NSUInteger numberOfPhotos = _photoCount;
+         [self releaseAllUnderlyingPhotos:YES];
+        [_photos removeAllObjects];
+        [_thumbPhotos removeAllObjects];
+        for (int i = 0; i < numberOfPhotos; i++) {
+            [_photos addObject:[NSNull null]];
+            [_thumbPhotos addObject:[NSNull null]];
+        }
+        
+        // Update current page index
+        if (numberOfPhotos > 0) {
+           // _currentPageIndex = _currentPageIndex;
+        } else {
+            _currentPageIndex = 0;
+        }
+        
+        // Update layout
+        if ([self isViewLoaded]) {
+            while (_pagingScrollView.subviews.count) {
+                [[_pagingScrollView.subviews lastObject] removeFromSuperview];
+            }
+            [self performLayout];
+            [self.view setNeedsLayout];
+        }
+
+        
+        if (_photoCount == 0){
+            [self.navigationController popViewControllerAnimated:YES];
+            //[self popAlertAction];
+        }
+    }
+   
+}
+
 
 - (void)actionButtonPressed:(id)sender {
 

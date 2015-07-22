@@ -25,6 +25,10 @@
 @property (nonatomic, strong) UIImage *bustedPhoto;
 @property (nonatomic, strong) NSString *parseUserId;
 @property (weak, nonatomic) IBOutlet UIImageView *pictureFrame;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UILabel *trapText1;
+@property (weak, nonatomic) IBOutlet UILabel *trapText2;
+@property (weak, nonatomic) IBOutlet UILabel *trapText3;
 
 
 @end
@@ -55,6 +59,11 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePhoto) name:@"phoneUnlocked" object:nil];
     
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(phoneLocked) name:@"phoneLocked" object:nil];
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(cameraIsReady:)
                                                  name:AVCaptureSessionDidStartRunningNotification object:nil];
@@ -71,15 +80,23 @@
 
 
 
+-(void)phoneLocked {
+    self.trapIsSetLabel.hidden = YES;
+    self.lockPhoneLabel.hidden = YES;
+    self.cancelButton.hidden = YES;
+    
+    self.trapText1.hidden = NO;
+    self.trapText2.hidden = NO;
+    self.trapText3.hidden = NO;
 
+}
 
 // IF isTrapSet IS TRUE, THEN THIS WILL LAUNCH ONCE PHONE IS UNLOCKED
 -(void)takePhoto{
     
     if (self.pictureBeingTaken == NO && self.isTrapSet == YES){
         
-        self.trapIsSetLabel.hidden = YES;
-        self.lockPhoneLabel.hidden = YES;
+        
         
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
         self.pictureBeingTaken = YES;
@@ -161,6 +178,14 @@
 }
 
 
+- (IBAction)cancelButtonTapped:(id)sender {
+    
+    self.isTrapSet = NO;
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    
+}
 
 
 

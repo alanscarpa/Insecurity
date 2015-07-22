@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
+@property (weak, nonatomic) IBOutlet UIImageView *bgPattern;
 
 
 @end
@@ -35,6 +36,15 @@
     self.emailTextField.delegate = self;
     self.passwordTextField.delegate = self;
     self.confirmPasswordTextField.delegate = self;
+    
+     self.bgPattern.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"homeBg8"]];
+    
+    CGFloat borderWidth = 5.0;
+    CGColorRef borderColor = [UIColor colorWithRed:158/255.0f green:224/255.0f blue:254/255.0f alpha:1.0].CGColor;
+    
+    [self.signUpButton.layer setBorderWidth:borderWidth];
+    [self.signUpButton.layer setBorderColor:borderColor];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -69,6 +79,12 @@
         NSLog(@"invalid email");
         return;
     }
+    if (![self.passwordTextField.text isEqualToString:self.confirmPasswordTextField.text]){
+        UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Passwords Don't Match" message:@"Your passwords don't match.  Try again." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertBox show];
+        return;
+    }
+    
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Signing Up";
@@ -89,6 +105,9 @@
                 } else {
                     [hud hide:YES];
                     NSLog(@"Error logging in: %@", error);
+                    UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"%@", error] message:@"Close app and try to login again." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                    [alertBox show];
+                    return;
                     
                 }
             }];
@@ -97,10 +116,22 @@
         } else {
             NSLog(@"Error signing up: %@", error);
             [hud hide:YES];
-            if (error.code == 202){
+            if (error.code == 200){
+                NSLog(@"Missing username!");
+                UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Invalid Username" message:@"Please enter a valid username" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alertBox show];
+                return;
+            }
+            else if (error.code == 202){
                 NSLog(@"Username already taken!");
+                UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Username already taken" message:@"Please try a different username" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alertBox show];
+                return;
             } else if (error.code == 203){
                 NSLog(@"Email already taken!");
+                UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Email already in use" message:@"Please enter a different email address" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alertBox show];
+                return;
             }
             
         }
@@ -112,7 +143,7 @@
 
 -(void)login:(void (^)(BOOL success, NSError *error))completionBlock {
     
-    [PFUser logInWithUsernameInBackground:self.usernameTextField.text
+    [PFUser logInWithUsernameInBackground:[self.usernameTextField.text lowercaseString]
                                  password:self.passwordTextField.text
                                     block:^(PFUser *user, NSError *error) {
                                         
@@ -176,6 +207,18 @@
     [super touchesBegan:touches withEvent:event];
 }
 
+- (IBAction)privacyPolicyTapped:(id)sender {
+    
+        
+        NSURL *url = [NSURL URLWithString:@"http://www.skytopdesigns.com/insecurity/privacypolicy"];
+        
+        if (![[UIApplication sharedApplication] openURL:url]) {
+            UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Unable to load webpage.  Try again later." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertBox show];
+        }
+        
+    
+}
 
 
 

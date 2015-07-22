@@ -5,32 +5,49 @@ LOG IN SCREEN
 [x] Turn login name lowercase
 [x] Enable return keys
 [x] Hide keyboard on touch
+[x] Add logo to login screen?
 
 SIGN UP SCREEN
-[ ] Add UI
+[x] Add UI
 [x] Make username sent as lowercase
-[ ] Verify email field
+[x] Verify email field
 [x] Enable return keys
 [x] Hide keyboard on touch
+[x] Make sure passwords match
+[x] Add privacy policy to sign up screen
+
+PHOTOS SCREEN
+[x] Adjust colors
+[ ] Delete photos
+
+TRAP SCREEN
+[x] Add cancel button
+[x] Hide buttons when screen gets locked
 
 HOME SCREEN
-[ ] Create How It Works Screen
-[ ] Set View Snoopers colors
+[x] Create How It Works Screen
+[x] Add privacy policy link to howitworks
+[x] Add delete button/functionality
 
 ERROR CHECKING
 Show alerts for:
-[ ] Login
-[ ] Signup
-[ ] Loading images
+[x] Login  --- connect with parse errors
+[x] Signup --- connect with parse errors
+[x] Loading images
 
 APP ICONS
 [ ] Import all app icons
 [ ] Create splash page
 
 FINAL FEATURES
+[ ] Make privacy policy link live on skytopdesigns.com/insecurity/privacypolicy 
 [ ] Make sure photos are square (instagam appropriate)
 [ ] Add watermark
 [ ] Share to Instagram/twitter/facebook with insecurityApp hashtag
 [ ] Create view overlay option (mugshot/timestamp/prison bars/wanted poster)
 [ ] Make overlay a pro feature
 [ ] Send email after 30 minutes
+[ ] View on all screen sizes
+
+PRESS
+[ ] Linda - Fox News Tech

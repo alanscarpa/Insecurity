@@ -46,13 +46,7 @@
     
     self.bgPattern.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"homeBg8"]];
     
-    
-    [self.usernameTextField.layer setBorderWidth:borderWidth];
-    [self.usernameTextField.layer setBorderColor:borderColor];
-    self.usernameTextField.layer.cornerRadius = 10;
-    [self.passwordTextField.layer setBorderWidth:borderWidth];
-    [self.passwordTextField.layer setBorderColor:borderColor];
-    self.passwordTextField.layer.cornerRadius = 10;
+
 
     [self.logInButton.layer setBorderWidth:borderWidth];
     [self.logInButton.layer setBorderColor:borderColor];
@@ -122,31 +116,9 @@
                                             NSLog(@"Error logging in: %@", error);
                                             
                                             [hud hide:YES];
-                                            
-                                            //                                            if ([UIAlertController class]) { // iOS 8 and up
-                                            //
-                                            //                                                UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Failed attempt"
-                                            //                                                                                                               message:@"The email and password you entered don't match."
-                                            //                                                                                                        preferredStyle:UIAlertControllerStyleAlert];
-                                            //
-                                            //                                                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Try again" style:UIAlertActionStyleDefault
-                                            //                                                                                                      handler:^(UIAlertAction * action) {}];
-                                            //
-                                            //                                                [alert addAction:defaultAction];
-                                            //                                                [self presentViewController:alert animated:YES completion:nil];
-                                            //
-                                            //                                            } else { // deprecated for iOS 8
-                                            //
-                                            //                                                UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Failed attempt"
-                                            //                                                                                                 message:@"The email and password you entered don't match."
-                                            //                                                                                                delegate:self
-                                            //                                                                                       cancelButtonTitle:@"Try again"
-                                            //                                                                                       otherButtonTitles: nil];
-                                            //
-                                            //                                                [alert show];
-                                            //
-                                            //                                            }
-                                            
+                                            UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Error Logging In" message:@"Please check your username and password.  Then try again." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                            [alertBox show];
+                                            return;
                                             
                                         }
                                     }];

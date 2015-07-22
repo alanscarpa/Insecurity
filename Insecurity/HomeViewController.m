@@ -82,7 +82,8 @@
     PFUser *currentUser = [PFUser currentUser];
     self.parseUserId = currentUser.objectId;
     NSLog(@"ParseUserId = %@", self.parseUserId);
-    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+
     
    
     
@@ -162,7 +163,7 @@
 
 - (IBAction)viewSnoopersButtonTapped:(id)sender {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Loading";
+    hud.labelText = @"Loading Photos";
     [hud show:YES];
     [self downloadPhotosFromParse:hud];
 }
@@ -179,6 +180,15 @@
     [query orderByAscending:@"createdAt"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (objects.count == 0){
+            [hud hide:YES];
+            UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"No Snoopers" message:@"No photos of snoopers available.  Set trap and catch your first snooper!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertBox show];
+            return;
+            
+        }
+        
         if (!error) {
             NSOperationQueue *operationQ = [[NSOperationQueue alloc]init];
             
@@ -188,7 +198,8 @@
                     PFFile *imageFile = [object objectForKey:@"Photo"];
                     NSData *data = [imageFile getData];
                     [self.photosArray addObject:[MWPhoto photoWithImage:[UIImage imageWithData:data]]];
-                    
+                
+                    NSLog(@"%li", objects.count);
                     if (objects.count == self.photosArray.count){
                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                             NSLog(@"Done adding all images");
@@ -205,6 +216,9 @@
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
             [hud hide:YES];
+            UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Error Loading Images" message:[NSString stringWithFormat:@"Problem loading images.  Please try again.  Error code: %@", error] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertBox show];
+
         }
         
     }];
@@ -230,22 +244,26 @@
     self.browser.enableSwipeToDismiss = NO;
     
     // change navbar text color
-    [self.browser changeNavigationBarBackButtonTintColor:[UIColor greenColor]];
+    [self.browser changeNavigationBarBackButtonTintColor:[UIColor colorWithRed:52/255.0f green:170/255.0f blue:220/255.0f alpha:1]];
 
     // change grid bg color
-    [self.browser changeGridBackgroundColor:[UIColor redColor]];
+    [self.browser changeGridBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bgNonTrans"]]];
     
     // change the color behind images
-    [self.browser changeImageViewBackgroundColor:[UIColor orangeColor]];
+    [self.browser changeImageViewBackgroundColor:[UIColor whiteColor]];
     
     // change the color of the bottom bar on image view
-    [self.browser changeBottomBarColor:[UIColor yellowColor]];
+    [self.browser changeBottomBarColor:[UIColor whiteColor]];
     
     // change the color of the top bar of navigation controller
-    [self.browser changeNavigationBarTintColor:[UIColor yellowColor]];
+    [self.browser changeNavigationBarTintColor:[UIColor whiteColor]];
     
     // change the navbar title color
-    [self.browser changeNavigationBarTitleColor:[UIColor redColor]];
+    [self.browser changeNavigationBarTitleColor:[UIColor colorWithRed:52/255.0f green:170/255.0f blue:220/255.0f alpha:1]];
+    
+    // change bottom bar icon colors
+    [self.browser changeToolbarTintColor:[UIColor colorWithRed:52/255.0f green:170/255.0f blue:220/255.0f alpha:1]];
+    
  
     // Customise selection images to change colours if required
     //browser.customImageSelectedIconName = @"ImageSelected.png";
@@ -267,7 +285,8 @@
     return nil;
 }
 
-- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowse
+{
     return self.photosArray.count;
 }
 
@@ -278,6 +297,11 @@
     return nil;
 }
 
+
+-(void)subtractFromPhotoArray:(MWPhotoBrowser *)photoBrowser object:(NSUInteger)object
+{
+    [self.photosArray removeObjectAtIndex:object];
+}
 
 
 

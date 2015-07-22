@@ -15,6 +15,13 @@
             <string>LobsterTwo</string>
             <string>LobsterTwo</string>
             <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -100,6 +107,9 @@
                                     <color key="titleColor" red="0.61960784313725492" green="0.8784313725490196" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ojo-5K-GTE" kind="show" id="zhV-gb-6E8"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insecurity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8F-Ez-oxc">
                                 <rect key="frame" x="223" y="150" width="154" height="55"/>
@@ -158,6 +168,67 @@
             </objects>
             <point key="canvasLocation" x="1757" y="-143"/>
         </scene>
+        <!--How It Works View Controller-->
+        <scene sceneID="qta-g5-fh2">
+            <objects>
+                <viewController id="ojo-5K-GTE" customClass="HowItWorksViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kko-AD-MrH"/>
+                        <viewControllerLayoutGuide type="bottom" id="d1P-nM-jfd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hjq-7Y-x7a">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJi-zW-sW7">
+                                <rect key="frame" x="30" y="0.0" width="540" height="600"/>
+                                <string key="text">Insecurity is a fun app that automatically takes a photo of someone if they start looking through your phone without your permission! Here's how it works:</string>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPc-u8-dVR">
+                                <rect key="frame" x="252" y="492" width="96" height="30"/>
+                                <state key="normal" title="Privacy Policy">
+                                    <color key="titleColor" red="0.55456039820000003" green="0.84847716529999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="privacyPolicyClicked:" destination="ojo-5K-GTE" eventType="touchUpInside" id="csd-r1-fhb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFW-aN-tRm">
+                                <rect key="frame" x="248" y="538" width="105" height="30"/>
+                                <state key="normal" title="Delete Account">
+                                    <color key="titleColor" red="0.55456039820000003" green="0.84847716529999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteAccountClicked:" destination="ojo-5K-GTE" eventType="touchUpInside" id="gYg-JY-6MD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20392156862745098" green="0.66666666666666663" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="TJi-zW-sW7" secondAttribute="centerX" id="5S2-fJ-nWm"/>
+                            <constraint firstItem="TJi-zW-sW7" firstAttribute="centerY" secondItem="Hjq-7Y-x7a" secondAttribute="centerY" id="F72-iH-frp"/>
+                            <constraint firstItem="d1P-nM-jfd" firstAttribute="top" secondItem="KPc-u8-dVR" secondAttribute="bottom" multiplier="1.15" id="YEF-N6-U3T"/>
+                            <constraint firstAttribute="centerX" secondItem="KPc-u8-dVR" secondAttribute="centerX" id="bfh-iG-X0W"/>
+                            <constraint firstItem="hFW-aN-tRm" firstAttribute="centerX" secondItem="TJi-zW-sW7" secondAttribute="centerX" constant="0.5" id="jkh-6S-fYI"/>
+                            <constraint firstItem="hFW-aN-tRm" firstAttribute="top" secondItem="KPc-u8-dVR" secondAttribute="bottom" constant="16" id="qQg-id-0OH"/>
+                            <constraint firstItem="TJi-zW-sW7" firstAttribute="height" secondItem="Hjq-7Y-x7a" secondAttribute="height" id="y37-XP-Tl0"/>
+                            <constraint firstItem="TJi-zW-sW7" firstAttribute="width" secondItem="Hjq-7Y-x7a" secondAttribute="width" multiplier="0.9" id="zTb-dj-bNu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4MH-Gf-GLg"/>
+                    <connections>
+                        <outlet property="mainText" destination="TJi-zW-sW7" id="ebk-Uf-F9H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yiL-r1-NU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="672"/>
+        </scene>
         <!--Trap Set View Controller-->
         <scene sceneID="bIs-a0-SPQ">
             <objects>
@@ -174,14 +245,43 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lock your phone and walk away." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgC-yh-brR">
-                                <rect key="frame" x="30" y="303" width="540" height="50"/>
+                                <rect key="frame" x="30" y="259" width="540" height="50"/>
                                 <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trap is Set!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ulh-Sh-eE3">
-                                <rect key="frame" x="218" y="225" width="164" height="50"/>
+                                <rect key="frame" x="218" y="185" width="164" height="50"/>
                                 <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-dQ-b7H">
+                                <rect key="frame" x="270" y="433" width="61" height="44"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="25"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.85098039219999999" green="0.20392156859999999" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="efE-tw-RVy" eventType="touchUpInside" id="0Ey-TW-B4h"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why Are You Snooping?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0y-bN-3Ik">
+                                <rect key="frame" x="164" y="56" width="273" height="38"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't You Trust Me?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXg-xY-9lN">
+                                <rect key="frame" x="187" y="127" width="227" height="38"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Say Cheese!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqU-pV-kU6">
+                                <rect key="frame" x="182" y="198" width="237" height="69"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="55"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -189,20 +289,32 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WgC-yh-brR" firstAttribute="top" secondItem="Ulh-Sh-eE3" secondAttribute="bottom" multiplier="1.1" id="4sx-7e-J5J"/>
+                            <constraint firstItem="R0y-bN-3Ik" firstAttribute="centerX" secondItem="LYZ-0L-cix" secondAttribute="centerX" id="5AC-mN-aHE"/>
                             <constraint firstAttribute="centerX" secondItem="WgC-yh-brR" secondAttribute="centerX" id="8R8-qS-AD0"/>
                             <constraint firstItem="WgC-yh-brR" firstAttribute="width" secondItem="LYZ-0L-cix" secondAttribute="width" multiplier="0.9" id="8gj-QV-npB"/>
-                            <constraint firstAttribute="centerY" secondItem="Ulh-Sh-eE3" secondAttribute="centerY" multiplier="1.2" id="ABk-Pl-DB2"/>
+                            <constraint firstItem="Ulh-Sh-eE3" firstAttribute="centerY" secondItem="bR1-Rh-v13" secondAttribute="centerY" multiplier="0.7" id="ABk-Pl-DB2"/>
+                            <constraint firstItem="zqU-pV-kU6" firstAttribute="centerX" secondItem="LYZ-0L-cix" secondAttribute="centerX" id="CpY-mV-nZs"/>
+                            <constraint firstItem="ZXg-xY-9lN" firstAttribute="top" secondItem="R0y-bN-3Ik" secondAttribute="bottom" constant="33" id="M8g-i5-c4g"/>
                             <constraint firstAttribute="height" secondItem="LYZ-0L-cix" secondAttribute="height" id="Mkd-wA-Ppe"/>
                             <constraint firstAttribute="centerY" secondItem="LYZ-0L-cix" secondAttribute="centerY" id="RYV-pA-Ycd"/>
                             <constraint firstAttribute="centerX" secondItem="LYZ-0L-cix" secondAttribute="centerX" id="TWt-Mf-iJu"/>
                             <constraint firstAttribute="width" secondItem="LYZ-0L-cix" secondAttribute="width" id="TX9-AJ-OFh"/>
+                            <constraint firstItem="ZXg-xY-9lN" firstAttribute="centerX" secondItem="LYZ-0L-cix" secondAttribute="centerX" id="UL5-be-8RW"/>
+                            <constraint firstItem="JgI-dQ-b7H" firstAttribute="top" secondItem="WgC-yh-brR" secondAttribute="bottom" multiplier="1.4" id="Ulb-QF-MsF"/>
+                            <constraint firstItem="zqU-pV-kU6" firstAttribute="top" secondItem="ZXg-xY-9lN" secondAttribute="bottom" constant="33" id="Xbw-up-UlR"/>
+                            <constraint firstItem="R0y-bN-3Ik" firstAttribute="centerY" secondItem="LYZ-0L-cix" secondAttribute="centerY" multiplier="0.25" id="dXT-Dq-Ko3"/>
                             <constraint firstAttribute="centerX" secondItem="Ulh-Sh-eE3" secondAttribute="centerX" id="hXP-rM-6WJ"/>
+                            <constraint firstItem="LYZ-0L-cix" firstAttribute="centerX" secondItem="JgI-dQ-b7H" secondAttribute="centerX" id="zIP-Rp-qEe"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="JgI-dQ-b7H" id="jOo-Wh-Tad"/>
                         <outlet property="lockPhoneLabel" destination="WgC-yh-brR" id="PNR-bX-jtv"/>
                         <outlet property="pictureFrame" destination="LYZ-0L-cix" id="kge-RC-i7j"/>
                         <outlet property="trapIsSetLabel" destination="Ulh-Sh-eE3" id="FV6-VV-SuK"/>
+                        <outlet property="trapText1" destination="R0y-bN-3Ik" id="aA4-Th-HzB"/>
+                        <outlet property="trapText2" destination="ZXg-xY-9lN" id="I3x-Uo-Zdl"/>
+                        <outlet property="trapText3" destination="zqU-pV-kU6" id="igz-mr-OL3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tu2-kE-pMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -224,22 +336,33 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t2h-H3-jag">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fek-rZ-4mv">
-                                <rect key="frame" x="150" y="129" width="300" height="42"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="insecurityLogo" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-nb-nBf">
+                                <rect key="frame" x="150" y="30" width="300" height="120"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insecurity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2g-Ff-n4C">
+                                <rect key="frame" x="223" y="150" width="154" height="55"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="42"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.61960784310000006" green="0.87843137250000003" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
+                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fek-rZ-4mv" customClass="TextFields">
+                                <rect key="frame" x="150" y="246" width="300" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R4h-Xu-P1t">
-                                <rect key="frame" x="150" y="189" width="300" height="42"/>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R4h-Xu-P1t" customClass="TextFields">
+                                <rect key="frame" x="150" y="317" width="300" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3RZ-Tt-w9N">
-                                <rect key="frame" x="195" y="254" width="210" height="60"/>
+                                <rect key="frame" x="195" y="395" width="210" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="34"/>
                                 <state key="normal" title="Log in">
-                                    <color key="titleColor" red="0.61960784310000006" green="0.87843137250000003" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.61960784313725492" green="0.8784313725490196" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -247,9 +370,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfs-Mj-WyL">
-                                <rect key="frame" x="150" y="384" width="300" height="60"/>
-                                <color key="backgroundColor" red="0.5545603981765258" green="0.84847716528744299" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="40"/>
+                                <rect key="frame" x="150" y="501" width="300" height="60"/>
+                                <color key="backgroundColor" red="0.55294117647058827" green="0.84705882352941175" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="34"/>
                                 <state key="normal" title="Sign up!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -264,22 +387,28 @@
                         <constraints>
                             <constraint firstItem="Fek-rZ-4mv" firstAttribute="width" secondItem="lZw-Ym-Jgq" secondAttribute="width" multiplier="0.5" id="3gz-9K-A34"/>
                             <constraint firstAttribute="centerX" secondItem="Fek-rZ-4mv" secondAttribute="centerX" id="BZr-uX-OFD"/>
+                            <constraint firstItem="j2g-Ff-n4C" firstAttribute="top" secondItem="hYe-nb-nBf" secondAttribute="bottom" id="EFy-Ci-0hM"/>
                             <constraint firstAttribute="centerX" secondItem="Tfs-Mj-WyL" secondAttribute="centerX" id="JxJ-HX-XG2"/>
                             <constraint firstAttribute="width" secondItem="t2h-H3-jag" secondAttribute="width" id="MNR-ux-BdY"/>
-                            <constraint firstItem="Fek-rZ-4mv" firstAttribute="centerY" secondItem="t2h-H3-jag" secondAttribute="centerY" multiplier="0.5" id="NDZ-a9-HuX"/>
                             <constraint firstAttribute="centerX" secondItem="3RZ-Tt-w9N" secondAttribute="centerX" id="NR7-VN-jxv"/>
                             <constraint firstItem="3RZ-Tt-w9N" firstAttribute="height" secondItem="t2h-H3-jag" secondAttribute="height" multiplier="0.1" id="NZg-el-w83"/>
                             <constraint firstAttribute="centerX" secondItem="R4h-Xu-P1t" secondAttribute="centerX" id="Nqz-AK-8U8"/>
                             <constraint firstItem="R4h-Xu-P1t" firstAttribute="top" secondItem="Fek-rZ-4mv" secondAttribute="bottom" multiplier="1.1" id="Nre-tE-zBu"/>
                             <constraint firstAttribute="height" secondItem="t2h-H3-jag" secondAttribute="height" id="QTc-tQ-jcX"/>
                             <constraint firstItem="3RZ-Tt-w9N" firstAttribute="top" secondItem="R4h-Xu-P1t" secondAttribute="bottom" multiplier="1.1" id="R98-fM-ml5"/>
+                            <constraint firstItem="hYe-nb-nBf" firstAttribute="width" secondItem="lZw-Ym-Jgq" secondAttribute="width" multiplier="0.5" id="RY8-Cu-NOP"/>
+                            <constraint firstItem="hYe-nb-nBf" firstAttribute="height" secondItem="lZw-Ym-Jgq" secondAttribute="height" multiplier="0.2" id="SkO-hN-wgW"/>
+                            <constraint firstItem="hYe-nb-nBf" firstAttribute="centerY" secondItem="lZw-Ym-Jgq" secondAttribute="centerY" multiplier="0.3" id="Vm1-0B-6PF"/>
+                            <constraint firstAttribute="centerX" secondItem="j2g-Ff-n4C" secondAttribute="centerX" id="Z10-0Q-HXD"/>
                             <constraint firstItem="R4h-Xu-P1t" firstAttribute="height" secondItem="t2h-H3-jag" secondAttribute="height" multiplier="0.07" id="cAG-vc-LYq"/>
                             <constraint firstAttribute="centerX" secondItem="t2h-H3-jag" secondAttribute="centerX" id="dHi-u2-3qf"/>
+                            <constraint firstAttribute="centerX" secondItem="hYe-nb-nBf" secondAttribute="centerX" id="hdi-eB-LYo"/>
                             <constraint firstItem="Tfs-Mj-WyL" firstAttribute="width" secondItem="t2h-H3-jag" secondAttribute="width" multiplier="0.5" id="iCu-qm-igc"/>
                             <constraint firstItem="Tfs-Mj-WyL" firstAttribute="height" secondItem="t2h-H3-jag" secondAttribute="height" multiplier="0.1" id="j7C-QR-cXU"/>
                             <constraint firstItem="3RZ-Tt-w9N" firstAttribute="width" secondItem="t2h-H3-jag" secondAttribute="width" multiplier="0.35" id="ovt-gG-Q5z"/>
                             <constraint firstAttribute="centerY" secondItem="t2h-H3-jag" secondAttribute="centerY" id="pSp-3l-mLI"/>
-                            <constraint firstItem="Tfs-Mj-WyL" firstAttribute="top" secondItem="3RZ-Tt-w9N" secondAttribute="bottom" multiplier="1.1" constant="39" id="qKK-bi-5pf"/>
+                            <constraint firstItem="Tfs-Mj-WyL" firstAttribute="top" secondItem="3RZ-Tt-w9N" secondAttribute="bottom" multiplier="1.1" id="qKK-bi-5pf"/>
+                            <constraint firstItem="Fek-rZ-4mv" firstAttribute="top" secondItem="j2g-Ff-n4C" secondAttribute="bottom" multiplier="1.2" id="rSf-Om-sO4"/>
                             <constraint firstItem="R4h-Xu-P1t" firstAttribute="width" secondItem="lZw-Ym-Jgq" secondAttribute="width" multiplier="0.5" id="xz1-mI-hPd"/>
                             <constraint firstItem="Fek-rZ-4mv" firstAttribute="height" secondItem="t2h-H3-jag" secondAttribute="height" multiplier="0.07" id="ydl-O1-11I"/>
                         </constraints>
@@ -295,7 +424,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wl2-ye-gOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1757" y="560"/>
+            <point key="canvasLocation" x="1145" y="1216"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="WBX-oq-olu">
@@ -309,51 +438,107 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k39-hQ-5gP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUc-y6-YBG">
-                                <rect key="frame" x="271" y="285" width="59" height="30"/>
+                                <rect key="frame" x="150" y="392" width="300" height="60"/>
+                                <color key="backgroundColor" red="0.55294117647058827" green="0.84705882352941175" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="40"/>
                                 <state key="normal" title="Sign Up!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="signUpButtonPressed:" destination="jyC-UX-4ro" eventType="touchUpInside" id="Cpj-JJ-cLe"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V6W-dh-xH2">
-                                <rect key="frame" x="257" y="94" width="87" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V6W-dh-xH2" customClass="TextFields">
+                                <rect key="frame" x="150" y="140" width="300" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3vp-RN-u4Z">
-                                <rect key="frame" x="258" y="194" width="85" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3vp-RN-u4Z" customClass="TextFields">
+                                <rect key="frame" x="150" y="256" width="300" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LXm-Z9-h1l">
-                                <rect key="frame" x="230" y="238" width="140" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LXm-Z9-h1l" customClass="TextFields">
+                                <rect key="frame" x="150" y="314" width="300" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="join" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5HQ-nw-Ciz">
-                                <rect key="frame" x="272" y="143" width="57" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5HQ-nw-Ciz" customClass="TextFields">
+                                <rect key="frame" x="150" y="198" width="300" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gM3-mn-r6F">
+                                <rect key="frame" x="61" y="497" width="480" height="30"/>
+                                <state key="normal" title="By clicking Sign Up, you are agreeing to the Insecurity Privacy Policy.  Click to view.">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="privacyPolicyTapped:" destination="jyC-UX-4ro" eventType="touchUpInside" id="P84-XL-MxX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture Phone Snoopers Now!" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHq-qv-Vaj">
+                                <rect key="frame" x="155" y="73" width="290" height="35"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.61960784310000006" green="0.87843137250000003" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="2"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20392156862745098" green="0.66666666666666663" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="LXm-Z9-h1l" firstAttribute="top" secondItem="3vp-RN-u4Z" secondAttribute="bottom" constant="14" id="1m4-WM-yqr"/>
+                            <constraint firstItem="3vp-RN-u4Z" firstAttribute="height" secondItem="KFW-7U-BYd" secondAttribute="height" multiplier="0.07" id="49e-gg-cFt"/>
                             <constraint firstAttribute="centerY" secondItem="yUc-y6-YBG" secondAttribute="centerY" id="79P-na-kyC"/>
-                            <constraint firstItem="yUc-y6-YBG" firstAttribute="top" secondItem="LXm-Z9-h1l" secondAttribute="bottom" constant="17" id="7LO-sq-Ima"/>
-                            <constraint firstItem="5HQ-nw-Ciz" firstAttribute="top" secondItem="V6W-dh-xH2" secondAttribute="bottom" constant="19" id="8wd-NB-6UJ"/>
                             <constraint firstAttribute="centerX" secondItem="yUc-y6-YBG" secondAttribute="centerX" id="9wp-lh-N2d"/>
+                            <constraint firstItem="3vp-RN-u4Z" firstAttribute="width" secondItem="KFW-7U-BYd" secondAttribute="width" multiplier="0.5" id="AmC-XN-9U6"/>
+                            <constraint firstItem="5HQ-nw-Ciz" firstAttribute="width" secondItem="KFW-7U-BYd" secondAttribute="width" multiplier="0.5" id="CRf-8c-ZeD"/>
+                            <constraint firstAttribute="centerY" secondItem="k39-hQ-5gP" secondAttribute="centerY" id="Cbh-Y0-jkb"/>
                             <constraint firstAttribute="centerX" secondItem="3vp-RN-u4Z" secondAttribute="centerX" id="DTw-eN-UrC"/>
+                            <constraint firstItem="5HQ-nw-Ciz" firstAttribute="top" secondItem="V6W-dh-xH2" secondAttribute="bottom" constant="16" id="GIs-BH-r2S"/>
                             <constraint firstAttribute="centerX" secondItem="V6W-dh-xH2" secondAttribute="centerX" id="GhI-5V-BPn"/>
+                            <constraint firstItem="LXm-Z9-h1l" firstAttribute="height" secondItem="KFW-7U-BYd" secondAttribute="height" multiplier="0.07" id="IIt-Do-Kf5"/>
+                            <constraint firstItem="V6W-dh-xH2" firstAttribute="width" secondItem="KFW-7U-BYd" secondAttribute="width" multiplier="0.5" id="M3c-KZ-bQ1"/>
+                            <constraint firstItem="V6W-dh-xH2" firstAttribute="centerY" secondItem="KFW-7U-BYd" secondAttribute="centerY" multiplier="0.4" id="NSF-wV-P7u"/>
+                            <constraint firstItem="yUc-y6-YBG" firstAttribute="width" secondItem="k39-hQ-5gP" secondAttribute="width" multiplier="0.5" id="O0k-6k-hGK"/>
+                            <constraint firstItem="RHq-qv-Vaj" firstAttribute="centerY" secondItem="KFW-7U-BYd" secondAttribute="centerY" multiplier="0.3" id="RDW-GY-pTN"/>
+                            <constraint firstItem="V6W-dh-xH2" firstAttribute="top" secondItem="RHq-qv-Vaj" secondAttribute="bottom" multiplier="1.3" id="Tja-ll-iON"/>
+                            <constraint firstItem="gM3-mn-r6F" firstAttribute="top" secondItem="k39-hQ-5gP" secondAttribute="bottom" constant="-154" id="Z7Q-sQ-uhK"/>
+                            <constraint firstItem="LXm-Z9-h1l" firstAttribute="width" secondItem="KFW-7U-BYd" secondAttribute="width" multiplier="0.5" id="a1H-xJ-dAF"/>
+                            <constraint firstItem="gM3-mn-r6F" firstAttribute="top" secondItem="yUc-y6-YBG" secondAttribute="bottom" constant="45" id="aZW-4T-bt7"/>
+                            <constraint firstItem="k39-hQ-5gP" firstAttribute="width" secondItem="KFW-7U-BYd" secondAttribute="width" id="aZh-pI-jkH"/>
+                            <constraint firstItem="yUc-y6-YBG" firstAttribute="height" secondItem="k39-hQ-5gP" secondAttribute="height" multiplier="0.1" id="b7M-K7-fjA"/>
                             <constraint firstAttribute="centerX" secondItem="LXm-Z9-h1l" secondAttribute="centerX" id="clN-Xi-Qda"/>
+                            <constraint firstItem="yUc-y6-YBG" firstAttribute="top" secondItem="LXm-Z9-h1l" secondAttribute="bottom" multiplier="1.1" id="fWD-W6-STj"/>
+                            <constraint firstItem="k39-hQ-5gP" firstAttribute="height" secondItem="KFW-7U-BYd" secondAttribute="height" id="hLY-l5-AFc"/>
+                            <constraint firstItem="V6W-dh-xH2" firstAttribute="height" secondItem="KFW-7U-BYd" secondAttribute="height" multiplier="0.07" id="jrE-II-D2f"/>
+                            <constraint firstItem="gM3-mn-r6F" firstAttribute="centerX" secondItem="k39-hQ-5gP" secondAttribute="centerX" constant="0.5" id="kXy-Ic-wJz"/>
+                            <constraint firstItem="3vp-RN-u4Z" firstAttribute="top" secondItem="5HQ-nw-Ciz" secondAttribute="bottom" constant="16" id="l2Y-wc-AwO"/>
+                            <constraint firstItem="gM3-mn-r6F" firstAttribute="width" secondItem="k39-hQ-5gP" secondAttribute="width" multiplier="0.8" id="lfT-Rw-YNa"/>
                             <constraint firstAttribute="centerX" secondItem="5HQ-nw-Ciz" secondAttribute="centerX" id="mba-Na-LNF"/>
-                            <constraint firstItem="3vp-RN-u4Z" firstAttribute="top" secondItem="5HQ-nw-Ciz" secondAttribute="bottom" constant="21" id="zr0-hf-P7P"/>
+                            <constraint firstAttribute="centerX" secondItem="k39-hQ-5gP" secondAttribute="centerX" id="o2f-oj-Tyl"/>
+                            <constraint firstItem="RHq-qv-Vaj" firstAttribute="width" secondItem="KFW-7U-BYd" secondAttribute="width" id="qxF-zw-2az"/>
+                            <constraint firstItem="5HQ-nw-Ciz" firstAttribute="height" secondItem="KFW-7U-BYd" secondAttribute="height" multiplier="0.07" id="rVF-vP-bVd"/>
+                            <constraint firstItem="RHq-qv-Vaj" firstAttribute="centerX" secondItem="KFW-7U-BYd" secondAttribute="centerX" id="vrj-qS-zGc"/>
+                            <constraint firstItem="LXm-Z9-h1l" firstAttribute="top" secondItem="3vp-RN-u4Z" secondAttribute="bottom" constant="16" id="xZl-Rh-wta"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="qxF-zw-2az"/>
+                                <exclude reference="NSF-wV-P7u"/>
+                                <exclude reference="79P-na-kyC"/>
+                                <exclude reference="Z7Q-sQ-uhK"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="bgPattern" destination="k39-hQ-5gP" id="A7f-65-Ehe"/>
                         <outlet property="confirmPasswordTextField" destination="LXm-Z9-h1l" id="wCZ-nm-W8L"/>
                         <outlet property="emailTextField" destination="5HQ-nw-Ciz" id="3CR-og-n72"/>
                         <outlet property="passwordTextField" destination="3vp-RN-u4Z" id="1IN-OO-6BO"/>
@@ -363,12 +548,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhg-xh-hS5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1851" y="1379"/>
+            <point key="canvasLocation" x="1943" y="1370"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5Qr-8B-rBq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="JN6-WU-B3x" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JN6-WU-B3x" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k23-zO-PK6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -400,7 +585,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvr-hh-Taj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045" y="643"/>
+            <point key="canvasLocation" x="281" y="1243"/>
         </scene>
     </scenes>
     <resources>
