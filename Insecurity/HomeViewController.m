@@ -36,12 +36,16 @@
 
 @property (nonatomic, strong) MWPhotoBrowser *browser;
 
+@property (nonatomic) BOOL isUserUpgraded;
+
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+    
     [self setUpUI];
     
     
@@ -78,10 +82,23 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    
+    
     [super viewWillAppear:animated];
+    
     PFUser *currentUser = [PFUser currentUser];
     self.parseUserId = currentUser.objectId;
-    NSLog(@"ParseUserId = %@", self.parseUserId);
+
+    
+    
+     /**
+     *  FIND OUT IF USER IS UPGRADED FROM PARSE
+     */
+    
+    //
+    //IF USER IS UPGRADED, THEN DO SPECIAL THINGS
+    //
+    
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 
     
@@ -195,7 +212,13 @@
             [operationQ addOperationWithBlock:^{
 
             for (PFObject *object in objects){
-                    PFFile *imageFile = [object objectForKey:@"Photo"];
+                
+                    //IF NOT UPGRADED
+                    PFFile *imageFile = [object objectForKey:@"WatermarkedPhoto"];
+                    //ELSE
+                    //PFFile *imageFile = [object objectForKey:@"Photo"];
+
+
                     NSData *data = [imageFile getData];
                     [self.photosArray addObject:[MWPhoto photoWithImage:[UIImage imageWithData:data]]];
                 

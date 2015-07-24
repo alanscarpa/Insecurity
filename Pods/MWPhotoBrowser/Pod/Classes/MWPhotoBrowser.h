@@ -55,6 +55,8 @@
 @property (nonatomic) BOOL onImageView;
 @property (nonatomic, strong) UIBarButtonItem *backBtn;
 @property (nonatomic, strong) UIBarButtonItem *deleteButton;
+@property (nonatomic, strong) UIBarButtonItem *upgradeButton;
+
 
 // Customise image selection icons as they are the only icons with a colour tint
 // Icon should be located in the app's main bundle

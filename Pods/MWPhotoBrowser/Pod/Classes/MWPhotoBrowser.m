@@ -13,7 +13,6 @@
 #import "SDImageCache.h"
 #import "UIImage+MWPhotoBrowser.h"
 
-
 #define PADDING                  10
 
 static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
@@ -180,6 +179,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         _actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonPressed:)];
         
         _deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteButtonPressed:)];
+        
+        _upgradeButton = [[UIBarButtonItem alloc] initWithTitle:@"Remove Watermark" style:UIBarButtonItemStylePlain target:self action:@selector(upgradeButtonPressed:)];
     }
     
     // Update
@@ -248,8 +249,12 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     if (_enableGrid) {
         hasItems = YES;
         [items addObject:_deleteButton];
+        [items addObject:fixedSpace];
+        [items addObject:fixedSpace];
 
-//        [items addObject:[[UIBarButtonItem alloc] initWithImage:[UIImage imageForResourcePath:@"MWPhotoBrowser.bundle/UIBarButtonItemGrid" ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]] style:UIBarButtonItemStylePlain target:self action:@selector(showGridAnimated)]];
+        [items addObject:_upgradeButton];
+        
+
     } else {
         [items addObject:fixedSpace];
     }
@@ -1599,6 +1604,17 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 }
 
 #pragma mark - Actions
+
+-(void)upgradeButtonPressed:(id)sender {
+    
+    UIStoryboard *aStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UIViewController *uvc = [aStoryboard instantiateViewControllerWithIdentifier:@"upgradeVC"];
+    
+    [self presentViewController:uvc animated:YES completion:nil];
+
+
+}
 
 -(void)deleteButtonPressed:(id)sender {
     

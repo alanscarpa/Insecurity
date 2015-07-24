@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <Parse/Parse.h>
+#import <Masonry.h>
 
 
 @interface TrapSetViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -23,6 +24,8 @@
 
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
 @property (nonatomic, strong) UIImage *bustedPhoto;
+@property (nonatomic, strong) UIImage *bustedPhotoWithWatermark;
+
 @property (nonatomic, strong) NSString *parseUserId;
 @property (weak, nonatomic) IBOutlet UIImageView *pictureFrame;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
@@ -137,14 +140,24 @@
     self.bustedPhoto = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     PFObject* newPhotoObject = [PFObject objectWithClassName:@"Images"];
+
+    //if version is unpaid
+    PFFile* watermark = [self createWatermark];
+    [newPhotoObject setObject:watermark forKey:@"WatermarkedPhoto"];
+    
+    
     // Convert to JPEG with 50% quality
     NSData* data = UIImageJPEGRepresentation(self.bustedPhoto, 0.5f);
+    
     PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:data];
+    
     [newPhotoObject setObject:imageFile forKey:@"Photo"];
     [newPhotoObject setObject:self.parseUserId forKey:@"userId"];
     [newPhotoObject setObject:[PFUser currentUser] forKey:@"user"];
-    
     // Save the image to Parse
+    
+    
+    
     [newPhotoObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"Image save successfully!");
@@ -171,6 +184,51 @@
         self.isTrapSet = NO;        
     }];
     
+}
+
+
+
+
+-(PFFile *)createWatermark {
+    
+    
+    UIImageView *watermarkedPhoto = [[UIImageView alloc]initWithImage:self.bustedPhoto];
+    UIImageView *watermark = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"watermark"]];
+    
+    [self.view addSubview:watermarkedPhoto];
+    [watermarkedPhoto addSubview:watermark];
+    
+    [watermark mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(watermarkedPhoto);
+    }];
+
+    
+    self.bustedPhotoWithWatermark = [self imageFromView:watermarkedPhoto];
+    
+    NSData* watermarkData = UIImageJPEGRepresentation(self.bustedPhotoWithWatermark, 0.5f);
+    
+    PFFile *imageFile = [PFFile fileWithName:@"WatermarkedImage.jpg" data:watermarkData];
+    [watermarkedPhoto removeFromSuperview];
+    return imageFile;
+    
+
+
+}
+
+
+
+
+
+- (UIImage*)imageFromView:(UIView *)view
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+    
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return img;
 }
 
 -(void)popView {

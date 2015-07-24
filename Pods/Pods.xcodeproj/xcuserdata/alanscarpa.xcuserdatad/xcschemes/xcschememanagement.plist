@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>17B3AA98836FF89769AB79FE</key>
+		<key>0B8BC0692FB0B46BB66D187F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>350DA170888FCAB9E5E503A8</key>
+		<key>5C90C2C382C14689990EA12A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6AF84D731475EAEC7EEF7C15</key>
+		<key>66CC9604E2E8B440451B9654</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>785A9E7CC099D30595E59A23</key>
+		<key>9AD3C2D3DB71E4894F0A4BDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C4C005A3BDE6BE878A6F3DD1</key>
+		<key>B00FBC6F58A94C43C67A6BCD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D8E4826BBAE4896947E4FB7A</key>
+		<key>E63BD52335E037F236612A64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5BE8EF58552649E3564ABFC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
