@@ -346,6 +346,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	// Super
 	[super viewWillAppear:animated];
     
+    
+    
     // Status bar
     if (!_viewHasAppearedInitially) {
         _leaveStatusBarAlone = [self presentingViewControllerPrefersStatusBarHidden];
@@ -402,8 +404,15 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         
 }
 
+
+
 - (void)viewWillDisappear:(BOOL)animated {
 
+    
+    
+    
+ 
+    
     // Detect if rotation occurs while we're presenting a modal
     _pageIndexBeforeRotation = _currentPageIndex;
     
@@ -435,6 +444,9 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
+    
+    
+    
     if (parent && _hasBelongedToViewController) {
         [NSException raise:@"MWPhotoBrowser Instance Reuse" format:@"MWPhotoBrowser instances cannot be reused."];
     }
@@ -1374,6 +1386,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     [self showGrid:YES];
     
 }
+
+
 - (void)hideGrid {
     
     NSLog(@"Current i: %li", _currentPageIndex);
@@ -1381,11 +1395,13 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     if (!_gridController) return;
     
     self.onImageView = YES;
+
+  
     
-    //[self.navigationItem setHidesBackButton:YES];
-    self.backBtn =[[UIBarButtonItem alloc]initWithTitle:@"\U000025C0\U0000FE0E" style:UIBarButtonItemStylePlain target:self action:@selector(popAlertAction)];
+    self.backBtn =[[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(popAlertAction)];
+    
     self.navigationItem.leftBarButtonItem = self.backBtn;
-    
+
     
     // Remember previous content offset
     _currentGridContentOffset = _gridController.collectionView.contentOffset;
@@ -1611,7 +1627,9 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     
     UIViewController *uvc = [aStoryboard instantiateViewControllerWithIdentifier:@"upgradeVC"];
     
-    [self presentViewController:uvc animated:YES completion:nil];
+    [self.navigationController pushViewController:uvc animated:YES];
+    
+   // [self presentViewController:uvc animated:YES completion:nil];
 
 
 }

@@ -65,4 +65,7 @@
 		[_tapDelegate imageView:self tripleTapDetected:touch];
 }
 
+
+
+
 @end

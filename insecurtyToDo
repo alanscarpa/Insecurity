@@ -36,14 +36,20 @@ Show alerts for:
 [x] Loading images
 
 APP ICONS
-[ ] Import all app icons
+[x] Import all app icons
 [ ] Create splash page
+
+UPGRADE VIEW
+[ ] UI
+[ ] Get cancel button imitating what will happen on successful upgrade (take back to root view controller)
+[ ] Add HUD to all steps of purchase
+
 
 FINAL FEATURES
 [ ] Password reset/form
 [ ] Make privacy policy link live on skytopdesigns.com/insecurity/privacypolicy 
 [ ] Make sure photos are square (instagam appropriate)
-[ ] Add watermark
+[x] Add watermark
 [ ] Share to Instagram/twitter/facebook with insecurityApp hashtag
 [ ] Create view overlay option (mugshot/timestamp/prison bars/wanted poster)
 [ ] Make overlay a pro feature
@@ -52,3 +58,6 @@ FINAL FEATURES
 
 PRESS
 [ ] Linda - Fox News Tech
+[ ] Lauren - huffpost
+[ ] TechCrunch
+[ ] Buzzfeed

@@ -8,6 +8,9 @@
 
 #import "UpgradeViewController.h"
 #import <StoreKit/StoreKit.h>
+#import <Parse/Parse.h>
+#import "LoginCheckViewController.h"
+#import "AppDelegate.h"
 
 #define kRemoveAdsProductIdentifier @"com.skytopdesigns.insecurity.paidfeatures"
 
@@ -22,7 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.navigationItem.title = @"Upgrade Now!";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonTapped:)];
 }
 
 -(BOOL)prefersStatusBarHidden{
@@ -136,7 +141,19 @@
     
     // SEND isUserUpgraded to PARSE
     
-    
+    PFUser *currentUser = [PFUser currentUser];
+    [currentUser setValue:@(YES) forKey:@"upgraded"];
+    [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        
+        if (succeeded){
+            NSLog(@"Success upgrading!");
+            [self.navigationController popToRootViewControllerAnimated:YES];
+
+        } else {
+            NSLog(@"Failed updating");
+        }
+
+    }];
     
 }
 
@@ -144,8 +161,8 @@
 
 
 - (IBAction)cancelButtonTapped:(id)sender {
-
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

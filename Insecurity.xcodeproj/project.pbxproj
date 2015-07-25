@@ -10,6 +10,8 @@
 		060BC02FC91CD6CE2E53E35D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B02A7DDEFC149BA4FDFD553 /* libPods.a */; };
 		45141DD51B5D3A8600706082 /* homeBg8.png in Resources */ = {isa = PBXBuildFile; fileRef = 45141DD41B5D3A8600706082 /* homeBg8.png */; };
 		451564B71B62D917005A2871 /* watermark.png in Resources */ = {isa = PBXBuildFile; fileRef = 451564B61B62D917005A2871 /* watermark.png */; };
+		451564BA1B64027C005A2871 /* UINavigationBarBackIndicatorDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 451564B81B64027C005A2871 /* UINavigationBarBackIndicatorDefault.png */; };
+		451564BB1B64027C005A2871 /* UINavigationBarBackIndicatorDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 451564B91B64027C005A2871 /* UINavigationBarBackIndicatorDefault@2x.png */; };
 		454C51D31B5C692400D6680A /* LobsterTwo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D01B5C692400D6680A /* LobsterTwo-Bold.ttf */; };
 		454C51D41B5C692400D6680A /* LobsterTwo-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D11B5C692400D6680A /* LobsterTwo-BoldItalic.ttf */; };
 		454C51D51B5C692400D6680A /* LobsterTwo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D21B5C692400D6680A /* LobsterTwo-Regular.ttf */; };
@@ -95,6 +97,8 @@
 		26BCC62189E5CD6A87534BC5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		45141DD41B5D3A8600706082 /* homeBg8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeBg8.png; sourceTree = "<group>"; };
 		451564B61B62D917005A2871 /* watermark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watermark.png; sourceTree = "<group>"; };
+		451564B81B64027C005A2871 /* UINavigationBarBackIndicatorDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UINavigationBarBackIndicatorDefault.png; sourceTree = "<group>"; };
+		451564B91B64027C005A2871 /* UINavigationBarBackIndicatorDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UINavigationBarBackIndicatorDefault@2x.png"; sourceTree = "<group>"; };
 		454C51D01B5C692400D6680A /* LobsterTwo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LobsterTwo-Bold.ttf"; sourceTree = "<group>"; };
 		454C51D11B5C692400D6680A /* LobsterTwo-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LobsterTwo-BoldItalic.ttf"; sourceTree = "<group>"; };
 		454C51D21B5C692400D6680A /* LobsterTwo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LobsterTwo-Regular.ttf"; sourceTree = "<group>"; };
@@ -322,10 +326,12 @@
 		45BFFC961B57022D00B75FB8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				451564B61B62D917005A2871 /* watermark.png */,
 				457018CC1B602D09000A051D /* Icons */,
 				45AF5BCA1B5EC6BF00552889 /* bgNonTrans.png */,
+				451564B61B62D917005A2871 /* watermark.png */,
 				45141DD41B5D3A8600706082 /* homeBg8.png */,
+				451564B81B64027C005A2871 /* UINavigationBarBackIndicatorDefault.png */,
+				451564B91B64027C005A2871 /* UINavigationBarBackIndicatorDefault@2x.png */,
 				454C51D81B5C73D500D6680A /* insecurityLogo.png */,
 				454C51D61B5C72FD00D6680A /* lightBg.png */,
 				454C51D01B5C692400D6680A /* LobsterTwo-Bold.ttf */,
@@ -517,8 +523,10 @@
 				451564B71B62D917005A2871 /* watermark.png in Resources */,
 				457018EE1B602D1A000A051D /* Icon.png in Resources */,
 				454C51D71B5C72FD00D6680A /* lightBg.png in Resources */,
+				451564BA1B64027C005A2871 /* UINavigationBarBackIndicatorDefault.png in Resources */,
 				457018EC1B602D1A000A051D /* Icon-Small@2x.png in Resources */,
 				45BFFCA41B57022D00B75FB8 /* Images.xcassets in Resources */,
+				451564BB1B64027C005A2871 /* UINavigationBarBackIndicatorDefault@2x.png in Resources */,
 				457018ED1B602D1A000A051D /* Icon-Small@3x.png in Resources */,
 				457018E61B602D1A000A051D /* Icon-Small-40.png in Resources */,
 				457018F01B602D1A000A051D /* iTunesArtwork@2x.png in Resources */,
