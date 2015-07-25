@@ -8,9 +8,10 @@
 
 #import "LoginCheckViewController.h"
 #import <Parse/Parse.h>
+#import "DataStore.h"
 
 @interface LoginCheckViewController ()
-
+@property (nonatomic, strong) DataStore *sharedData;
 @end
 
 @implementation LoginCheckViewController
@@ -30,12 +31,32 @@
 -(void)viewDidAppear:(BOOL)animated{
     
     PFUser *currentUser = [PFUser currentUser];
+    self.sharedData = [DataStore sharedDataStore];
+    self.sharedData.isUpgraded = nil;
+
     if (currentUser){
         NSLog(@"There's a current user!");
+        
+        NSNumber *upgraded = [[PFUser currentUser] objectForKey: @"upgraded"];
+        if ([upgraded boolValue] == YES){
+            NSLog(@"UPGRADED!");
+            self.sharedData.isUpgraded = YES;
+        } else {
+            NSLog(@"NOT UPGRADED!");
+        }
         [self performSegueWithIdentifier:@"homeSegue" sender:nil];
+        
+        
+        
     } else {
+        
+        
+        
         NSLog(@"No current user!");
         [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+        
+        
+        
     }
 
     

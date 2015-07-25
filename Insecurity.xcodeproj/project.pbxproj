@@ -12,6 +12,7 @@
 		451564B71B62D917005A2871 /* watermark.png in Resources */ = {isa = PBXBuildFile; fileRef = 451564B61B62D917005A2871 /* watermark.png */; };
 		451564BA1B64027C005A2871 /* UINavigationBarBackIndicatorDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 451564B81B64027C005A2871 /* UINavigationBarBackIndicatorDefault.png */; };
 		451564BB1B64027C005A2871 /* UINavigationBarBackIndicatorDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 451564B91B64027C005A2871 /* UINavigationBarBackIndicatorDefault@2x.png */; };
+		451564C51B64276D005A2871 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 451564C41B64276D005A2871 /* DataStore.m */; };
 		454C51D31B5C692400D6680A /* LobsterTwo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D01B5C692400D6680A /* LobsterTwo-Bold.ttf */; };
 		454C51D41B5C692400D6680A /* LobsterTwo-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D11B5C692400D6680A /* LobsterTwo-BoldItalic.ttf */; };
 		454C51D51B5C692400D6680A /* LobsterTwo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 454C51D21B5C692400D6680A /* LobsterTwo-Regular.ttf */; };
@@ -99,6 +100,8 @@
 		451564B61B62D917005A2871 /* watermark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watermark.png; sourceTree = "<group>"; };
 		451564B81B64027C005A2871 /* UINavigationBarBackIndicatorDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UINavigationBarBackIndicatorDefault.png; sourceTree = "<group>"; };
 		451564B91B64027C005A2871 /* UINavigationBarBackIndicatorDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UINavigationBarBackIndicatorDefault@2x.png"; sourceTree = "<group>"; };
+		451564C31B64276D005A2871 /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
+		451564C41B64276D005A2871 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		454C51D01B5C692400D6680A /* LobsterTwo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LobsterTwo-Bold.ttf"; sourceTree = "<group>"; };
 		454C51D11B5C692400D6680A /* LobsterTwo-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LobsterTwo-BoldItalic.ttf"; sourceTree = "<group>"; };
 		454C51D21B5C692400D6680A /* LobsterTwo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LobsterTwo-Regular.ttf"; sourceTree = "<group>"; };
@@ -248,6 +251,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		451564BF1B6422DC005A2871 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				451564C31B64276D005A2871 /* DataStore.h */,
+				451564C41B64276D005A2871 /* DataStore.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		457018CC1B602D09000A051D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +326,7 @@
 			children = (
 				45BFFC9A1B57022D00B75FB8 /* AppDelegate.h */,
 				45BFFC9B1B57022D00B75FB8 /* AppDelegate.m */,
+				451564BF1B6422DC005A2871 /* Model */,
 				45BFFCEC1B58254400B75FB8 /* Views */,
 				45BFFCE01B58039500B75FB8 /* Controllers */,
 				45BFFCA31B57022D00B75FB8 /* Images.xcassets */,
@@ -593,6 +606,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45BFFC9F1B57022D00B75FB8 /* HomeViewController.m in Sources */,
+				451564C51B64276D005A2871 /* DataStore.m in Sources */,
 				45AF5BCE1B5ECAF800552889 /* HowItWorksViewController.m in Sources */,
 				45BFFC9C1B57022D00B75FB8 /* AppDelegate.m in Sources */,
 				45CCA6D21B593E66005677E5 /* SignUpViewController.m in Sources */,

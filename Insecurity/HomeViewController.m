@@ -14,6 +14,7 @@
 #import <MWPhotoBrowser/MWPhoto.h>
 #import <MWPhotoBrowser/MWPhotoBrowser.h>
 #import <QuartzCore/QuartzCore.h>
+#import "DataStore.h"
 
 
 
@@ -36,7 +37,7 @@
 
 @property (nonatomic, strong) MWPhotoBrowser *browser;
 
-@property (nonatomic) BOOL isUserUpgraded;
+@property (nonatomic, strong) DataStore *sharedData;
 
 @end
 
@@ -81,23 +82,14 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
-    
-    
+
     [super viewWillAppear:animated];
     
-    PFUser *currentUser = [PFUser currentUser];
-    self.parseUserId = currentUser.objectId;
-
     
     
-     /**
-     *  FIND OUT IF USER IS UPGRADED FROM PARSE
-     */
+  
+    self.sharedData = [DataStore sharedDataStore];
     
-    //
-    //IF USER IS UPGRADED, THEN DO SPECIAL THINGS
-    //
     
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 
@@ -156,11 +148,14 @@
 
             for (PFObject *object in objects){
                 
-                    //IF NOT UPGRADED
-                    PFFile *imageFile = [object objectForKey:@"WatermarkedPhoto"];
-                    //ELSE
-                    //PFFile *imageFile = [object objectForKey:@"Photo"];
-
+                PFFile *imageFile;
+                
+                if (self.sharedData.isUpgraded){
+                    imageFile = [object objectForKey:@"Photo"];
+                } else {
+                    imageFile = [object objectForKey:@"WatermarkedPhoto"];
+                }
+                
 
                     NSData *data = [imageFile getData];
                     [self.photosArray addObject:[MWPhoto photoWithImage:[UIImage imageWithData:data]]];
@@ -197,6 +192,7 @@
 -(void)showPhotoGallery:(NSMutableArray*)photoGallery{
     
     self.browser = [[MWPhotoBrowser alloc]initWithDelegate:self];
+    self.browser.isUpgraded = self.sharedData.isUpgraded;
     // Set options
     self.browser.displayActionButton = YES; // Show action button to allow sharing, copying, etc (defaults to YES)
     self.browser.displayNavArrows = NO; // Whether to display left and right nav arrows on toolbar (defaults to NO)

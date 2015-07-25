@@ -249,10 +249,13 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     if (_enableGrid) {
         hasItems = YES;
         [items addObject:_deleteButton];
-        [items addObject:fixedSpace];
-        [items addObject:fixedSpace];
-
-        [items addObject:_upgradeButton];
+        if (!self.isUpgraded){
+            [items addObject:fixedSpace];
+            [items addObject:fixedSpace];
+            
+            [items addObject:_upgradeButton];
+        }
+       
         
 
     } else {

@@ -9,12 +9,16 @@
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
 #import <MBProgressHUD.h>
+#import "DataStore.h"
+
 @interface LoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *bgPattern;
 @property (weak, nonatomic) IBOutlet UIButton *logInButton;
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
+
+@property (nonatomic, strong) DataStore *sharedData;
 
 @end
 
@@ -33,6 +37,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    self.sharedData = [DataStore sharedDataStore];
+    
 }
 
 
@@ -101,15 +108,20 @@
                                         
                                         if (user) {
                                             // Do stuff after successful login.
-                                            NSString *parseUserId = user.objectId;
                                             NSLog(@"Login successful!");
-                                            [hud hide:YES];
-                                            [self dismissViewControllerAnimated:YES completion:nil];
+                                            NSNumber *upgraded = [[PFUser currentUser] objectForKey: @"upgraded"];
+                                            if ([upgraded boolValue] == YES){
+                                                NSLog(@"UPGRADED!");
+                                                self.sharedData.isUpgraded = YES;
+                                                [hud hide:YES];
+                                                [self dismissViewControllerAnimated:YES completion:nil];
 
+                                            } else {
+                                                NSLog(@"NOT UPGRADED");
+                                                [hud hide:YES];
+                                                [self dismissViewControllerAnimated:YES completion:nil];
+                                            }
                                             
-                                            // [self.view endEditing:YES];
-                                            
-                                            //  [self dismissViewControllerAnimated:YES completion:nil];
                                             
                                         } else {
                                             
