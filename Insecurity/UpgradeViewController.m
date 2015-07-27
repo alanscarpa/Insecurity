@@ -127,11 +127,23 @@
                 }
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 break;
+            case SKPaymentTransactionStateDeferred:
+                //called when the transaction is deferred
+                [self transactionDeferred];
+                
+                break;
+                
         }
     }
 }
 
+-(void)transactionDeferred {
+    UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Request Deferred" message:@"Request to purchase has been sent to parent phone.  Thank you!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alertBox show];
+    
+}
 - (void)purchase:(SKProduct *)product{
+    
     SKPayment *payment = [SKPayment paymentWithProduct:product];
     
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];

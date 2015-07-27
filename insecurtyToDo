@@ -37,7 +37,7 @@ Show alerts for:
 
 APP ICONS
 [x] Import all app icons
-[ ] Create splash page
+[x] Create splash page
 
 UPGRADE VIEW
 [x] UI
@@ -46,18 +46,21 @@ UPGRADE VIEW
 
 
 FINAL FEATURES
-[ ] Make privacy policy link live on skytopdesigns.com/insecurity/privacypolicy 
 [x] Make sure photos are square (instagam appropriate)
 [x] Add watermark
 [x] Share to Instagram/twitter with insecurityApp hashtag
-[ ] Test with facebook app
-[ ] Create view overlay option (mugshot/timestamp/prison bars/wanted poster)
-[ ] Make overlay a pro feature
-[ ] Send email after 30 minutes
 [x] View on all screen sizes
+[x] Set deployment target
+[x] Test with facebook app
+[ ] Buy and create insecurityapp.com
+[ ] Make privacy policy link live on skytopdesigns.com/insecurity/privacypolicy 
 
 PRESS
 [ ] Linda - Fox News Tech
 [ ] Lauren - huffpost
 [ ] TechCrunch
 [ ] Buzzfeed
+
+VERSION 2.0
+[ ] Create view overlay option (mugshot/timestamp/prison bars/wanted poster)
+[ ] Send email after 30 minutes
