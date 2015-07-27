@@ -147,9 +147,9 @@
     
     
     // Convert to JPEG with 50% quality
-    NSData* data = UIImageJPEGRepresentation(self.bustedPhoto, 0.5f);
+    //NSData* data = UIImageJPEGRepresentation(self.bustedPhoto, 0.5f);
     
-    PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:data];
+    PFFile *imageFile = [self createPhoto];
     
     [newPhotoObject setObject:imageFile forKey:@"Photo"];
     [newPhotoObject setObject:self.parseUserId forKey:@"userId"];
@@ -186,7 +186,22 @@
     
 }
 
-
+-(PFFile *)createPhoto {
+    
+    
+    UIImageView *photo = [[UIImageView alloc]initWithImage:self.bustedPhoto];
+    
+    [self.view addSubview:photo];
+    
+    NSData* photoData = UIImageJPEGRepresentation([self imageFromView:photo], 0.5f);
+    
+    PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:photoData];
+    [photo removeFromSuperview];
+    return imageFile;
+    
+    
+    
+}
 
 
 -(PFFile *)createWatermark {

@@ -206,6 +206,29 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 
 -(void)shareToInstagram {
     
+    
+    
+    
+    
+//    NSURL *instagramURL = [NSURL URLWithString:@"instagram://app"];
+//    if ([[UIApplication sharedApplication] canOpenURL:instagramURL])
+//    {
+//        NSURL *videoFilePath = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[request downloadDestinationPath]]]; // Your local path to the video
+//        NSString *caption = @"Some Preloaded Caption";
+//        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+//        [library writeVideoAtPathToSavedPhotosAlbum:videoFilePath completionBlock:^(NSURL *assetURL, NSError *error) {
+//            NSString *escapedString   = [self urlencodedString:videoFilePath.absoluteString];
+//            NSString *escapedCaption  = [self urlencodedString:caption];
+//            NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@&InstagramCaption=%@",escapedString,escapedCaption]];
+//            if ([[UIApplication sharedApplication] canOpenURL:instagramURL]) {
+//                [[UIApplication sharedApplication] openURL:instagramURL];
+//            }
+//        }];
+//        
+    
+        
+        
+    
     NSURL *instagramURL = [NSURL URLWithString:@"instagram://app"];
     if([[UIApplication sharedApplication] canOpenURL:instagramURL]) //check for App is install or not
     {
