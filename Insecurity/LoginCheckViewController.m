@@ -32,7 +32,7 @@
     
     PFUser *currentUser = [PFUser currentUser];
     self.sharedData = [DataStore sharedDataStore];
-    self.sharedData.isUpgraded = nil;
+    self.sharedData.isUpgraded = NO;
 
     if (currentUser){
         NSLog(@"There's a current user!");

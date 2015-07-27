@@ -130,7 +130,6 @@
             case SKPaymentTransactionStateDeferred:
                 //called when the transaction is deferred
                 [self transactionDeferred];
-                
                 break;
                 
         }
