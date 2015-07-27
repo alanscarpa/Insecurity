@@ -233,7 +233,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         self.documentController.UTI = @"com.instagram.exclusivegram";
         self.documentController = [self setupControllerWithURL:igImageHookFile usingDelegate:self];
         self.documentController=[UIDocumentInteractionController interactionControllerWithURL:igImageHookFile];
-        NSString *caption = @"Caught snooping through my phone!  #insecurityapp"; //settext as Default Caption
+        NSString *caption = @"Caught snooping through my phone!  #insecurityApp"; //settext as Default Caption
         self.documentController.annotation=[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@",caption],@"InstagramCaption", nil];
         [self.documentController presentOpenInMenuFromRect:rect inView: self.view animated:YES];
     }
@@ -1780,11 +1780,18 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             
             // Show activity view controller
             NSMutableArray *items = [NSMutableArray arrayWithObject:[photo underlyingImage]];
+            NSString *tweet = [NSString stringWithFormat:@"Caught snooping through my phone!  #insecurityApp"];
+            [items addObject:tweet];
             if (photo.caption) {
                 [items addObject:photo.caption];
             }
+            
+            
             self.activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
             
+            [self.activityViewController setValue:@"Caught snooping through my phone!  #insecurityApp" forKey:@"subject"];
+         
+
             // Show loading spinner after a couple of seconds
             double delayInSeconds = 2.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -1801,6 +1808,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
                 [weakSelf hideControlsAfterDelay];
                 [weakSelf hideProgressHUD:YES];
             }];
+            
             // iOS 8 - Set the Anchor Point for the popover
             if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8")) {
                 self.activityViewController.popoverPresentationController.barButtonItem = _actionButton;
@@ -1815,6 +1823,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     }
     
 }
+
+
 
 #pragma mark - Action Progress
 
