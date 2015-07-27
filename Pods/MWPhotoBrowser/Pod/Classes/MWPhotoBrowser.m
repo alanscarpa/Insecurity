@@ -181,6 +181,10 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         _deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteButtonPressed:)];
         
         _upgradeButton = [[UIBarButtonItem alloc] initWithTitle:@"Remove Watermark" style:UIBarButtonItemStylePlain target:self action:@selector(upgradeButtonPressed:)];
+        
+
+        _instagramButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"insta"] style:UIBarButtonItemStylePlain target:self action:@selector(shareToInstagram)];
+    
     }
     
     // Update
@@ -198,6 +202,53 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	// Super
     [super viewDidLoad];
 	
+}
+
+-(void)shareToInstagram {
+    
+    NSURL *instagramURL = [NSURL URLWithString:@"instagram://app"];
+    if([[UIApplication sharedApplication] canOpenURL:instagramURL]) //check for App is install or not
+    {
+        MWPhoto *currentPhoto = _photos[_currentPageIndex];
+        NSData *imageData = UIImagePNGRepresentation(currentPhoto.image); //convert image into .png format.
+        NSFileManager *fileManager = [NSFileManager defaultManager];//create instance of NSFileManager
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //create an array and store result of our search for the documents directory in it
+        NSString *documentsDirectory = [paths objectAtIndex:0]; //create NSString object, that holds our exact path to the documents directory
+        NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"insta.igo"]]; //add our image to the path
+        [fileManager createFileAtPath:fullPath contents:imageData attributes:nil]; //finally save the path (image)
+        NSLog(@"image saved");
+        
+        CGRect rect = CGRectMake(0 ,0 , 0, 0);
+        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
+        [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIGraphicsEndImageContext();
+        NSString *fileNameToSave = [NSString stringWithFormat:@"Documents/insta.igo"];
+        NSString  *jpgPath = [NSHomeDirectory() stringByAppendingPathComponent:fileNameToSave];
+        NSLog(@"jpg path %@",jpgPath);
+        NSString *newJpgPath = [NSString stringWithFormat:@"file://%@",jpgPath];
+        NSLog(@"with File path %@",newJpgPath);
+        NSURL *igImageHookFile = [[NSURL alloc]initFileURLWithPath:newJpgPath];
+        NSLog(@"url Path %@",igImageHookFile);
+        
+        self.documentController.UTI = @"com.instagram.exclusivegram";
+        self.documentController = [self setupControllerWithURL:igImageHookFile usingDelegate:self];
+        self.documentController=[UIDocumentInteractionController interactionControllerWithURL:igImageHookFile];
+        NSString *caption = @"Caught snooping through my phone!  #insecurityapp"; //settext as Default Caption
+        self.documentController.annotation=[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@",caption],@"InstagramCaption", nil];
+        [self.documentController presentOpenInMenuFromRect:rect inView: self.view animated:YES];
+    }
+    else
+    {
+        NSLog (@"Instagram not found");
+    }
+}
+
+- (UIDocumentInteractionController *) setupControllerWithURL: (NSURL*) fileURL usingDelegate: (id <UIDocumentInteractionControllerDelegate>) interactionDelegate {
+    NSLog(@"file url %@",fileURL);
+    UIDocumentInteractionController *interactionController = [UIDocumentInteractionController interactionControllerWithURL: fileURL];
+    interactionController.delegate = interactionDelegate;
+    
+    return interactionController;
 }
 
 - (void)performLayout {
@@ -241,7 +292,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     // Toolbar items
     BOOL hasItems = NO;
     UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:self action:nil];
-    fixedSpace.width = 32; // To balance action button
+    fixedSpace.width = 24; // To balance action button
     UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     NSMutableArray *items = [[NSMutableArray alloc] init];
 
@@ -249,11 +300,12 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     if (_enableGrid) {
         hasItems = YES;
         [items addObject:_deleteButton];
+        [items addObject:flexSpace];
+
         if (!self.isUpgraded){
-            [items addObject:fixedSpace];
-            [items addObject:fixedSpace];
-            
             [items addObject:_upgradeButton];
+            [items addObject:flexSpace];
+
         }
        
         
@@ -271,11 +323,13 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         [items addObject:_nextButton];
         [items addObject:flexSpace];
     } else {
-        [items addObject:flexSpace];
+      //  [items addObject:flexSpace];
     }
 
     // Right - Action
     if (_actionButton && !(!hasItems && !self.navigationItem.rightBarButtonItem)) {
+        [items addObject:_instagramButton];
+        [items addObject:flexSpace];
         [items addObject:_actionButton];
         
     } else {

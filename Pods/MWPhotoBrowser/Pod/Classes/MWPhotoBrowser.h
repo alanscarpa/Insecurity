@@ -38,7 +38,7 @@
 -(void)subtractFromPhotoArray:(MWPhotoBrowser *)photoBrowser object:(NSUInteger)object;
 @end
 
-@interface MWPhotoBrowser : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate>
+@interface MWPhotoBrowser : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate, UIDocumentInteractionControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet id<MWPhotoBrowserDelegate> delegate;
 @property (nonatomic) BOOL zoomPhotosToFill;
@@ -56,6 +56,9 @@
 @property (nonatomic, strong) UIBarButtonItem *backBtn;
 @property (nonatomic, strong) UIBarButtonItem *deleteButton;
 @property (nonatomic, strong) UIBarButtonItem *upgradeButton;
+@property (nonatomic, strong) UIBarButtonItem *instagramButton;
+@property (nonatomic, retain) UIDocumentInteractionController *documentController;
+
 
 @property (nonatomic) BOOL isUpgraded;
 

@@ -1,5 +1,6 @@
 PODS:
   - DACircularProgress (2.3.1)
+  - DMActivityInstagram (0.0.3)
   - Masonry (0.6.2)
   - MBProgressHUD (0.9.1)
   - MWPhotoBrowser (2.1.1):
@@ -11,12 +12,14 @@ PODS:
   - SDWebImage/Core (3.7.3)
 
 DEPENDENCIES:
+  - DMActivityInstagram (= 0.0.3)
   - Masonry
   - MBProgressHUD (~> 0.9.1)
   - MWPhotoBrowser (~> 2.1)
 
 SPEC CHECKSUMS:
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  DMActivityInstagram: d97425cfac5ac6982a4c5d9e81f2ca07b9d8f363
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c

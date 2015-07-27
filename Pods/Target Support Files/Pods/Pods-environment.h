@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_DACircularProgress 3
 #define COCOAPODS_VERSION_PATCH_DACircularProgress 1
 
+// DMActivityInstagram
+#define COCOAPODS_POD_AVAILABLE_DMActivityInstagram
+#define COCOAPODS_VERSION_MAJOR_DMActivityInstagram 0
+#define COCOAPODS_VERSION_MINOR_DMActivityInstagram 0
+#define COCOAPODS_VERSION_PATCH_DMActivityInstagram 3
+
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
 #define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0

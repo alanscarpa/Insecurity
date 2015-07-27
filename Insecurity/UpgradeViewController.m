@@ -18,6 +18,7 @@
 @interface UpgradeViewController () <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 
 @property (nonatomic) BOOL isUserUpgraded;
+@property (weak, nonatomic) IBOutlet UIButton *upgradeButton;
 
 @end
 
@@ -27,7 +28,15 @@
     [super viewDidLoad];
 
     self.navigationItem.title = @"Upgrade Now!";
+    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonTapped:)];
+    
+    CGFloat borderWidth = 5.0;
+    CGColorRef borderColor = [UIColor colorWithRed:158/255.0f green:224/255.0f blue:254/255.0f alpha:1.0].CGColor;
+    
+    [self.upgradeButton.layer setBorderWidth:borderWidth];
+    [self.upgradeButton.layer setBorderColor:borderColor];
+
 }
 
 -(BOOL)prefersStatusBarHidden{
@@ -49,6 +58,8 @@
     }
     else{
         NSLog(@"User cannot make payments due to parental controls");
+        UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Unable to make payments with current Apple ID." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertBox show];
         //this is called the user cannot make payments, most likely due to parental controls
     }
 
@@ -64,6 +75,8 @@
     }
     else if(!validProduct){
         NSLog(@"No products available");
+        UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No Products Available." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertBox show];
         //this is called if your product id is not valid, this shouldn't be called unless that happens.
     }
 }
@@ -151,6 +164,8 @@
 
         } else {
             NSLog(@"Failed updating");
+            UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Unable to upgrade.  Please restore purchase." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertBox show];
         }
 
     }];

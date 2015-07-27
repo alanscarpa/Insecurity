@@ -22,6 +22,10 @@
             <string>LobsterTwo</string>
             <string>LobsterTwo</string>
             <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
+            <string>LobsterTwo</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -61,8 +65,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nar-Ct-3Lm">
-                                <rect key="frame" x="270" y="212" width="60" height="30"/>
+                                <rect key="frame" x="75" y="243" width="450" height="90"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="40"/>
                                 <state key="normal" title="Upgrade">
+                                    <color key="titleColor" red="0.61960784310000006" green="0.87843137250000003" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -70,8 +77,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgY-w0-8iC">
-                                <rect key="frame" x="276" y="278" width="48" height="30"/>
+                                <rect key="frame" x="271" y="408" width="59" height="42"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="24"/>
                                 <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.61960784310000006" green="0.87843137250000003" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -79,25 +88,49 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuq-M4-uOV">
-                                <rect key="frame" x="235" y="341" width="129" height="30"/>
+                                <rect key="frame" x="219" y="483" width="162" height="42"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="24"/>
                                 <state key="normal" title="Restore Purchases">
+                                    <color key="titleColor" red="0.61960784310000006" green="0.87843137250000003" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="restorePurchasesTapped:" destination="YYc-7u-mex" eventType="touchUpInside" id="7j7-8B-uFp"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGG-7s-gNp">
+                                <rect key="frame" x="157" y="79" width="287" height="83"/>
+                                <string key="text">Remove watermark from all photos!
+
+Only $0.99</string>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="Nar-Ct-3Lm" secondAttribute="centerY" constant="73" id="4qt-GS-xL6"/>
+                            <constraint firstItem="Nar-Ct-3Lm" firstAttribute="centerY" secondItem="664-8v-NlK" secondAttribute="centerY" id="4qt-GS-xL6"/>
+                            <constraint firstItem="Nar-Ct-3Lm" firstAttribute="height" secondItem="664-8v-NlK" secondAttribute="height" multiplier="0.15" id="97u-Ew-y3I"/>
                             <constraint firstItem="nuq-M4-uOV" firstAttribute="top" secondItem="jgY-w0-8iC" secondAttribute="bottom" constant="33" id="EHi-EF-ld3"/>
-                            <constraint firstItem="jgY-w0-8iC" firstAttribute="top" secondItem="Nar-Ct-3Lm" secondAttribute="bottom" constant="36" id="OJS-J6-6QK"/>
+                            <constraint firstItem="Nar-Ct-3Lm" firstAttribute="width" secondItem="664-8v-NlK" secondAttribute="width" multiplier="0.75" id="LH4-EC-oiq"/>
+                            <constraint firstItem="jgY-w0-8iC" firstAttribute="top" secondItem="Nar-Ct-3Lm" secondAttribute="bottom" constant="75" id="OJS-J6-6QK"/>
+                            <constraint firstItem="ZGG-7s-gNp" firstAttribute="centerX" secondItem="664-8v-NlK" secondAttribute="centerX" id="Qoh-fP-C2B"/>
+                            <constraint firstItem="Nar-Ct-3Lm" firstAttribute="top" secondItem="ZGG-7s-gNp" secondAttribute="bottom" multiplier="1.5" id="SAI-za-oMU"/>
                             <constraint firstAttribute="centerX" secondItem="Nar-Ct-3Lm" secondAttribute="centerX" id="U1l-3o-nKU"/>
+                            <constraint firstItem="ZGG-7s-gNp" firstAttribute="centerY" secondItem="664-8v-NlK" secondAttribute="centerY" multiplier="0.4" id="dRC-OS-Ugc"/>
                             <constraint firstAttribute="centerX" secondItem="nuq-M4-uOV" secondAttribute="centerX" constant="0.5" id="rQw-WM-v5Q"/>
                             <constraint firstAttribute="centerX" secondItem="jgY-w0-8iC" secondAttribute="centerX" id="xjJ-3F-4Ic"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4qt-GS-xL6"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="upgradeButton" destination="Nar-Ct-3Lm" id="dIk-ce-DyS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KP9-PN-ghw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
