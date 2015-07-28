@@ -35,10 +35,10 @@
 - (BOOL)photoBrowser:(MWPhotoBrowser *)photoBrowser isPhotoSelectedAtIndex:(NSUInteger)index;
 - (void)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index selectedChanged:(BOOL)selected;
 - (void)photoBrowserDidFinishModalPresentation:(MWPhotoBrowser *)photoBrowser;
-
+-(void)subtractFromPhotoArray:(MWPhotoBrowser *)photoBrowser object:(NSUInteger)object;
 @end
 
-@interface MWPhotoBrowser : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate>
+@interface MWPhotoBrowser : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate, UIDocumentInteractionControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet id<MWPhotoBrowserDelegate> delegate;
 @property (nonatomic) BOOL zoomPhotosToFill;
@@ -51,7 +51,21 @@
 @property (nonatomic) BOOL startOnGrid;
 @property (nonatomic) BOOL autoPlayOnAppear;
 @property (nonatomic) NSUInteger delayToHideElements;
+<<<<<<< HEAD
 @property (nonatomic, readonly) NSUInteger currentIndex;
+=======
+@property (nonatomic) NSUInteger currentIndex;
+@property (nonatomic) BOOL onImageView;
+@property (nonatomic, strong) UIBarButtonItem *backBtn;
+@property (nonatomic, strong) UIBarButtonItem *deleteButton;
+@property (nonatomic, strong) UIBarButtonItem *upgradeButton;
+@property (nonatomic, strong) UIBarButtonItem *instagramButton;
+@property (nonatomic, retain) UIDocumentInteractionController *documentController;
+
+
+@property (nonatomic) BOOL isUpgraded;
+
+>>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
 
 // Customise image selection icons as they are the only icons with a colour tint
 // Icon should be located in the app's main bundle
@@ -64,6 +78,9 @@
 
 // Reloads the photo browser and refetches data
 - (void)reloadData;
+
+- (void)photoDeletionComplete:(void (^)(BOOL success))complete;
+
 
 // Set page that photo browser starts on
 - (void)setCurrentPhotoIndex:(NSUInteger)index;

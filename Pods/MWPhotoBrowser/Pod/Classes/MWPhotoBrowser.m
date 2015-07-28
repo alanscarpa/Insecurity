@@ -160,10 +160,17 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	
     // Toolbar
     _toolbar = [[UIToolbar alloc] initWithFrame:[self frameForToolbarAtOrientation:self.interfaceOrientation]];
+<<<<<<< HEAD
     _toolbar.tintColor = [UIColor whiteColor];
     _toolbar.barTintColor = nil;
     [_toolbar setBackgroundImage:nil forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     [_toolbar setBackgroundImage:nil forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsLandscapePhone];
+=======
+    _toolbar.tintColor = _toolbarTintColor;
+    _toolbar.barTintColor = _bottomBarColor;
+//    [_toolbar setBackgroundImage:_toolbarBackgroundImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+//    [_toolbar setBackgroundImage:_toolbarBackgroundImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsLandscapePhone];
+>>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
     _toolbar.barStyle = UIBarStyleBlackTranslucent;
     _toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     
@@ -177,6 +184,14 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     }
     if (self.displayActionButton) {
         _actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonPressed:)];
+        
+        _deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteButtonPressed:)];
+        
+        _upgradeButton = [[UIBarButtonItem alloc] initWithTitle:@"Remove Watermark" style:UIBarButtonItemStylePlain target:self action:@selector(upgradeButtonPressed:)];
+        
+
+        _instagramButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"insta"] style:UIBarButtonItemStylePlain target:self action:@selector(shareToInstagram)];
+    
     }
     
     // Update
@@ -192,6 +207,76 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	// Super
     [super viewDidLoad];
 	
+}
+
+-(void)shareToInstagram {
+    
+    
+    
+    
+    
+//    NSURL *instagramURL = [NSURL URLWithString:@"instagram://app"];
+//    if ([[UIApplication sharedApplication] canOpenURL:instagramURL])
+//    {
+//        NSURL *videoFilePath = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[request downloadDestinationPath]]]; // Your local path to the video
+//        NSString *caption = @"Some Preloaded Caption";
+//        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+//        [library writeVideoAtPathToSavedPhotosAlbum:videoFilePath completionBlock:^(NSURL *assetURL, NSError *error) {
+//            NSString *escapedString   = [self urlencodedString:videoFilePath.absoluteString];
+//            NSString *escapedCaption  = [self urlencodedString:caption];
+//            NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@&InstagramCaption=%@",escapedString,escapedCaption]];
+//            if ([[UIApplication sharedApplication] canOpenURL:instagramURL]) {
+//                [[UIApplication sharedApplication] openURL:instagramURL];
+//            }
+//        }];
+//        
+    
+        
+        
+    
+    NSURL *instagramURL = [NSURL URLWithString:@"instagram://app"];
+    if([[UIApplication sharedApplication] canOpenURL:instagramURL]) //check for App is install or not
+    {
+        MWPhoto *currentPhoto = _photos[_currentPageIndex];
+        NSData *imageData = UIImagePNGRepresentation(currentPhoto.image); //convert image into .png format.
+        NSFileManager *fileManager = [NSFileManager defaultManager];//create instance of NSFileManager
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //create an array and store result of our search for the documents directory in it
+        NSString *documentsDirectory = [paths objectAtIndex:0]; //create NSString object, that holds our exact path to the documents directory
+        NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"insta.igo"]]; //add our image to the path
+        [fileManager createFileAtPath:fullPath contents:imageData attributes:nil]; //finally save the path (image)
+        NSLog(@"image saved");
+        
+        CGRect rect = CGRectMake(0 ,0 , 0, 0);
+        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
+        [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIGraphicsEndImageContext();
+        NSString *fileNameToSave = [NSString stringWithFormat:@"Documents/insta.igo"];
+        NSString  *jpgPath = [NSHomeDirectory() stringByAppendingPathComponent:fileNameToSave];
+        NSLog(@"jpg path %@",jpgPath);
+        NSString *newJpgPath = [NSString stringWithFormat:@"file://%@",jpgPath];
+        NSLog(@"with File path %@",newJpgPath);
+        NSURL *igImageHookFile = [[NSURL alloc]initFileURLWithPath:newJpgPath];
+        NSLog(@"url Path %@",igImageHookFile);
+        
+        self.documentController.UTI = @"com.instagram.exclusivegram";
+        self.documentController = [self setupControllerWithURL:igImageHookFile usingDelegate:self];
+        self.documentController=[UIDocumentInteractionController interactionControllerWithURL:igImageHookFile];
+        NSString *caption = @"Caught snooping through my phone!  #insecurityApp"; //settext as Default Caption
+        self.documentController.annotation=[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@",caption],@"InstagramCaption", nil];
+        [self.documentController presentOpenInMenuFromRect:rect inView: self.view animated:YES];
+    }
+    else
+    {
+        NSLog (@"Instagram not found");
+    }
+}
+
+- (UIDocumentInteractionController *) setupControllerWithURL: (NSURL*) fileURL usingDelegate: (id <UIDocumentInteractionControllerDelegate>) interactionDelegate {
+    NSLog(@"file url %@",fileURL);
+    UIDocumentInteractionController *interactionController = [UIDocumentInteractionController interactionControllerWithURL: fileURL];
+    interactionController.delegate = interactionDelegate;
+    
+    return interactionController;
 }
 
 - (void)performLayout {
@@ -235,14 +320,24 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     // Toolbar items
     BOOL hasItems = NO;
     UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:self action:nil];
-    fixedSpace.width = 32; // To balance action button
+    fixedSpace.width = 24; // To balance action button
     UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     NSMutableArray *items = [[NSMutableArray alloc] init];
 
     // Left button - Grid
     if (_enableGrid) {
         hasItems = YES;
-        [items addObject:[[UIBarButtonItem alloc] initWithImage:[UIImage imageForResourcePath:@"MWPhotoBrowser.bundle/UIBarButtonItemGrid" ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]] style:UIBarButtonItemStylePlain target:self action:@selector(showGridAnimated)]];
+        [items addObject:_deleteButton];
+        [items addObject:flexSpace];
+
+        if (!self.isUpgraded){
+            [items addObject:_upgradeButton];
+            [items addObject:flexSpace];
+
+        }
+       
+        
+
     } else {
         [items addObject:fixedSpace];
     }
@@ -256,12 +351,15 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         [items addObject:_nextButton];
         [items addObject:flexSpace];
     } else {
-        [items addObject:flexSpace];
+      //  [items addObject:flexSpace];
     }
 
     // Right - Action
     if (_actionButton && !(!hasItems && !self.navigationItem.rightBarButtonItem)) {
+        [items addObject:_instagramButton];
+        [items addObject:flexSpace];
         [items addObject:_actionButton];
+        
     } else {
         // We're not showing the toolbar so try and show in top right
         if (_actionButton)
@@ -333,6 +431,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	// Super
 	[super viewWillAppear:animated];
     
+    
+    
     // Status bar
     if (!_viewHasAppearedInitially) {
         _leaveStatusBarAlone = [self presentingViewControllerPrefersStatusBarHidden];
@@ -389,7 +489,17 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         
 }
 
+
+
 - (void)viewWillDisappear:(BOOL)animated {
+<<<<<<< HEAD
+=======
+
+    
+    
+    
+ 
+>>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
     
     // Detect if rotation occurs while we're presenting a modal
     _pageIndexBeforeRotation = _currentPageIndex;
@@ -422,6 +532,9 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
+    
+    
+    
     if (parent && _hasBelongedToViewController) {
         [NSException raise:@"MWPhotoBrowser Instance Reuse" format:@"MWPhotoBrowser instances cannot be reused."];
     }
@@ -1329,10 +1442,36 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     
 }
 
+<<<<<<< HEAD
+=======
+
+-(void)popAlertAction{
+    NSLog(@"hit it");
+    self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
+    [self showGrid:YES];
+    
+}
+
+
+>>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
 - (void)hideGrid {
+    
+    NSLog(@"Current i: %li", _currentPageIndex);
     
     if (!_gridController) return;
     
+<<<<<<< HEAD
+=======
+    self.onImageView = YES;
+
+  
+    
+    self.backBtn =[[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(popAlertAction)];
+    
+    self.navigationItem.leftBarButtonItem = self.backBtn;
+
+    
+>>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
     // Remember previous content offset
     _currentGridContentOffset = _gridController.collectionView.contentOffset;
     
@@ -1551,6 +1690,92 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 
 #pragma mark - Actions
 
+-(void)upgradeButtonPressed:(id)sender {
+    
+    UIStoryboard *aStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UIViewController *uvc = [aStoryboard instantiateViewControllerWithIdentifier:@"upgradeVC"];
+    
+    [self.navigationController pushViewController:uvc animated:YES];
+    
+   // [self presentViewController:uvc animated:YES completion:nil];
+
+
+}
+
+-(void)deleteButtonPressed:(id)sender {
+    
+    NSLog(@"Current index: %li", _currentPageIndex);
+  
+    //id <MWPhoto> photo = [self photoAtIndex:self.currentIndex];
+    if (_photoCount > 0) {
+        [_photos removeObjectAtIndex:_currentPageIndex];
+        [_thumbPhotos removeObjectAtIndex:_currentPageIndex];
+         _photoCount--;
+        _gridController.browser.currentIndex--;
+        
+        [_delegate subtractFromPhotoArray:self object:_currentPageIndex];
+        
+        if (_currentIndex > 0){
+            _currentIndex--;
+        }
+        if (_currentPageIndex > 0){
+            _currentPageIndex--;
+        }
+        
+      
+        
+        
+        
+      
+        
+        
+        
+    }
+   
+}
+
+- (void)photoDeletionComplete:(void (^)(BOOL success))complete {
+    
+    // Get data
+    NSUInteger numberOfPhotos = _photoCount;
+    [self releaseAllUnderlyingPhotos:YES];
+    [_photos removeAllObjects];
+    [_thumbPhotos removeAllObjects];
+    for (int i = 0; i < numberOfPhotos; i++) {
+        [_photos addObject:[NSNull null]];
+        [_thumbPhotos addObject:[NSNull null]];
+    }
+    
+    // Update current page index
+    if (numberOfPhotos > 0) {
+        // _currentPageIndex = _currentPageIndex;
+    } else {
+        _currentPageIndex = 0;
+    }
+    // Update layout
+    if ([self isViewLoaded]) {
+        
+        while (_pagingScrollView.subviews.count) {
+            [[_pagingScrollView.subviews lastObject] removeFromSuperview];
+        }
+        [self performLayout];
+        [self.view setNeedsLayout];
+        
+        
+    }
+    
+    
+    if (_photoCount == 0){
+        [self.navigationController popViewControllerAnimated:YES];
+        //[self popAlertAction];
+        
+    }
+    
+    complete(YES);
+    
+}
+
 - (void)actionButtonPressed:(id)sender {
 
     // Only react when image has loaded
@@ -1567,11 +1792,18 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             
             // Show activity view controller
             NSMutableArray *items = [NSMutableArray arrayWithObject:[photo underlyingImage]];
+            NSString *tweet = [NSString stringWithFormat:@"Caught snooping through my phone!  #insecurityApp"];
+            [items addObject:tweet];
             if (photo.caption) {
                 [items addObject:photo.caption];
             }
+            
+            
             self.activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
             
+            [self.activityViewController setValue:@"Caught snooping through my phone!  #insecurityApp" forKey:@"subject"];
+         
+
             // Show loading spinner after a couple of seconds
             double delayInSeconds = 2.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -1588,6 +1820,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
                 [weakSelf hideControlsAfterDelay];
                 [weakSelf hideProgressHUD:YES];
             }];
+            
             // iOS 8 - Set the Anchor Point for the popover
             if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8")) {
                 self.activityViewController.popoverPresentationController.barButtonItem = _actionButton;
@@ -1602,6 +1835,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     }
     
 }
+
+
 
 #pragma mark - Action Progress
 

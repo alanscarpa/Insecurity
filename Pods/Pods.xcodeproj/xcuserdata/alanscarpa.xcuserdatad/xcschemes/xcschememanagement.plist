@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-DMActivityInstagram.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -20,6 +25,11 @@
 			<false/>
 		</dict>
 		<key>Pods-MWPhotoBrowser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +47,66 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+<<<<<<< HEAD
 		<key>5CD057B0E8C421FE7CCDCDB4</key>
+=======
+		<key>835F607DFE8C34D248F0772D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C2C9F91FC70BB5B3EABC9E47</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CB73234BDF74EA24096C94FC</key>
+>>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+<<<<<<< HEAD
 		<key>60BFD4700DF79662706B35CB</key>
+=======
+		<key>D3C6AAD0B03AFDFEBB1737BD</key>
+>>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+<<<<<<< HEAD
 		<key>63C5EA2F2CE84891A3D41EF5</key>
+=======
+		<key>DD7233929531827F7141F46C</key>
+>>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+<<<<<<< HEAD
 		<key>6D3016D0F44CCE08ECF608C1</key>
+=======
+		<key>E8301BFD7EED583D31A71516</key>
+>>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+<<<<<<< HEAD
 		<key>86026DF4C46C7E1524455B20</key>
+=======
+		<key>ED1CC87B5664F71A0ECE2259</key>
+>>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+<<<<<<< HEAD
 		<key>DD5F81B05A5E45280DD282A5</key>
+=======
+		<key>FC71913763D9225AA4BAEA52</key>
+>>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
 		<dict>
 			<key>primary</key>
 			<true/>

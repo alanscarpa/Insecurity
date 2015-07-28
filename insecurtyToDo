@@ -1,0 +1,66 @@
+insecurtyToDo
+
+LOG IN SCREEN
+[x] Add HUD to login screen
+[x] Turn login name lowercase
+[x] Enable return keys
+[x] Hide keyboard on touch
+[x] Add logo to login screen?
+
+SIGN UP SCREEN
+[x] Add UI
+[x] Make username sent as lowercase
+[x] Verify email field
+[x] Enable return keys
+[x] Hide keyboard on touch
+[x] Make sure passwords match
+[x] Add privacy policy to sign up screen
+
+PHOTOS SCREEN
+[x] Adjust colors
+[x] Delete photos
+
+TRAP SCREEN
+[x] Add cancel button
+[x] Hide buttons when screen gets locked
+
+HOME SCREEN
+[x] Create How It Works Screen
+[x] Add privacy policy link to howitworks
+[x] Add delete button/functionality
+
+ERROR CHECKING
+Show alerts for:
+[x] Login  --- connect with parse errors
+[x] Signup --- connect with parse errors
+[x] Loading images
+
+APP ICONS
+[x] Import all app icons
+[x] Create splash page
+
+UPGRADE VIEW
+[x] UI
+[x] Get cancel button imitating what will happen on successful upgrade (take back to root view controller)
+[x] Add HUD to all steps of purchase
+
+
+FINAL FEATURES
+[x] Make sure photos are square (instagam appropriate)
+[x] Add watermark
+[x] Share to Instagram/twitter with insecurityApp hashtag
+[x] View on all screen sizes
+[x] Set deployment target
+[x] Test with facebook app
+[ ] Buy and create insecurityapp.com
+[ ] Make privacy policy link live on skytopdesigns.com/insecurity/privacypolicy 
+
+PRESS
+[ ] Linda - Fox News Tech
+[ ] Lauren - huffpost
+[ ] TechCrunch
+[ ] Buzzfeed
+
+VERSION 2.0
+[ ] Create view overlay option (mugshot/timestamp/prison bars/wanted poster)
+[ ] Send email after 30 minutes

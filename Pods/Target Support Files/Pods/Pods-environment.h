@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_DACircularProgress 3
 #define COCOAPODS_VERSION_PATCH_DACircularProgress 1
 
+// DMActivityInstagram
+#define COCOAPODS_POD_AVAILABLE_DMActivityInstagram
+#define COCOAPODS_VERSION_MAJOR_DMActivityInstagram 0
+#define COCOAPODS_VERSION_MINOR_DMActivityInstagram 0
+#define COCOAPODS_VERSION_PATCH_DMActivityInstagram 3
+
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
 #define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
@@ -23,6 +29,12 @@
 #define COCOAPODS_VERSION_MAJOR_MWPhotoBrowser 2
 #define COCOAPODS_VERSION_MINOR_MWPhotoBrowser 1
 #define COCOAPODS_VERSION_PATCH_MWPhotoBrowser 1
+
+// Masonry
+#define COCOAPODS_POD_AVAILABLE_Masonry
+#define COCOAPODS_VERSION_MAJOR_Masonry 0
+#define COCOAPODS_VERSION_MINOR_Masonry 6
+#define COCOAPODS_VERSION_PATCH_Masonry 2
 
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage
