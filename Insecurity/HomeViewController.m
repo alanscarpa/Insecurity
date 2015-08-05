@@ -45,7 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     
     [self setUpUI];
     [self checkForCameraAccess];
@@ -116,22 +116,22 @@
     
     self.homeBg.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"homeBg8"]];
     //[view setOpaque:NO];
-    // [[view layer] setOpaque:NO];
+   // [[view layer] setOpaque:NO];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
+
     [super viewWillAppear:animated];
     
     
     
-    
+  
     self.sharedData = [DataStore sharedDataStore];
     
     
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    
-    
+
+ 
     
 }
 
@@ -142,7 +142,7 @@
     
     [PFUser logOut];
     [self.navigationController popViewControllerAnimated:YES];
-    
+
 }
 
 
@@ -182,32 +182,32 @@
             NSOperationQueue *operationQ = [[NSOperationQueue alloc]init];
             
             [operationQ addOperationWithBlock:^{
+
+            for (PFObject *object in objects){
                 
-                for (PFObject *object in objects){
-                    
-                    PFFile *imageFile;
-                    
-                    if (self.sharedData.isUpgraded){
-                        imageFile = [object objectForKey:@"Photo"];
-                    } else {
-                        imageFile = [object objectForKey:@"WatermarkedPhoto"];
-                    }
-                    
-                    
+                PFFile *imageFile;
+                
+                if (self.sharedData.isUpgraded){
+                    imageFile = [object objectForKey:@"Photo"];
+                } else {
+                    imageFile = [object objectForKey:@"WatermarkedPhoto"];
+                }
+                
+
                     NSData *data = [imageFile getData];
                     [self.photosArray addObject:[MWPhoto photoWithImage:[UIImage imageWithData:data]]];
-                    
+                
                     NSLog(@"%li", objects.count);
                     if (objects.count == self.photosArray.count){
-                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                             NSLog(@"Done adding all images");
-                            [hud hide:YES];
-                            [self showPhotoGallery:self.photosArray];
-                        }];
+                        [hud hide:YES];
+                        [self showPhotoGallery:self.photosArray];
+                    }];
                     }
                 }
                 
-            }];
+             }];
             
             
             
@@ -216,11 +216,11 @@
             [hud hide:YES];
             UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Error Loading Images" message:[NSString stringWithFormat:@"Problem loading images.  Please try again.  Error code: %@", error] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertBox show];
-            
+
         }
         
     }];
-    
+
     
     
 }
@@ -244,7 +244,7 @@
     
     // change navbar text color
     [self.browser changeNavigationBarBackButtonTintColor:[UIColor colorWithRed:52/255.0f green:170/255.0f blue:220/255.0f alpha:1]];
-    
+
     // change grid bg color
     [self.browser changeGridBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bgNonTrans"]]];
     
@@ -263,7 +263,7 @@
     // change bottom bar icon colors
     [self.browser changeToolbarTintColor:[UIColor colorWithRed:52/255.0f green:170/255.0f blue:220/255.0f alpha:1]];
     
-    
+ 
     // Customise selection images to change colours if required
     //browser.customImageSelectedIconName = @"ImageSelected.png";
     //browser.customImageSelectedSmallIconName = @"ImageSelectedSmall.png";
@@ -274,7 +274,7 @@
     // Present
     [self.navigationController pushViewController:self.browser animated:YES];
     
-    
+
 }
 
 - (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser thumbPhotoAtIndex:(NSUInteger)index{
@@ -323,12 +323,12 @@
                         [hud hide:YES];
                         UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Problem deleting photo.  Try again." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                         [alertBox show];
-                        
+
                     }
                     
                 }];
             }];
-            
+           
             
         }
         
