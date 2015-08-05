@@ -1442,15 +1442,13 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 }
 
 
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
 - (void)hideGrid {
     
     NSLog(@"Current i: %li", _currentPageIndex);
     
     if (!_gridController) return;
     
-<<<<<<< HEAD
-=======
+
     self.onImageView = YES;
 
   
@@ -1460,7 +1458,6 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     self.navigationItem.leftBarButtonItem = self.backBtn;
 
     
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
     // Remember previous content offset
     _currentGridContentOffset = _gridController.collectionView.contentOffset;
     
