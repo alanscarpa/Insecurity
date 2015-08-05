@@ -45,7 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
     
     [self setUpUI];
     [self checkForCameraAccess];
@@ -116,121 +116,22 @@
     
     self.homeBg.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"homeBg8"]];
     //[view setOpaque:NO];
-   // [[view layer] setOpaque:NO];
+    // [[view layer] setOpaque:NO];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-
-<<<<<<< HEAD
-
-- (IBAction)setTrapButtonTapped:(id)sender {
     
-    self.isTrapSet = YES;
-    self.setTrapButton.titleLabel.text = @"Lock phone now!";
-    self.setTrapButton.hidden = YES;
-
-}
-
-
-
-
-// IF isTrapSet IS TRUE, THEN THIS WILL LAUNCH ONCE PHONE IS UNLOCKED
--(void)takePhoto{
-    
-    if (self.pictureBeingTaken == NO && self.isTrapSet == YES){
-        
-       // [self.browser removeFromParentViewController];
-//        if (self.browser){
-//            [self.browser dismissViewControllerAnimated:NO completion:nil];
-//        }
-        
-        NSOperationQueue *operationQ = [[NSOperationQueue alloc]init];
-        
-            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
-            self.pictureBeingTaken = YES;
-            self.imagePickerController = [[UIImagePickerController alloc] init];
-            self.imagePickerController.delegate = self;
-            [self.imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
-            self.imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
-            self.imagePickerController.showsCameraControls = NO;
-            self.imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-            
-                [self.navigationController presentViewController:self.imagePickerController animated:YES completion:^{
-                    // This is a built in class method
-                    
-                    [self.imagePickerController takePicture];
-               
-
-                }];
-        
-        
-        
-        
-        
-        
-        
-
-       
-        
-    }
-    
-    
-    
-}
-
-
-// ONCE PHOTO IS FINISHED BEING TAKEN, WE SEND IT TO PARSE
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Busted!";
-    hud.yOffset = -(self.view.frame.size.height/3);
-    [hud show:YES];
-    
-    self.bustedPhoto = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    PFObject* newPhotoObject = [PFObject objectWithClassName:@"Images"];
-    // Convert to JPEG with 50% quality
-    NSData* data = UIImageJPEGRepresentation(self.bustedPhoto, 0.5f);
-    PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:data];
-    [newPhotoObject setObject:imageFile forKey:@"Photo"];
-    [newPhotoObject setObject:self.parseUserId forKey:@"userId"];
-    [newPhotoObject setObject:[PFUser currentUser] forKey:@"user"];
-    
-    // Save the image to Parse
-    [newPhotoObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            NSLog(@"Image save successfully!");
-            [PFUser logOut];
-            self.pictureFrame.hidden = NO;
-            self.pictureFrame.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-
-            [hud hide:YES afterDelay:2.0];
-            [NSTimer scheduledTimerWithTimeInterval:2.0
-                                             target:self
-                                           selector:@selector(popView)
-                                           userInfo:nil
-                                            repeats:NO];
-        } else {
-            NSLog(@"Error saving image to parse: %@", error);
-            [PFUser logOut];
-            [hud hide:YES];
-            [self popView];
-        }
-    }];
-=======
     [super viewWillAppear:animated];
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
     
     
     
-  
+    
     self.sharedData = [DataStore sharedDataStore];
     
     
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-
- 
+    
+    
     
 }
 
@@ -241,7 +142,7 @@
     
     [PFUser logOut];
     [self.navigationController popViewControllerAnimated:YES];
-
+    
 }
 
 
@@ -281,32 +182,32 @@
             NSOperationQueue *operationQ = [[NSOperationQueue alloc]init];
             
             [operationQ addOperationWithBlock:^{
-
-            for (PFObject *object in objects){
                 
-                PFFile *imageFile;
-                
-                if (self.sharedData.isUpgraded){
-                    imageFile = [object objectForKey:@"Photo"];
-                } else {
-                    imageFile = [object objectForKey:@"WatermarkedPhoto"];
-                }
-                
-
+                for (PFObject *object in objects){
+                    
+                    PFFile *imageFile;
+                    
+                    if (self.sharedData.isUpgraded){
+                        imageFile = [object objectForKey:@"Photo"];
+                    } else {
+                        imageFile = [object objectForKey:@"WatermarkedPhoto"];
+                    }
+                    
+                    
                     NSData *data = [imageFile getData];
                     [self.photosArray addObject:[MWPhoto photoWithImage:[UIImage imageWithData:data]]];
-                
+                    
                     NSLog(@"%li", objects.count);
                     if (objects.count == self.photosArray.count){
-                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                             NSLog(@"Done adding all images");
-                        [hud hide:YES];
-                        [self showPhotoGallery:self.photosArray];
-                    }];
+                            [hud hide:YES];
+                            [self showPhotoGallery:self.photosArray];
+                        }];
                     }
                 }
                 
-             }];
+            }];
             
             
             
@@ -315,11 +216,11 @@
             [hud hide:YES];
             UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Error Loading Images" message:[NSString stringWithFormat:@"Problem loading images.  Please try again.  Error code: %@", error] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertBox show];
-
+            
         }
         
     }];
-
+    
     
     
 }
@@ -341,28 +242,9 @@
     
     self.browser.enableSwipeToDismiss = NO;
     
-<<<<<<< HEAD
-//    // change navbar text color
-//    [self.browser changeNavigationBarBackButtonTintColor:[UIColor greenColor]];
-//
-//    // change grid bg color
-//    [self.browser changeGridBackgroundColor:[UIColor redColor]];
-//    
-//    // change the color behind images
-//    [self.browser changeImageViewBackgroundColor:[UIColor orangeColor]];
-//    
-//    // change the color of the bottom bar on image view
-//    [self.browser changeBottomBarColor:[UIColor yellowColor]];
-//    
-//    // change the color of the top bar of navigation controller
-//    [self.browser changeNavigationBarTintColor:[UIColor yellowColor]];
-//    
-//    // change the navbar title color
-//    [self.browser changeNavigationBarTitleColor:[UIColor redColor]];
-=======
     // change navbar text color
     [self.browser changeNavigationBarBackButtonTintColor:[UIColor colorWithRed:52/255.0f green:170/255.0f blue:220/255.0f alpha:1]];
-
+    
     // change grid bg color
     [self.browser changeGridBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bgNonTrans"]]];
     
@@ -381,8 +263,7 @@
     // change bottom bar icon colors
     [self.browser changeToolbarTintColor:[UIColor colorWithRed:52/255.0f green:170/255.0f blue:220/255.0f alpha:1]];
     
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
- 
+    
     // Customise selection images to change colours if required
     //browser.customImageSelectedIconName = @"ImageSelected.png";
     //browser.customImageSelectedSmallIconName = @"ImageSelectedSmall.png";
@@ -393,7 +274,7 @@
     // Present
     [self.navigationController pushViewController:self.browser animated:YES];
     
-
+    
 }
 
 - (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser thumbPhotoAtIndex:(NSUInteger)index{
@@ -442,12 +323,12 @@
                         [hud hide:YES];
                         UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Problem deleting photo.  Try again." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                         [alertBox show];
-
+                        
                     }
                     
                 }];
             }];
-           
+            
             
         }
         
