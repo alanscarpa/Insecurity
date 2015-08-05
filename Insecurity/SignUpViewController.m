@@ -60,7 +60,7 @@
 
 
 - (BOOL) validateEmail {
-    NSString *emailRegex = @"[A-Za-z._%+-]+@[A-Za-z.-]+\\.[A-Za-z]{2,4}";
+    NSString *emailRegex = @"[\\dA-Za-z._%+-]+@[A-Za-z.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     if ([emailTest evaluateWithObject:self.emailTextField.text]){
         return YES;

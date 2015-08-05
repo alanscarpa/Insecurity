@@ -148,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Insecurity/HomeViewController.m"
-            timestampString = "459656647.733598"
+            timestampString = "460477686.828311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "-subtractFromPhotoArray:object:"
             landmarkType = "5">
          </BreakpointContent>

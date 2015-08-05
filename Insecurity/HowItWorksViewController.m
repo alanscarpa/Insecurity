@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import <MBProgressHUD.h>
 
-@interface HowItWorksViewController ()
+@interface HowItWorksViewController () <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *mainText;
 @property (nonatomic) NSUInteger deleteCount;
 @end
@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.mainText.text = @"Insecurity is a fun app that automatically takes a photo of someone if they start looking through your phone! Here's how it works:\n\n1)  Click \"Set Trap\" Button\n2)  Lock your phone.\n3)  The next person who unlocks your phone will instantly have a photo taken of them!\n\nNext time you log in,  you can view the snoopers and enjoy a good hearty laugh!";
+    self.mainText.text = @"Insecurity is a fun app that automatically takes a photo of someone if they start looking through your phone! Here's how it works:\n\n1)  Click \"Set Trap\" Button.\n2)  Lock your phone.\n3)  The next person who unlocks your phone will instantly have a photo taken of them!\n\nNext time you log in,  you can view the snoopers and enjoy a good, hearty laugh!";
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 
@@ -43,7 +43,28 @@
 
 }
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [self accountDeletionConfirmed];
+    }
+}
+
+
+
 - (IBAction)deleteAccountClicked:(id)sender {
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete Account?" message:@"Are you sure you want to delete your account?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+    // optional - add more buttons:
+    [alert addButtonWithTitle:@"Yes"];
+    [alert show];
+
+    
+    
+}
+
+-(void)accountDeletionConfirmed {
+    
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Deleting Account";
@@ -70,13 +91,8 @@
         
     }];
     
-
-    
-    
     
 }
-
-
 
 -(void)deleteUser:(MBProgressHUD*)hud{
     PFUser *currentUser = [PFUser currentUser];
