@@ -73,6 +73,7 @@
 		45AF5BCB1B5EC6BF00552889 /* bgNonTrans.png in Resources */ = {isa = PBXBuildFile; fileRef = 45AF5BCA1B5EC6BF00552889 /* bgNonTrans.png */; };
 		45AF5BCE1B5ECAF800552889 /* HowItWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AF5BCD1B5ECAF800552889 /* HowItWorksViewController.m */; };
 		45B6B20F1B5D9C97008F5E6D /* TrapSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B6B20E1B5D9C97008F5E6D /* TrapSetViewController.m */; };
+		45B6D1231B725A760065BFE4 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B6D1221B725A760065BFE4 /* Constants.m */; };
 		45BFFC991B57022D00B75FB8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFC981B57022D00B75FB8 /* main.m */; };
 		45BFFC9C1B57022D00B75FB8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFC9B1B57022D00B75FB8 /* AppDelegate.m */; };
 		45BFFC9F1B57022D00B75FB8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFC9E1B57022D00B75FB8 /* HomeViewController.m */; };
@@ -185,6 +186,8 @@
 		45AF5BCD1B5ECAF800552889 /* HowItWorksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowItWorksViewController.m; sourceTree = "<group>"; };
 		45B6B20D1B5D9C97008F5E6D /* TrapSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrapSetViewController.h; sourceTree = "<group>"; };
 		45B6B20E1B5D9C97008F5E6D /* TrapSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrapSetViewController.m; sourceTree = "<group>"; };
+		45B6D1211B725A760065BFE4 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		45B6D1221B725A760065BFE4 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		45BFFC931B57022D00B75FB8 /* Insecurity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insecurity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BFFC971B57022D00B75FB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45BFFC981B57022D00B75FB8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -378,6 +381,8 @@
 			children = (
 				45BFFC9A1B57022D00B75FB8 /* AppDelegate.h */,
 				45BFFC9B1B57022D00B75FB8 /* AppDelegate.m */,
+				45B6D1211B725A760065BFE4 /* Constants.h */,
+				45B6D1221B725A760065BFE4 /* Constants.m */,
 				451564BF1B6422DC005A2871 /* Model */,
 				45BFFCEC1B58254400B75FB8 /* Views */,
 				45BFFCE01B58039500B75FB8 /* Controllers */,
@@ -688,6 +693,7 @@
 				4570192F1B607B98000A051D /* UpgradeViewController.m in Sources */,
 				45BFFC991B57022D00B75FB8 /* main.m in Sources */,
 				45BFFCE61B58047400B75FB8 /* LoginViewController.m in Sources */,
+				45B6D1231B725A760065BFE4 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

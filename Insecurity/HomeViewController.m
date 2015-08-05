@@ -48,7 +48,7 @@
    
     
     [self setUpUI];
-    
+    [self checkForCameraAccess];
     
 }
 
@@ -57,7 +57,45 @@
 }
 
 
+-(void)checkForCameraAccess {
+    
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if(authStatus == AVAuthorizationStatusAuthorized) {
+        // Good!  Do nothing
+        NSLog(@"Access granted.");
+    } else if(authStatus == AVAuthorizationStatusDenied){
+        UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Please Allow Camera Access" message:@"This app will not be able to catch snoopers!  Go to Settings > Privacy > Camera to enable access." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertBox show];
+        [self disableSetTrapButton];
+    } else if(authStatus == AVAuthorizationStatusRestricted){
+        UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Please Allow Camera Access" message:@"This app will not be able to catch snoopers!  Unrestrict camera access to fix." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertBox show];
+        [self disableSetTrapButton];
+    } else if(authStatus == AVAuthorizationStatusNotDetermined){
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+            if(granted){
+                NSLog(@"Granted access.");
+            } else {
+                [self disableSetTrapButton];
+                UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Please Allow Camera Access" message:@"This app will not be able to catch snoopers!  Go to Settings > Privacy > Camera to enable access." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alertBox show];
+            }
+        }];
+    } else {
+        // impossible, unknown authorization status
+    }
+    
+}
 
+-(void)disableSetTrapButton {
+    
+    self.setTrapButton.enabled = NO;
+    self.setTrapButton.backgroundColor = [UIColor clearColor];
+    self.setTrapButton.titleLabel.font = [UIFont systemFontOfSize:24.0];
+    [self.setTrapButton setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
+    [self.setTrapButton.layer setBorderWidth:0.0];
+    [self.setTrapButton setTitle:@"Enable Camera!" forState:UIControlStateDisabled];
+}
 
 -(void)setUpUI{
     
