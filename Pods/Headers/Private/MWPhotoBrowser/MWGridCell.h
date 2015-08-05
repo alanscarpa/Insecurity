@@ -1,1 +1,1 @@
-../../../MWPhotoBrowser/Pod/Classes/MWGridCell.h
+../../../MWPhotoBrowser/MWPhotoBrowser/Classes/MWGridCell.h

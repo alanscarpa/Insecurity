@@ -1,1 +1,1 @@
-../../../MWPhotoBrowser/Pod/Classes/MWCommon.h
+../../../MWPhotoBrowser/MWPhotoBrowser/Classes/MWCommon.h

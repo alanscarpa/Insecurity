@@ -4,37 +4,32 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-DACircularProgress.xcscheme</key>
+		<key>DACircularProgress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-DMActivityInstagram.xcscheme</key>
+		<key>DMActivityInstagram.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MBProgressHUD.xcscheme</key>
+		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MWPhotoBrowser-MWPhotoBrowser.xcscheme</key>
+		<key>MWPhotoBrowser.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MWPhotoBrowser.xcscheme</key>
+		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Masonry.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-SDWebImage.xcscheme</key>
+		<key>PSTCollectionView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -44,69 +39,50 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-<<<<<<< HEAD
-		<key>5CD057B0E8C421FE7CCDCDB4</key>
-=======
-		<key>835F607DFE8C34D248F0772D</key>
+		<key>3239B1A94F011DABD833FE9378250E63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C2C9F91FC70BB5B3EABC9E47</key>
+		<key>49EB0FA77D5E2586C348D932D7142FE3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CB73234BDF74EA24096C94FC</key>
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
+		<key>5352D432641F0656C90741034E32F31E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-<<<<<<< HEAD
-		<key>60BFD4700DF79662706B35CB</key>
-=======
-		<key>D3C6AAD0B03AFDFEBB1737BD</key>
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
+		<key>9A6B23A629327D7AD872013CCEC4291F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-<<<<<<< HEAD
-		<key>63C5EA2F2CE84891A3D41EF5</key>
-=======
-		<key>DD7233929531827F7141F46C</key>
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
+		<key>C000988F05D0403FF88EF32106644817</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-<<<<<<< HEAD
-		<key>6D3016D0F44CCE08ECF608C1</key>
-=======
-		<key>E8301BFD7EED583D31A71516</key>
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
+		<key>C18D1C7AE2BDD36BD398B845A228C1FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-<<<<<<< HEAD
-		<key>86026DF4C46C7E1524455B20</key>
-=======
-		<key>ED1CC87B5664F71A0ECE2259</key>
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
+		<key>E543D2C02449FE0FC89F02D684C562FE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-<<<<<<< HEAD
-		<key>DD5F81B05A5E45280DD282A5</key>
-=======
-		<key>FC71913763D9225AA4BAEA52</key>
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
+		<key>F2D397C008783D3925F6AC7DA495E7BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
