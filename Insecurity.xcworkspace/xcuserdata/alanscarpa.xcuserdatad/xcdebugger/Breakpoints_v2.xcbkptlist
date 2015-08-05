@@ -13,15 +13,9 @@
             timestampString = "459695549.412398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "1297"
-            endingLineNumber = "1297"
-            landmarkName = "-showGrid:"
-=======
             startingLineNumber = "1399"
             endingLineNumber = "1399"
             landmarkName = "-showGridAnimated"
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -63,15 +57,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-<<<<<<< HEAD
-            filePath = "Insecurity/HomeViewController.m"
-            timestampString = "459052336.648213"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-=======
             filePath = "Pods/MWPhotoBrowser/Pod/Classes/MWPhotoBrowser.m"
             timestampString = "459695549.412398"
             startingColumnNumber = "9223372036854775807"
@@ -79,7 +64,6 @@
             startingLineNumber = "580"
             endingLineNumber = "580"
             landmarkName = "-restorePreviousNavBarAppearance:"
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,15 +73,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-<<<<<<< HEAD
-            filePath = "Insecurity/HomeViewController.m"
-            timestampString = "459052336.648213"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-=======
             filePath = "Pods/MWPhotoBrowser/Pod/Classes/MWPhotoBrowser.m"
             timestampString = "459695549.412398"
             startingColumnNumber = "9223372036854775807"
@@ -105,7 +80,6 @@
             startingLineNumber = "1790"
             endingLineNumber = "1790"
             landmarkName = "-actionButtonPressed:"
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -171,25 +145,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
-<<<<<<< HEAD
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Insecurity/HomeViewController.m"
-            timestampString = "459052336.648213"
+            timestampString = "460477686.828311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-=======
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Insecurity/HomeViewController.m"
-            timestampString = "459656647.733598"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "-subtractFromPhotoArray:object:"
             landmarkType = "5">
          </BreakpointContent>
@@ -207,7 +170,6 @@
             startingLineNumber = "1717"
             endingLineNumber = "1717"
             landmarkName = "-deleteButtonPressed:"
->>>>>>> 7610506c785d5e967cc45a7b70d44d2312b1c4dd
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
