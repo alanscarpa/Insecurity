@@ -12,6 +12,7 @@
 #import "MWPhotoBrowserPrivate.h"
 #import "SDImageCache.h"
 #import "UIImage+MWPhotoBrowser.h"
+#import <Chartboost/Chartboost.h>
 
 #define PADDING                  10
 
@@ -462,6 +463,10 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     // and the index changed, make sure we show the right one now
     if (_currentPageIndex != _pageIndexBeforeRotation) {
         [self jumpToPageAtIndex:_pageIndexBeforeRotation animated:NO];
+    }
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"areAdsRemoved"]) {
+        [Chartboost showInterstitial:CBLocationHomeScreen];
     }
 
 }
@@ -1716,23 +1721,49 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 
 -(void)deleteButtonPressed:(id)sender {
     
-    NSLog(@"Current index: %li", _currentPageIndex);
-  
+
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Delete Photo"
+                                          message:@"Are you sure you want to delete this photo?"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:@"Delete"
+                               style:UIAlertActionStyleDestructive
+                               handler:^(UIAlertAction * _Nonnull action) {
+        if (_photoCount > 0) {
+            [_photos removeObjectAtIndex:_currentPageIndex];
+            [_thumbPhotos removeObjectAtIndex:_currentPageIndex];
+            _photoCount--;
+            _gridController.browser.currentIndex--;
+            
+            [_delegate subtractFromPhotoArray:self object:_currentPageIndex];
+            
+            if (_currentIndex > 0){
+                _currentIndex--;
+            }
+            if (_currentPageIndex > 0){
+                _currentPageIndex--;
+            }
+        }
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSLog(@"Cancel action");
+                                   }];
+    
+    
+    [alertController addAction:okAction];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
     //id <MWPhoto> photo = [self photoAtIndex:self.currentIndex];
-    if (_photoCount > 0) {
-        [_photos removeObjectAtIndex:_currentPageIndex];
-        [_thumbPhotos removeObjectAtIndex:_currentPageIndex];
-         _photoCount--;
-        _gridController.browser.currentIndex--;
-        
-        [_delegate subtractFromPhotoArray:self object:_currentPageIndex];
-        
-        if (_currentIndex > 0){
-            _currentIndex--;
-        }
-        if (_currentPageIndex > 0){
-            _currentPageIndex--;
-        }
+
         
       
         
@@ -1742,7 +1773,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         
         
         
-    }
+    
    
 }
 

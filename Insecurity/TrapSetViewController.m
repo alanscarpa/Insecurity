@@ -97,9 +97,11 @@
 // IF isTrapSet IS TRUE, THEN THIS WILL LAUNCH ONCE PHONE IS UNLOCKED
 -(void)takePhoto{
     
+    
+    
     if (self.pictureBeingTaken == NO && self.isTrapSet == YES){
         
-        
+        AudioServicesPlayAlertSound(1304);
         
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
         self.pictureBeingTaken = YES;
@@ -146,9 +148,7 @@
     [newPhotoObject setObject:watermark forKey:@"WatermarkedPhoto"];
     
     
-    // Convert to JPEG with 50% quality
-    //NSData* data = UIImageJPEGRepresentation(self.bustedPhoto, 0.5f);
-    
+
     PFFile *imageFile = [self createPhoto];
     
     [newPhotoObject setObject:imageFile forKey:@"Photo"];
@@ -193,7 +193,7 @@
     
     [self.view addSubview:photo];
     
-    NSData* photoData = UIImageJPEGRepresentation([self imageFromView:photo], 0.5f);
+    NSData* photoData = UIImageJPEGRepresentation([self imageFromView:photo], 0.3f);
     
     PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:photoData];
     [photo removeFromSuperview];
@@ -220,7 +220,7 @@
     
     self.bustedPhotoWithWatermark = [self imageFromView:watermarkedPhoto];
     
-    NSData* watermarkData = UIImageJPEGRepresentation(self.bustedPhotoWithWatermark, 0.5f);
+    NSData* watermarkData = UIImageJPEGRepresentation(self.bustedPhotoWithWatermark, 0.3f);
     
     PFFile *imageFile = [PFFile fileWithName:@"WatermarkedImage.jpg" data:watermarkData];
     [watermarkedPhoto removeFromSuperview];
@@ -260,7 +260,9 @@
     
 }
 
-
+- (void)viewWillDisappear:(BOOL)animated {
+    AudioServicesDisposeSystemSoundID(1304);
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

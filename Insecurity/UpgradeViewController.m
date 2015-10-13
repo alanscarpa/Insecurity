@@ -81,24 +81,20 @@
     }
 }
 - (IBAction)restorePurchasesTapped:(id)sender {
-    
-    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+    if([SKPaymentQueue canMakePayments]){
+        [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+        [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+    } else {
+        NSLog(@"User cannot make payments due to parental controls");
+        UIAlertView *alertBox = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Unable to restore purchase with current Apple ID." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertBox show];
+    }
 }
 
 
 - (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
-    NSLog(@"received restored transactions: %lu", queue.transactions.count);
-    for(SKPaymentTransaction *transaction in queue.transactions){
-        if(transaction.transactionState == SKPaymentTransactionStateRestored){
-            //called when the user successfully restores a purchase
-            NSLog(@"Transaction state -> Restored");
-            
-            [self upgradeUser];
-            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-            break;
-        }
-    }   
+    // product restored
 }
 
 
@@ -110,14 +106,16 @@
                 break;
             case SKPaymentTransactionStatePurchased:
                 //this is called when the user has successfully purchased the package (Cha-Ching!)
-                [self upgradeUser]; //you can add your code for what you want to happen when the user buys the purchase here, for this tutorial we use removing ads
+                 //you can add your code for what you want to happen when the user buys the purchase here, for this tutorial we use removing ads
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+                [self upgradeUser];
                 NSLog(@"Transaction state -> Purchased");
                 break;
             case SKPaymentTransactionStateRestored:
                 NSLog(@"Transaction state -> Restored");
                 //add the same code as you did from SKPaymentTransactionStatePurchased here
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+                [self upgradeUser];
                 break;
             case SKPaymentTransactionStateFailed:
                 //called when the transaction does not finish
@@ -142,9 +140,7 @@
     
 }
 - (void)purchase:(SKProduct *)product{
-    
     SKPayment *payment = [SKPayment paymentWithProduct:product];
-    
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
 }
@@ -171,6 +167,8 @@
         
         if (succeeded){
             NSLog(@"Success upgrading!");
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"areAdsRemoved"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             [self.navigationController popToRootViewControllerAnimated:YES];
 
         } else {
@@ -183,39 +181,8 @@
     
 }
 
-
-
-
 - (IBAction)cancelButtonTapped:(id)sender {
-    
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
-
-
-
-
-
-
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

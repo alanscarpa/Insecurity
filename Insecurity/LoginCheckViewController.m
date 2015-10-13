@@ -41,6 +41,8 @@
         if ([upgraded boolValue] == YES){
             NSLog(@"UPGRADED!");
             self.sharedData.isUpgraded = YES;
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"areAdsRemoved"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         } else {
             NSLog(@"NOT UPGRADED!");
         }

@@ -40,6 +40,9 @@
 		405A72BA7F884972425EDE9F /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 79350E3BB73F7BD05C949C70 /* NSArray+MASShorthandAdditions.h */; };
 		43A6EF441BDFF633A773F441 /* Pods-DMActivityInstagram-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 49717D8E2B32CC33FCA60114 /* Pods-DMActivityInstagram-dummy.m */; };
 		44B7BDBE12AB7718F0B2632C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 373C930FBA3DD88C364AB914 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		45931AC91BCD26460033E84E /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45931AC81BCD26460033E84E /* Chartboost.framework */; settings = {ASSET_TAGS = (); }; };
+		45931ACA1BCD26460033E84E /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45931AC81BCD26460033E84E /* Chartboost.framework */; settings = {ASSET_TAGS = (); }; };
+		45931ACB1BCD26460033E84E /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45931AC81BCD26460033E84E /* Chartboost.framework */; settings = {ASSET_TAGS = (); }; };
 		469C622A9C832ED6689A8465 /* MWPhotoBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F1572FCE3E823956857B01 /* MWPhotoBrowser.h */; };
 		47AEFBE9B441B2FD0278C812 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91852F45106011BF258391 /* SDImageCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		48A55CEB6E18EAFEE1DE3E5D /* PlayButtonOverlayLargeTap.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CAFC6F18B50326F6568495 /* PlayButtonOverlayLargeTap.png */; };
@@ -272,6 +275,7 @@
 		3DB16C986474D4A7E13DAFD6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		3EA3B7A3098B29F72E278BD9 /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MBProgressHUD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		403392229BD1A3A85C7D4704 /* libPods-DMActivityInstagram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DMActivityInstagram.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45931AC81BCD26460033E84E /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chartboost.framework; path = MWPhotoBrowser/Chartboost.framework; sourceTree = "<group>"; };
 		46356CBB02EECA702C3DC6B7 /* Pods-DMActivityInstagram-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DMActivityInstagram-Private.xcconfig"; sourceTree = "<group>"; };
 		468D8D55EF161010194301D9 /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
 		47575118720056527EAC526D /* UIImage+MWPhotoBrowser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MWPhotoBrowser.h"; path = "Pod/Classes/UIImage+MWPhotoBrowser.h"; sourceTree = "<group>"; };
@@ -418,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DC7F60001164547A95B87A8 /* Foundation.framework in Frameworks */,
+				45931AC91BCD26460033E84E /* Chartboost.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +451,7 @@
 				1656FEAC02F5CA226D2094F2 /* AssetsLibrary.framework in Frameworks */,
 				7F0072469105DE72A95B4B55 /* Foundation.framework in Frameworks */,
 				AF810D4295B0A44D5CBDD7EF /* ImageIO.framework in Frameworks */,
+				45931ACA1BCD26460033E84E /* Chartboost.framework in Frameworks */,
 				792E7DA91059D767222F6F1C /* MediaPlayer.framework in Frameworks */,
 				734E2346CD64ECAE3F17F764 /* QuartzCore.framework in Frameworks */,
 			);
@@ -464,6 +470,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45931ACB1BCD26460033E84E /* Chartboost.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,6 +805,7 @@
 		F2C7494FEB1BC09E5B153BB1 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				45931AC81BCD26460033E84E /* Chartboost.framework */,
 				9FFA4B48D379EFEA5ED5D7F4 /* AssetsLibrary.framework */,
 				CA060ED6CAB639F05B957A56 /* CoreGraphics.framework */,
 				04B849B1BD673AE9C24C9A82 /* Foundation.framework */,
@@ -1309,6 +1317,10 @@
 			baseConfigurationReference = 19866DA56FF83B661AC393D1 /* Pods-MWPhotoBrowser-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MWPhotoBrowser",
+				);
 				PRODUCT_NAME = MWPhotoBrowser;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1369,6 +1381,10 @@
 			baseConfigurationReference = EBFA9C0F14FAEAE092F3B856 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MWPhotoBrowser",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -1385,6 +1401,10 @@
 			baseConfigurationReference = C99A86A784311CD1C57D1ABB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MWPhotoBrowser",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -1428,7 +1448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
@@ -1504,6 +1524,10 @@
 			baseConfigurationReference = 19866DA56FF83B661AC393D1 /* Pods-MWPhotoBrowser-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MWPhotoBrowser",
+				);
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-MWPhotoBrowser/Pods-MWPhotoBrowser-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1520,6 +1544,10 @@
 			baseConfigurationReference = 19866DA56FF83B661AC393D1 /* Pods-MWPhotoBrowser-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MWPhotoBrowser",
+				);
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-MWPhotoBrowser/Pods-MWPhotoBrowser-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1552,6 +1580,10 @@
 			baseConfigurationReference = 19866DA56FF83B661AC393D1 /* Pods-MWPhotoBrowser-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MWPhotoBrowser",
+				);
 				PRODUCT_NAME = MWPhotoBrowser;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1618,7 +1650,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;

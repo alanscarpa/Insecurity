@@ -12,5 +12,6 @@
 
 NSString *const PARSE_APPLICATION_ID = @"H7F54iqLlrQR705dKcOQ1YnafZfj1U5gzPlTPCwt";
 NSString *const PARSE_CLIENT_KEY = @"ZIXPHQy5v2exIe3yZqdGrwgTkBZ708YL7dfOSqt9";
-
+NSString *const CHARTBOOST_APP_ID = @"";
+NSString *const CHARTBOOST_APP_KEY = @"";
 @end

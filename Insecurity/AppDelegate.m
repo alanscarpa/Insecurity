@@ -9,8 +9,10 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "Constants.h"
+#import <Chartboost/Chartboost.h>
+#import <AdSupport/AdSupport.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <ChartboostDelegate>
 @property (nonatomic) BOOL isPhoneLocked;
 @end
 
@@ -22,14 +24,7 @@
 
 
 -(void)applicationProtectedDataDidBecomeAvailable:(UIApplication *)application{
-    
-    //    NSLog(@"Unlocked!");
-    //
-    //    [[NSNotificationCenter defaultCenter] postNotificationName:@"phoneUnlocked"
-    //                                                        object:nil
-    //                                                      userInfo:nil];
-    //
-    //
+
 }
 
 -(void)applicationProtectedDataWillBecomeUnavailable:(UIApplication *)application{
@@ -52,6 +47,9 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    [Chartboost startWithAppId:CHARTBOOST_APP_ID
+                  appSignature:CHARTBOOST_APP_KEY
+                      delegate:self];
     
     return YES;
 }

@@ -197,7 +197,7 @@
                     NSData *data = [imageFile getData];
                     [self.photosArray addObject:[MWPhoto photoWithImage:[UIImage imageWithData:data]]];
                 
-                    NSLog(@"%li", objects.count);
+                    NSLog(@"%li", (unsigned long)objects.count);
                     if (objects.count == self.photosArray.count){
                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                             NSLog(@"Done adding all images");
@@ -228,7 +228,7 @@
 
 -(void)showPhotoGallery:(NSMutableArray*)photoGallery{
     
-    self.browser = [[MWPhotoBrowser alloc]initWithDelegate:self];
+    self.browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
     self.browser.isUpgraded = self.sharedData.isUpgraded;
     // Set options
     self.browser.displayActionButton = YES; // Show action button to allow sharing, copying, etc (defaults to YES)

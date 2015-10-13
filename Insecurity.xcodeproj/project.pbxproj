@@ -53,6 +53,9 @@
 		457018EF1B602D1A000A051D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 457018DD1B602D1A000A051D /* Icon@2x.png */; };
 		457018F01B602D1A000A051D /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 457018DE1B602D1A000A051D /* iTunesArtwork@2x.png */; };
 		4570192F1B607B98000A051D /* UpgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4570192E1B607B98000A051D /* UpgradeViewController.m */; };
+		45931ABA1BCD1E4A0033E84E /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45931AB91BCD1E4A0033E84E /* Chartboost.framework */; settings = {ASSET_TAGS = (); }; };
+		45931ABC1BCD1E940033E84E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45931ABB1BCD1E940033E84E /* Foundation.framework */; };
+		45931ABE1BCD1E9C0033E84E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45931ABD1BCD1E9C0033E84E /* UIKit.framework */; };
 		4593838E1B58517400C6848B /* libPods-MBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4593838D1B58517400C6848B /* libPods-MBProgressHUD.a */; };
 		459383921B58539400C6848B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459383911B58539400C6848B /* Social.framework */; };
 		459383941B58539A00C6848B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459383931B58539A00C6848B /* Accounts.framework */; };
@@ -79,7 +82,6 @@
 		45BFFC9F1B57022D00B75FB8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFC9E1B57022D00B75FB8 /* HomeViewController.m */; };
 		45BFFCA41B57022D00B75FB8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFCA31B57022D00B75FB8 /* Images.xcassets */; };
 		45BFFCA71B57022D00B75FB8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFCA51B57022D00B75FB8 /* LaunchScreen.xib */; };
-		45BFFCB31B57022D00B75FB8 /* InsecurityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BFFCB21B57022D00B75FB8 /* InsecurityTests.m */; };
 		45BFFCC31B57079800B75FB8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BFFCBD1B57079800B75FB8 /* Bolts.framework */; };
 		45BFFCC41B57079800B75FB8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BFFCBE1B57079800B75FB8 /* Parse.framework */; };
 		45BFFCC51B57079800B75FB8 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BFFCBF1B57079800B75FB8 /* ParseCrashReporting.framework */; };
@@ -99,16 +101,6 @@
 		45BFFCEB1B58235B00B75FB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BFFCEA1B58235B00B75FB8 /* Main.storyboard */; };
 		45CCA6D21B593E66005677E5 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CCA6D11B593E66005677E5 /* SignUpViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		45BFFCAD1B57022D00B75FB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 45BFFC8B1B57022D00B75FB8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 45BFFC921B57022D00B75FB8;
-			remoteInfo = Insecurity;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0B02A7DDEFC149BA4FDFD553 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +152,9 @@
 		457018DE1B602D1A000A051D /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@2x.png"; path = "App Icon [Squared]/iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		4570192D1B607B98000A051D /* UpgradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgradeViewController.h; sourceTree = "<group>"; };
 		4570192E1B607B98000A051D /* UpgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradeViewController.m; sourceTree = "<group>"; };
+		45931AB91BCD1E4A0033E84E /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chartboost.framework; path = Insecurity/Chartboost.framework; sourceTree = SOURCE_ROOT; };
+		45931ABB1BCD1E940033E84E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		45931ABD1BCD1E9C0033E84E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4593838D1B58517400C6848B /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBProgressHUD.a"; path = "Pods/../build/Debug-iphoneos/libPods-MBProgressHUD.a"; sourceTree = "<group>"; };
 		459383911B58539400C6848B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		459383931B58539A00C6848B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -197,7 +192,6 @@
 		45BFFC9E1B57022D00B75FB8 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		45BFFCA31B57022D00B75FB8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		45BFFCA61B57022D00B75FB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		45BFFCAC1B57022D00B75FB8 /* InsecurityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InsecurityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BFFCB11B57022D00B75FB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45BFFCB21B57022D00B75FB8 /* InsecurityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InsecurityTests.m; sourceTree = "<group>"; };
 		45BFFCBD1B57079800B75FB8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -229,6 +223,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45931ABE1BCD1E9C0033E84E /* UIKit.framework in Frameworks */,
+				45931ABC1BCD1E940033E84E /* Foundation.framework in Frameworks */,
 				459385371B5860DC00C6848B /* libstdc++.6.dylib in Frameworks */,
 				459385321B585F4D00C6848B /* AdSupport.framework in Frameworks */,
 				459385301B585F2F00C6848B /* CoreMotion.framework in Frameworks */,
@@ -250,6 +246,7 @@
 				4593848E1B5857D200C6848B /* FBSDKLoginKit.framework in Frameworks */,
 				45BFFCDC1B57085900B75FB8 /* SystemConfiguration.framework in Frameworks */,
 				45BFFCC81B57079800B75FB8 /* ParseUI.framework in Frameworks */,
+				45931ABA1BCD1E4A0033E84E /* Chartboost.framework in Frameworks */,
 				459383981B5854BF00C6848B /* ParseFacebookUtilsV4.framework in Frameworks */,
 				45BFFCC41B57079800B75FB8 /* Parse.framework in Frameworks */,
 				45BFFCC51B57079800B75FB8 /* ParseCrashReporting.framework in Frameworks */,
@@ -259,19 +256,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		45BFFCA91B57022D00B75FB8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		11D1893DCBA36FAE41F095C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45931ABD1BCD1E9C0033E84E /* UIKit.framework */,
+				45931ABB1BCD1E940033E84E /* Foundation.framework */,
 				459385361B5860DC00C6848B /* libstdc++.6.dylib */,
 				459385341B585F8E00C6848B /* libc++abi.dylib */,
 				459385311B585F4D00C6848B /* AdSupport.framework */,
@@ -371,7 +363,6 @@
 			isa = PBXGroup;
 			children = (
 				45BFFC931B57022D00B75FB8 /* Insecurity.app */,
-				45BFFCAC1B57022D00B75FB8 /* InsecurityTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -413,6 +404,7 @@
 				457018CC1B602D09000A051D /* Icons */,
 				459383991B5857D100C6848B /* FacebookSDK */,
 				45BFFCBC1B57079800B75FB8 /* parse-library-1.7.5 */,
+				45931AB91BCD1E4A0033E84E /* Chartboost.framework */,
 				45BFFCC91B57085900B75FB8 /* AudioToolbox.framework */,
 				45BFFCCA1B57085900B75FB8 /* CFNetwork.framework */,
 				45BFFCCB1B57085900B75FB8 /* CoreGraphics.framework */,
@@ -520,40 +512,18 @@
 			productReference = 45BFFC931B57022D00B75FB8 /* Insecurity.app */;
 			productType = "com.apple.product-type.application";
 		};
-		45BFFCAB1B57022D00B75FB8 /* InsecurityTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 45BFFCB91B57022D00B75FB8 /* Build configuration list for PBXNativeTarget "InsecurityTests" */;
-			buildPhases = (
-				45BFFCA81B57022D00B75FB8 /* Sources */,
-				45BFFCA91B57022D00B75FB8 /* Frameworks */,
-				45BFFCAA1B57022D00B75FB8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				45BFFCAE1B57022D00B75FB8 /* PBXTargetDependency */,
-			);
-			name = InsecurityTests;
-			productName = InsecurityTests;
-			productReference = 45BFFCAC1B57022D00B75FB8 /* InsecurityTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		45BFFC8B1B57022D00B75FB8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Skytop Designs";
 				TargetAttributes = {
 					45BFFC921B57022D00B75FB8 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 98E8SVTQ29;
-					};
-					45BFFCAB1B57022D00B75FB8 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 45BFFC921B57022D00B75FB8;
 					};
 				};
 			};
@@ -571,7 +541,6 @@
 			projectRoot = "";
 			targets = (
 				45BFFC921B57022D00B75FB8 /* Insecurity */,
-				45BFFCAB1B57022D00B75FB8 /* InsecurityTests */,
 			);
 		};
 /* End PBXProject section */
@@ -635,13 +604,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		45BFFCAA1B57022D00B75FB8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -697,23 +659,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		45BFFCA81B57022D00B75FB8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				45BFFCB31B57022D00B75FB8 /* InsecurityTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		45BFFCAE1B57022D00B75FB8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 45BFFC921B57022D00B75FB8 /* Insecurity */;
-			targetProxy = 45BFFCAD1B57022D00B75FB8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		45BFFCA51B57022D00B75FB8 /* LaunchScreen.xib */ = {
@@ -747,7 +693,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -763,7 +711,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -790,6 +738,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -800,7 +749,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -814,13 +763,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Insecurity/parse-library-1.7.5",
 					"$(PROJECT_DIR)/Insecurity/FacebookSDK",
+					"$(PROJECT_DIR)/Insecurity",
 				);
 				INFOPLIST_FILE = Insecurity/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -829,6 +780,7 @@
 					"\"CoreGraphics\"",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.skytopdesigns.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -841,13 +793,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Insecurity/parse-library-1.7.5",
 					"$(PROJECT_DIR)/Insecurity/FacebookSDK",
+					"$(PROJECT_DIR)/Insecurity",
 				);
 				INFOPLIST_FILE = Insecurity/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -856,42 +810,9 @@
 					"\"CoreGraphics\"",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.skytopdesigns.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		45BFFCBA1B57022D00B75FB8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = InsecurityTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Insecurity.app/Insecurity";
-			};
-			name = Debug;
-		};
-		45BFFCBB1B57022D00B75FB8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = InsecurityTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Insecurity.app/Insecurity";
 			};
 			name = Release;
 		};
@@ -912,15 +833,6 @@
 			buildConfigurations = (
 				45BFFCB71B57022D00B75FB8 /* Debug */,
 				45BFFCB81B57022D00B75FB8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		45BFFCB91B57022D00B75FB8 /* Build configuration list for PBXNativeTarget "InsecurityTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				45BFFCBA1B57022D00B75FB8 /* Debug */,
-				45BFFCBB1B57022D00B75FB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
