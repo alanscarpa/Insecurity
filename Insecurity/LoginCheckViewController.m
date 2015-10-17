@@ -45,6 +45,8 @@
             [[NSUserDefaults standardUserDefaults] synchronize];
         } else {
             NSLog(@"NOT UPGRADED!");
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"areAdsRemoved"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }
         [self performSegueWithIdentifier:@"homeSegue" sender:nil];
         

@@ -100,8 +100,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGG-7s-gNp">
-                                <rect key="frame" x="157" y="79" width="287" height="83"/>
-                                <string key="text">Remove watermark from all photos!
+                                <rect key="frame" x="192" y="79" width="216" height="82.5"/>
+                                <string key="text">Remove watermark &amp; ads!
 
 Only $0.99</string>
                                 <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="22"/>
@@ -333,9 +333,9 @@ Only $0.99</string>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LYZ-0L-cix">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lock your phone and walk away." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgC-yh-brR">
-                                <rect key="frame" x="30" y="259" width="540" height="50"/>
-                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lock your phone, turn up the volume, and walk away." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgC-yh-brR">
+                                <rect key="frame" x="30" y="259" width="540" height="30"/>
+                                <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -345,7 +345,7 @@ Only $0.99</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-dQ-b7H">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-dQ-b7H">
                                 <rect key="frame" x="270" y="433" width="61" height="44"/>
                                 <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="25"/>
                                 <state key="normal" title="Cancel">
@@ -357,19 +357,19 @@ Only $0.99</string>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why Are You Snooping?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0y-bN-3Ik">
-                                <rect key="frame" x="164" y="56" width="273" height="38"/>
+                                <rect key="frame" x="164" y="56" width="273" height="37.5"/>
                                 <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't You Trust Me?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXg-xY-9lN">
-                                <rect key="frame" x="187" y="127" width="227" height="38"/>
+                                <rect key="frame" x="187" y="127" width="226.5" height="37.5"/>
                                 <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Say Cheese!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqU-pV-kU6">
-                                <rect key="frame" x="182" y="198" width="237" height="69"/>
+                                <rect key="frame" x="182" y="197" width="237" height="69"/>
                                 <fontDescription key="fontDescription" name="LobsterTwo" family="Lobster Two" pointSize="55"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

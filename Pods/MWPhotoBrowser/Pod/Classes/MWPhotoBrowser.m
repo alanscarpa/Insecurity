@@ -181,7 +181,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         
         _deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteButtonPressed:)];
         
-        _upgradeButton = [[UIBarButtonItem alloc] initWithTitle:@"Remove Watermark" style:UIBarButtonItemStylePlain target:self action:@selector(upgradeButtonPressed:)];
+        _upgradeButton = [[UIBarButtonItem alloc] initWithTitle:@"Upgrade" style:UIBarButtonItemStylePlain target:self action:@selector(upgradeButtonPressed:)];
         
 
         _instagramButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"insta"] style:UIBarButtonItemStylePlain target:self action:@selector(shareToInstagram)];
@@ -464,10 +464,6 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     if (_currentPageIndex != _pageIndexBeforeRotation) {
         [self jumpToPageAtIndex:_pageIndexBeforeRotation animated:NO];
     }
-    
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"areAdsRemoved"]) {
-        [Chartboost showInterstitial:CBLocationHomeScreen];
-    }
 
 }
 
@@ -486,7 +482,12 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     }
     
     _viewHasAppearedInitially = YES;
-        
+    
+    NSLog(@"Ads: %i", [[NSUserDefaults standardUserDefaults] boolForKey:@"areAdsRemoved"]);
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"areAdsRemoved"]) {
+        [Chartboost showInterstitial:CBLocationHomeScreen];
+    }
+    
 }
 
 

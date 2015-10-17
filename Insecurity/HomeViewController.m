@@ -17,7 +17,6 @@
 #import "DataStore.h"
 
 
-
 @interface HomeViewController () <MWPhotoBrowserDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *setTrapButton;
@@ -45,11 +44,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-    
     [self setUpUI];
     [self checkForCameraAccess];
-    
 }
 
 -(BOOL)prefersStatusBarHidden {

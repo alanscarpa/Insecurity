@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *trapText2;
 @property (weak, nonatomic) IBOutlet UILabel *trapText3;
 
+@property (strong, nonatomic) AVAudioPlayer *player;
 
 @end
 
@@ -100,8 +101,7 @@
     
     
     if (self.pictureBeingTaken == NO && self.isTrapSet == YES){
-        
-        AudioServicesPlayAlertSound(1304);
+    
         
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
         self.pictureBeingTaken = YES;
@@ -115,10 +115,14 @@
         self.imagePickerController.showsCameraControls = NO;
         self.imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
         
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"siren" ofType:@"mp3"];
+        NSError *error = nil;
+        NSURL *url = [NSURL fileURLWithPath:path];
+        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+        [self.player play];
         
         [self.navigationController presentViewController:self.imagePickerController animated:YES completion:^{
-            //NSLog(@"Taking photo");
-            [self.imagePickerController performSelector:@selector(takePicture) withObject:self afterDelay:0.3];
+            [self.imagePickerController performSelector:@selector(takePicture) withObject:self afterDelay:0.5];
             
         }];
         
