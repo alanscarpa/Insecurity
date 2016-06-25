@@ -41,26 +41,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
--(BOOL)prefersStatusBarHidden {
-    return YES;
-}
-
-
-
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    
     PFUser *currentUser = [PFUser currentUser];
     self.parseUserId = currentUser.objectId;
-    
-    self.pictureBeingTaken = NO;
-    self.isTrapSet = YES;
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePhoto) name:@"phoneUnlocked" object:nil];
     
     
@@ -72,6 +54,31 @@
                                              selector:@selector(cameraIsReady:)
                                                  name:AVCaptureSessionDidStartRunningNotification object:nil];
     
+    self.imagePickerController = [[UIImagePickerController alloc] init];
+    self.imagePickerController.delegate = self;
+    [self.imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+    self.imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    self.imagePickerController.showsCameraControls = NO;
+    self.imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"siren" ofType:@"mp3"];
+    NSError *error = nil;
+    NSURL *url = [NSURL fileURLWithPath:path];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    [self.player prepareToPlay];
+    [[AVAudioSession sharedInstance]
+     setCategory: AVAudioSessionCategoryPlayback
+     error: nil];
+}
+
+-(BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.pictureBeingTaken = NO;
     
 }
 
@@ -79,12 +86,13 @@
 {
     //NSLog(@"%@", notification);
     // [self.imagePickerController takePicture];
-    // Whatever
 }
 
 
 
 -(void)phoneLocked {
+    self.isTrapSet = YES;
+
     self.trapIsSetLabel.hidden = YES;
     self.lockPhoneLabel.hidden = YES;
     self.cancelButton.hidden = YES;
@@ -106,27 +114,10 @@
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
         self.pictureBeingTaken = YES;
         
-        
-        
-        self.imagePickerController = [[UIImagePickerController alloc] init];
-        self.imagePickerController.delegate = self;
-        [self.imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
-        self.imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
-        self.imagePickerController.showsCameraControls = NO;
-        self.imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"siren" ofType:@"mp3"];
-        NSError *error = nil;
-        NSURL *url = [NSURL fileURLWithPath:path];
-        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-        [self.player play];
-        
         [self.navigationController presentViewController:self.imagePickerController animated:YES completion:^{
-            [self.imagePickerController performSelector:@selector(takePicture) withObject:self afterDelay:0.5];
-            
+            [self.imagePickerController performSelector:@selector(takePicture) withObject:self afterDelay:0];
+            [self.player play];
         }];
-        
-        
         
     }
     
@@ -262,6 +253,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     AudioServicesDisposeSystemSoundID(1304);
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
